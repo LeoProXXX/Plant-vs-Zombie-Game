@@ -7,11 +7,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    public static int width=800;
+    public static int height=800;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("scenebuild.fxml"));
-        primaryStage.setTitle("Calculator");
+        Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));
+        primaryStage.setTitle("Plant vs Zombies");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

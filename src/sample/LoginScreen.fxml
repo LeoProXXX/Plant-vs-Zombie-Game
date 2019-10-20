@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="LoginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <ImageView fx:id="loginbackground" fitHeight="650.0" fitWidth="800.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="false">
+         <image>
+            <Image url="@background.jpeg" />
+         </image>
+      </ImageView>
+      <Button fx:id="adventure" layoutX="338.0" layoutY="211.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="89.0" text="Adventure" textAlignment="CENTER" />
+      <Button fx:id="bonus" layoutX="246.0" layoutY="365.0" mnemonicParsing="false" text="Bonus Game" textAlignment="CENTER" />
+      <Button fx:id="exit" layoutX="445.0" layoutY="365.0" mnemonicParsing="false" text="Exit" textAlignment="CENTER" textFill="RED" />
+      <MenuBar accessibleRole="BUTTON" layoutX="266.0" prefHeight="36.0" prefWidth="254.0">
+        <menus>
+          <Menu fx:id="overview" mnemonicParsing="false" text="OverView" />
+          <Menu fx:id="help" mnemonicParsing="false" text="Help" />
+          <Menu fx:id="almanac" mnemonicParsing="false" text="Almanac" />
+        </menus>
+      </MenuBar>
+   </children>
+</Pane>
