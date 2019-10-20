@@ -52,7 +52,9 @@ public class Controller {
         }
         else if(e.getSource()==start2login){
             changeScene("LoginScreen.fxml");
-
+        }
+        else{
+            System.out.println("adfsa");
         }
     }
 
