@@ -11,15 +11,23 @@
             <Image url="@background.jpeg" />
          </image>
       </ImageView>
-      <Button fx:id="adventure" layoutX="338.0" layoutY="211.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="89.0" text="Adventure" textAlignment="CENTER" />
-      <Button fx:id="bonus" layoutX="246.0" layoutY="365.0" mnemonicParsing="false" text="Bonus Game" textAlignment="CENTER" />
-      <Button fx:id="exit" layoutX="445.0" layoutY="365.0" mnemonicParsing="false" text="Exit" textAlignment="CENTER" textFill="RED" />
-      <MenuBar accessibleRole="BUTTON" layoutX="266.0" prefHeight="36.0" prefWidth="254.0">
-        <menus>
-          <Menu fx:id="overview" mnemonicParsing="false" text="OverView" />
-          <Menu fx:id="help" mnemonicParsing="false" text="Help" />
-          <Menu fx:id="almanac" mnemonicParsing="false" text="Almanac" />
-        </menus>
-      </MenuBar>
+      <Button fx:id="adventure" layoutX="338.0" layoutY="211.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="29.0" prefWidth="89.0" text="Adventure" textAlignment="CENTER" />
+      <Button fx:id="bonus" layoutX="246.0" layoutY="365.0" mnemonicParsing="false" onAction="#handlebutton" text="Bonus Game" textAlignment="CENTER" />
+      <Button fx:id="exit" layoutX="445.0" layoutY="365.0" mnemonicParsing="false" onAction="#handlebutton" text="Exit" textAlignment="CENTER" textFill="RED" />
+      <GridPane layoutX="270.0" layoutY="14.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="overview" mnemonicParsing="false" onAction="#handlebutton" prefHeight="40.0" prefWidth="120.0" text="Overview" />
+            <Button fx:id="help" mnemonicParsing="false" onAction="#handlebutton" prefHeight="39.0" prefWidth="116.0" text="Help" GridPane.columnIndex="1" />
+            <Button fx:id="almanac" mnemonicParsing="false" onAction="#handlebutton" prefHeight="35.0" prefWidth="100.0" text="Almanac" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
    </children>
 </Pane>
