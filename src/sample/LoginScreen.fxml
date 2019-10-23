@@ -11,9 +11,9 @@
             <Image url="@background.jpeg" />
          </image>
       </ImageView>
-      <Button fx:id="adventure" layoutX="338.0" layoutY="211.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="29.0" prefWidth="89.0" text="Adventure" textAlignment="CENTER" />
-      <Button fx:id="bonus" layoutX="246.0" layoutY="365.0" mnemonicParsing="false" onAction="#handlebutton" text="Bonus Game" textAlignment="CENTER" />
-      <Button fx:id="exit" layoutX="445.0" layoutY="365.0" mnemonicParsing="false" onAction="#handlebutton" text="Exit" textAlignment="CENTER" textFill="RED" />
+      <Button fx:id="adventure" layoutX="338.0" layoutY="211.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="29.0" prefWidth="89.0" text="Proceed" textAlignment="CENTER" />
+      <Button fx:id="bonus" layoutX="246.0" layoutY="365.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="40.0" prefWidth="83.0" text="Bonus Game" textAlignment="CENTER" />
+      <Button fx:id="exit" layoutX="445.0" layoutY="365.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="40.0" prefWidth="83.0" text="Exit" textAlignment="CENTER" textFill="RED" />
       <GridPane layoutX="270.0" layoutY="14.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -29,5 +29,6 @@
             <Button fx:id="almanac" mnemonicParsing="false" onAction="#handlebutton" prefHeight="35.0" prefWidth="100.0" text="Almanac" GridPane.columnIndex="2" />
          </children>
       </GridPane>
+      <ChoiceBox fx:id="gametype" layoutX="289.0" layoutY="164.0" prefHeight="40.0" prefWidth="187.0" />
    </children>
 </Pane>
