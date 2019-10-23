@@ -16,7 +16,7 @@
         </rowConstraints>
          <children>
             <Label prefHeight="56.0" prefWidth="222.0" text="Enter Username" />
-            <TextField fx:id="username" onAction="#handlebutton" prefHeight="63.0" prefWidth="222.0" GridPane.columnIndex="1" />
+            <TextField fx:id="username" onAction="#handlebutton" prefHeight="63.0" prefWidth="222.0" promptText="type here" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <Button fx:id="start_game" layoutX="322.0" layoutY="325.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="63.0" prefWidth="179.0" text="Proceed To Game" />
