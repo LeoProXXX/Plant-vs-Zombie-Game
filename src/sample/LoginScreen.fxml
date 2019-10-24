@@ -8,7 +8,7 @@
    <children>
       <ImageView fx:id="loginbackground" fitHeight="650.0" fitWidth="800.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="false">
          <image>
-            <Image url="@background.jpeg" />
+            <Image url="@../Photos/background.jpeg" />
          </image>
       </ImageView>
       <Button fx:id="adventure" layoutX="338.0" layoutY="211.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="29.0" prefWidth="89.0" text="Proceed" textAlignment="CENTER" />
