@@ -108,8 +108,16 @@ public class Controller {
         }
     }
 
+    public void Peashooter_press(){// action when mouse is pressed on peashooter image in almanac
 
-    public void Cherrybomb_press(){
+        character_image.setImage(new Image("/Photos/peashooter.jpeg"));
+        character_details.setFont(new Font("Arial", 15));
+        character_details.setText("Peashooter\nDamage: normal\n" +
+                "How can a single plant grow and shoot so many peas so quickly? Peashooter says, \"Hard work, commitment, and a healthy, well-balanced breakfast of sunlight and high-fiber carbon dioxide make it all possible.\"\n" +
+                "Cost: 100\n" +
+                "Recharge: fast ");
+    }
+    public void Cherrybomb_press(){// action when mouse is pressed on cherry bomb image in almanac
 
         character_image.setImage(new Image("/Photos/Cherrybomb.jpeg"));
         character_details.setFont(new Font("Arial", 15));
@@ -120,16 +128,8 @@ public class Controller {
                 "Cost: 150\n" +
                 "Recharge: very slow ");
     }
-    public void Peashooter_press(){
 
-        character_image.setImage(new Image("/Photos/peashooter.jpeg"));
-        character_details.setFont(new Font("Arial", 15));
-        character_details.setText("Peashooter\nDamage: normal\n" +
-                "How can a single plant grow and shoot so many peas so quickly? Peashooter says, \"Hard work, commitment, and a healthy, well-balanced breakfast of sunlight and high-fiber carbon dioxide make it all possible.\"\n" +
-                "Cost: 100\n" +
-                "Recharge: fast ");
-    }
-    public void Walnut_press(){
+    public void Walnut_press(){// action when mouse is pressed on walnut image in almanac
 
         character_image.setImage(new Image("/Photos/walnut.png"));
         character_details.setFont(new Font("Arial", 15));
@@ -138,7 +138,7 @@ public class Controller {
                 "Cost: 50\n" +
                 "Recharge: slow ");
     }
-    public void Sunflower_press(){
+    public void Sunflower_press(){// action when mouse is pressed on sunflower image in almanac
         character_image.setImage(new Image("/Photos/sunflower.png"));
         character_details.setFont(new Font("Arial", 15));
         character_details.setText("SunFLower\nSun production: normal\n" +
@@ -146,21 +146,21 @@ public class Controller {
                 "Cost: 50\n" +
                 "Recharge: fast ");
     }
-    public void Zombie_press(){
+    public void Zombie_press(){// action when mouse is pressed on zombie image in almanac
         character_image.setImage(new Image("/Photos/regular.png"));
         character_details.setFont(new Font("Arial", 15));
         character_details.setText("Regular Zombie\nToughness: low\n" +
                 "\n" +
                 "This zombie loves brains. Can't get enough. Brains, brains, brains, day in and night out. Old and stinky brains? Rotten brains? Brains clearly past their prime? Doesn't matter. Regular zombie wants 'em. ");
     }
-    public void Buckethead_press(){
+    public void Buckethead_press(){// action when mouse is pressed on buckethead zombie image in almanac
         character_details.setFont(new Font("Arial", 15));
         character_details.setText("BucketHead zombie\nToughness: high\n" +
                 "Weakness: magnet-shroom\n" +
                 "Buckethead Zombie always wore a bucket. Part of it was to assert his uniqueness in an uncaring world. Mostly he just forgot it was there in the first place. ");
         character_image.setImage(new Image("/Photos/buckethead.png"));
     }
-    public void Conehead_press(){
+    public void Conehead_press(){// action when mouse is pressed on conehead zombie image in almanac
         character_details.setFont(new Font("Arial", 15));
         character_details.setText("ConeHead zombie\nToughness: medium\n" +
                 "Conehead Zombie shuffled mindlessly forward like every other zombie. But something made him stop, made him pick up a traffic cone and stick it on his head. Oh yeah. He likes to party. ");
