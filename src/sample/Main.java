@@ -1,19 +1,15 @@
 package sample;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.*;
-
-
-public class Main extends Application {
+public class Main extends Application
+{
     public static int width=800;
     public static int height=800;
-    public static  Stage stage;
-
+    public static Stage stage;
     @Override
     public void start(Stage primaryStage) throws Exception{
         stage=primaryStage;

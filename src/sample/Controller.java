@@ -1,5 +1,4 @@
 package sample;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,14 +13,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
-
-
-public class Controller {
-    
-
+public class Controller
+{
     ObservableList<String> game= FXCollections.observableArrayList("Resume Game","New Game");
+    ObservableList<String> saved_games= FXCollections.observableArrayList("Manan level 1","Sandeep level 4");
     @FXML
     private ChoiceBox gametype=new ChoiceBox();
+    @FXML
+    private ChoiceBox games=new ChoiceBox();
     @FXML
     private Button adventure; // present in main screen for helping select the type of game to load i.e new or resume
     @FXML
@@ -60,6 +59,8 @@ public class Controller {
     private Label character_details;
     @FXML
     private ImageView character_image;
+    @FXML
+    private Label help_zombies;
 
     public String curr_username; //username of current user; it gets set when either creates a new game or chooses from a list of username in resume game option
 
@@ -70,7 +71,7 @@ public class Controller {
     }
 
 
-    public void changeScene(String file)throws Exception{ // custom made function which helps in changing the scene
+    public void changeScene(String file) throws Exception{ // custom made function which helps in changing the scene
         Parent root = FXMLLoader.load(getClass().getResource(file));
         Main.stage.setScene(new Scene(root));
     }
@@ -81,6 +82,8 @@ public class Controller {
             }
             else {
                 changeScene("Resume_Game.fxml");
+                games.setValue("Select items");
+                games.setItems(saved_games);
             }
         }
         else if(e.getSource()==overview){
@@ -107,7 +110,10 @@ public class Controller {
             System.out.println(curr_username);
         }
     }
-
+    public void show_help(ActionEvent e) throws Exception
+    {
+        help_zombies.setVisible(true);
+    }
     public void Peashooter_press(){// action when mouse is pressed on peashooter image in almanac
 
         character_image.setImage(new Image("/Photos/peashooter.jpeg"));

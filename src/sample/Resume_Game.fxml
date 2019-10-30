@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Button fx:id="back2login" layoutX="82.0" layoutY="32.0" mnemonicParsing="false" onAction="#handlebutton" text="Go Back" />
-      <Button fx:id="start_game" layoutX="536.0" layoutY="285.0" mnemonicParsing="false" onAction="#handlebutton" text="Resume Game" />
+      <ImageView fitHeight="663.0" fitWidth="814.0" layoutX="-9.0" layoutY="-7.0">
+         <image>
+            <Image url="@../Photos/background.jpeg" />
+         </image>
+      </ImageView>
+      <Button fx:id="back2login" layoutX="406.0" layoutY="349.0" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="33.0" prefWidth="64.0" text="Go Back" />
+      <Button fx:id="start_game" layoutX="300.0" layoutY="349.0" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="33.0" prefWidth="98.0" text="Resume Game" />
+      <ChoiceBox fx:id="games" layoutX="300.0" layoutY="292.0" opacity="0.7" prefHeight="33.0" prefWidth="166.0" />
    </children>
 </Pane>

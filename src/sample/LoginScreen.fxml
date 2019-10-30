@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="LoginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane fx:id="LoginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <ImageView fx:id="loginbackground" fitHeight="650.0" fitWidth="800.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@../Photos/background.jpeg" />
          </image>
       </ImageView>
-      <Button fx:id="adventure" layoutX="338.0" layoutY="211.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="29.0" prefWidth="89.0" text="Proceed" textAlignment="CENTER" />
-      <Button fx:id="bonus" layoutX="246.0" layoutY="365.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="40.0" prefWidth="83.0" text="Bonus Game" textAlignment="CENTER" />
-      <Button fx:id="exit" layoutX="445.0" layoutY="365.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="40.0" prefWidth="83.0" text="Exit" textAlignment="CENTER" textFill="RED" />
-      <GridPane layoutX="270.0" layoutY="14.0">
+      <Button fx:id="adventure" layoutX="338.0" layoutY="211.0" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="29.0" prefWidth="89.0" text="Proceed" textAlignment="CENTER" />
+      <Button fx:id="bonus" layoutX="246.0" layoutY="365.0" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="40.0" prefWidth="83.0" text="Bonus Game" textAlignment="CENTER" />
+      <Button fx:id="exit" layoutX="445.0" layoutY="365.0" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="40.0" prefWidth="83.0" text="Exit" textAlignment="CENTER" textFill="RED" />
+      <GridPane layoutX="250.0" layoutY="14.0">
         <columnConstraints>
           <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -25,14 +26,11 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" />
         </rowConstraints>
          <children>
-            <Button fx:id="overview" mnemonicParsing="false" onAction="#handlebutton" prefHeight="40.0" prefWidth="120.0" text="Overview" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin></Button>
-            <Button fx:id="help" mnemonicParsing="false" onAction="#handlebutton" prefHeight="39.0" prefWidth="116.0" text="Help" GridPane.columnIndex="1" />
-            <Button fx:id="almanac" mnemonicParsing="false" onAction="#handlebutton" prefHeight="35.0" prefWidth="100.0" text="Almanac" GridPane.columnIndex="2" />
+            <Button fx:id="help" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="39.0" prefWidth="116.0" text="Help" GridPane.columnIndex="1" />
+            <Button fx:id="almanac" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="35.0" prefWidth="100.0" text="Almanac" GridPane.columnIndex="2" />
+            <Button fx:id="overview" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="40.0" prefWidth="120.0" text="Overview" />
          </children>
       </GridPane>
-      <ChoiceBox fx:id="gametype" layoutX="289.0" layoutY="164.0" prefHeight="40.0" prefWidth="187.0" />
+      <ChoiceBox fx:id="gametype" layoutX="289.0" layoutY="164.0" opacity="0.7" prefHeight="40.0" prefWidth="187.0" />
    </children>
 </Pane>
