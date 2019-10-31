@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
       <ImageView fitHeight="658.0" fitWidth="808.0" layoutX="-5.0" layoutY="-5.0">
          <image>
             <Image url="@../Photos/background.jpeg" />
          </image>
       </ImageView>
-        <Button fx:id="back2login" layoutX="399.0" layoutY="238.0" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="41.0" prefWidth="64.0" text="Go Back" />
+        <Button fx:id="back2login" layoutX="399.0" layoutY="238.0" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="41.0" prefWidth="85.0" text="Go Back" />
       <Slider layoutX="329.0" layoutY="190.0" prefHeight="20.0" prefWidth="140.0" />
       <Label layoutX="257.0" layoutY="191.0" prefHeight="17.0" prefWidth="54.0" text="Volume" />
-      <Button fx:id="show_help" layoutX="329.0" layoutY="238.0" mnemonicParsing="false" onAction="#show_help" opacity="0.7" prefHeight="41.0" prefWidth="44.0" text="Help" />
+      <Button fx:id="show_help" layoutX="329.0" layoutY="238.0" mnemonicParsing="false" onAction="#show_help" opacity="0.7" prefHeight="41.0" prefWidth="64.0" text="Help" />
       <Label fx:id="help_zombies" layoutX="286.0" layoutY="259.0" prefHeight="232.0" prefWidth="228.0" text="When the zombies show up, just sit there and don't do anything. You win  the game when the zombies got to your house.                                                             Sincerely Zombies" visible="false" wrapText="true">
          <font>
             <Font size="17.0" />
