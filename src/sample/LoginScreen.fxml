@@ -12,7 +12,7 @@
             <Image url="@../Photos/background.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="298.0" layoutY="198.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="218.0">
+      <Button layoutX="298.0" layoutY="198.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="218.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="79.0" fitWidth="200.0">
                <image>

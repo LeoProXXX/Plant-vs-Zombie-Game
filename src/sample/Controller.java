@@ -105,9 +105,7 @@ public class Controller
             changeScene("LoginScreen.fxml");
         }
         else if(e.getSource()==start_game){
-            //to be updated
-            curr_username=username.getText();
-            System.out.println(curr_username);
+            changeScene("ingame.fxml");
         }
     }
     public void show_help(ActionEvent e) throws Exception

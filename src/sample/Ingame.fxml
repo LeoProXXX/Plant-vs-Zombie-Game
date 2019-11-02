@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="canvas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.animated">
+   <children>
+      <ImageView fitHeight="594.0" fitWidth="1109.0" layoutY="1.0" preserveRatio="true">
+         <image>
+            <Image url="@../Photos/Background1.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="88.0" fitWidth="69.0" layoutX="264.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photos/sun_flower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="88.0" fitWidth="69.0" layoutX="260.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photos/sun_flower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="88.0" fitWidth="69.0" layoutX="265.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photos/sun_flower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="168.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photos/lawn_mower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="154.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photos/lawn_mower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="144.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photos/lawn_mower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="149.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photos/lawn_mower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="154.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photos/lawn_mower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="96.0" fitWidth="78.0" layoutX="333.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photos/pea_shooter.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="96.0" fitWidth="78.0" layoutX="337.0" layoutY="444.0" onMousePressed="#shoot" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photos/pea_shooter.gif" />
+         </image>
+      </ImageView>
+      <VBox layoutX="551.0" layoutY="207.0" prefHeight="200.0" prefWidth="100.0" />
+   </children>
+</Pane>
