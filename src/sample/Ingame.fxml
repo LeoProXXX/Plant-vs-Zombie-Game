@@ -54,7 +54,7 @@
             <Image url="@../Photos/lawn_mower.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="96.0" fitWidth="78.0" layoutX="333.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="96.0" fitWidth="78.0" layoutX="333.0" layoutY="67.0" onMousePressed="#shoot" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Photos/pea_shooter.gif" />
          </image>

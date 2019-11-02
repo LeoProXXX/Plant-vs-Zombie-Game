@@ -12,32 +12,75 @@
             <Image url="@../Photos/background.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="298.0" layoutY="198.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="218.0" style="-fx-background-color: transparent;">
-         <graphic>
-            <ImageView fitHeight="79.0" fitWidth="200.0">
-               <image>
-                  <Image url="@../Photos/1.jpeg" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="adventure" layoutX="338.0" layoutY="224.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="101.0" prefWidth="120.0" style="-fx-background-color: transparent;" textAlignment="CENTER" />
-      <Button fx:id="bonus" layoutX="265.0" layoutY="354.0" mnemonicParsing="false" onAction="#handlebutton" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="CENTER" />
-      <Button fx:id="exit" layoutX="359.0" layoutY="364.0" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="40.0" prefWidth="83.0" text="Exit" textAlignment="CENTER" textFill="RED" />
-      <GridPane layoutX="250.0" layoutY="14.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" />
-        </rowConstraints>
+      <VBox layoutX="299.0" layoutY="153.0" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Button fx:id="help" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="39.0" prefWidth="116.0" text="Help" GridPane.columnIndex="1" />
-            <Button fx:id="almanac" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="35.0" prefWidth="100.0" text="Almanac" GridPane.columnIndex="2" />
-            <Button fx:id="overview" mnemonicParsing="false" onAction="#handlebutton" opacity="0.7" prefHeight="40.0" prefWidth="120.0" text="Overview" />
+            <Button mnemonicParsing="false" onAction="#show_ingame" prefHeight="68.0" prefWidth="158.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="160.0">
+                     <image>
+                        <Image url="@../Photos/New_Game.jpeg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#show_resume" prefHeight="77.0" prefWidth="184.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="160.0">
+                     <image>
+                        <Image url="@../Photos/Resume_Game_button.jpeg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#show_level" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="160.0">
+                     <image>
+                        <Image url="@../Photos/Choose%20level.jpeg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="exit" mnemonicParsing="false" onAction="#exit_game" prefHeight="73.0" prefWidth="150.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="RED">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="160.0">
+                     <image>
+                        <Image url="@../Photos/Exit_Button.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
-      </GridPane>
+      </VBox>
+      <HBox layoutX="153.0" layoutY="21.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="overview" mnemonicParsing="false" onAction="#show_overview" prefHeight="69.0" prefWidth="126.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="130.0">
+                     <image>
+                        <Image url="@../Photos/Overview_button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="almanac" mnemonicParsing="false" onAction="#show_almanac" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="130.0">
+                     <image>
+                        <Image url="@../Photos/Almanac_Button.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="help" mnemonicParsing="false" onAction="#show_Helpmenu" prefHeight="68.0" prefWidth="133.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="130.0">
+                     <image>
+                        <Image url="@../Photos/Help_Button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </Pane>

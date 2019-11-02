@@ -26,12 +26,12 @@ public class animated {
         pea.setImage(pea_image);
         pea.relocate(400, 460);
         ImageView pappu=new ImageView(new Image("/Photos/normal_zombie_moving.gif",100,100,false,false));
-        pappu.relocate(850,460);
+        pappu.relocate(850,420);
         canvas.getChildren().add(pea);
         canvas.getChildren().add(pappu);
         Bounds bounds = canvas.getBoundsInLocal();
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new KeyValue(pea.layoutXProperty(), pappu.getLayoutX())));
-        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(10), new KeyValue(pappu.layoutXProperty(), 200)));
+        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(40), new KeyValue(pappu.layoutXProperty(), 200)));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
         timeline2.setCycleCount(Animation.INDEFINITE);

@@ -15,46 +15,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 public class Controller
 {
-    ObservableList<String> game= FXCollections.observableArrayList("Resume Game","New Game");
     ObservableList<String> saved_games= FXCollections.observableArrayList("Manan level 1","Sandeep level 4");
     @FXML
-    private ChoiceBox gametype=new ChoiceBox();
-    @FXML
-    private ChoiceBox games=new ChoiceBox();
-    @FXML
-    private Button adventure; // present in main screen for helping select the type of game to load i.e new or resume
-    @FXML
-    private Button bonus; // to play the bonus game
-    @FXML
-    private Button exit; // to exit the game
-    @FXML
-    private Button overview; // to show the list of users already saved and their progress
-    @FXML
-    private Button help; // to show the help screen
-    @FXML
-    private Button almanac; // to show the almanac
-    @FXML
-    private Button back2login;// brings back screen to main screen
-    @FXML
-    private TextField username; // captures the username if entered
-    @FXML
-    private Button start_game; // this button is made to take user directly to game; present in new game and resume game screen
-    @FXML
-    private ImageView peashooter_image;
-    @FXML
-    private ImageView sunflower_image;
-    @FXML
-    private ImageView walnut_image;
-    @FXML
-    private ImageView cherrybomb_image;
-    @FXML
-    private ImageView zombie_image;
-    @FXML
-    private ImageView bucketheadzombie_image;
-    @FXML
-    private ImageView coneheadzombie_image;
-    @FXML
-    private ImageView flagzombie_image;
+    private ChoiceBox games;
     @FXML
     private Label character_details;
     @FXML
@@ -66,47 +29,46 @@ public class Controller
 
     @FXML
     private void initialize(){ // for initiliazing the choice box present in main screen
-        gametype.setValue("Resume Game");
-        gametype.setItems(game);
     }
-
-
+    public void show_level(ActionEvent e) throws Exception
+    {
+        changeScene("Choose_level.fxml");
+    }
+    public void show_overview(ActionEvent e) throws Exception
+    {
+        changeScene("Overview.fxml");
+    }
+    public void show_resume(ActionEvent e) throws Exception
+    {
+        changeScene("Resume_Game.fxml");
+    }
+    public void show_almanac(ActionEvent e) throws Exception
+    {
+        changeScene("Almanac.fxml");
+    }
+    public void show_Helpmenu(ActionEvent e) throws Exception
+    {
+        changeScene("Help.fxml");
+    }
+    public void show_ingame(ActionEvent e) throws Exception
+    {
+        changeScene("Ingame.fxml");
+    }
+    public void show_Ingame() throws Exception
+    {
+        changeScene("Ingame.fxml");
+    }
+    public void exit_game(ActionEvent e)
+    {
+        System.exit(0);
+    }
+    public void back_login(ActionEvent e) throws Exception
+    {
+        changeScene("LoginScreen.fxml");
+    }
     public void changeScene(String file) throws Exception{ // custom made function which helps in changing the scene
         Parent root = FXMLLoader.load(getClass().getResource(file));
         Main.stage.setScene(new Scene(root));
-    }
-    public void handlebutton(ActionEvent e) throws Exception { // the main handler function of game
-        if(e.getSource()==adventure){
-            if(gametype.getValue().equals("New Game")){
-                changeScene("New_Game.fxml");
-            }
-            else {
-                changeScene("Resume_Game.fxml");
-                games.setValue("Select items");
-                games.setItems(saved_games);
-            }
-        }
-        else if(e.getSource()==overview){
-            changeScene("Overview.fxml");
-        }
-        else if(e.getSource()==bonus){
-            changeScene("BonusGame.fxml");
-        }
-        else if(e.getSource()==help){
-            changeScene("Help.fxml");
-        }
-        else if(e.getSource()==almanac){
-            changeScene("Almanac.fxml");
-        }
-        else if(e.getSource()==exit){
-            System.exit(0);
-        }
-        else if(e.getSource()== back2login){
-            changeScene("LoginScreen.fxml");
-        }
-        else if(e.getSource()==start_game){
-            changeScene("ingame.fxml");
-        }
     }
     public void show_help(ActionEvent e) throws Exception
     {
@@ -132,7 +94,6 @@ public class Controller
                 "Cost: 150\n" +
                 "Recharge: very slow ");
     }
-
     public void Walnut_press(){// action when mouse is pressed on walnut image in almanac
 
         character_image.setImage(new Image("/Photos/walnut.png"));
