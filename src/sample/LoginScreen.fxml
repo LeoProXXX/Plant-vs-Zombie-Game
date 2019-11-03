@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="LoginPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane fx:id="LoginPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <ImageView fx:id="loginbackground" fitHeight="650.0" fitWidth="800.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="false">
          <image>
@@ -14,7 +13,7 @@
       </ImageView>
       <VBox layoutX="299.0" layoutY="153.0" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#show_ingame" prefHeight="68.0" prefWidth="158.0" style="-fx-background-color: transparent;">
+            <Button mnemonicParsing="false" onAction="#show_Ingame" prefHeight="68.0" prefWidth="158.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="160.0">
                      <image>

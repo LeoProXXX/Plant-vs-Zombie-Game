@@ -27,55 +27,48 @@ public class Controller
 
     public String curr_username; //username of current user; it gets set when either creates a new game or chooses from a list of username in resume game option
 
-    @FXML
-    private void initialize(){ // for initiliazing the choice box present in main screen
-    }
     public void show_level(ActionEvent e) throws Exception
     {
-        changeScene("Choose_level.fxml");
+        Main.changeScene("Choose_level.fxml");
     }
     public void show_overview(ActionEvent e) throws Exception
     {
-        changeScene("Overview.fxml");
+        Main.changeScene("Overview.fxml");
     }
     public void show_resume(ActionEvent e) throws Exception
     {
-        changeScene("Resume_Game.fxml");
+        Main.changeScene("Resume_Game.fxml");
     }
     public void show_almanac(ActionEvent e) throws Exception
     {
-        changeScene("Almanac.fxml");
+        Main.changeScene("Almanac.fxml");
     }
     public void show_Helpmenu(ActionEvent e) throws Exception
     {
-        changeScene("Help.fxml");
-    }
-    public void show_ingame(ActionEvent e) throws Exception
-    {
-        changeScene("Ingame.fxml");
+        Main.changeScene("Help.fxml");
     }
     public void show_Ingame() throws Exception
     {
-        changeScene("Ingame.fxml");
+        Main.changeScene("Usernameinput.fxml");
     }
     public void exit_game(ActionEvent e)
     {
         System.exit(0);
     }
+
     public void back_login(ActionEvent e) throws Exception
     {
-        changeScene("LoginScreen.fxml");
+        Main.changeScene("LoginScreen.fxml");
     }
-    public void changeScene(String file) throws Exception{ // custom made function which helps in changing the scene
-        Parent root = FXMLLoader.load(getClass().getResource(file));
-        Main.stage.setScene(new Scene(root));
-    }
+
+
+
     public void show_help(ActionEvent e) throws Exception
     {
         help_zombies.setVisible(true);
     }
-    public void Peashooter_press(){// action when mouse is pressed on peashooter image in almanac
 
+    public void Peashooter_press(){// action when mouse is pressed on peashooter image in almanac
         character_image.setImage(new Image("/Photos/peashooter.jpeg"));
         character_details.setFont(new Font("Arial", 15));
         character_details.setText("Peashooter\nDamage: normal\n" +
@@ -90,7 +83,7 @@ public class Controller
         character_details.setText("Cherry bomb\nDamage: massive\n" +
                 "Range: all zombies in a medium area\n" +
                 "Usage: single use, instant\n" +
-                "\"I wanna explode,\" says Cherry #1. \"No, let's detonate instead!\" says his brother, Cherry #2. After intense consultation they agree to explodonate.\n" +
+                "\"I wanna explode,\" says Cherry #1. \"No, let's detonate instead!\" says his brother, Cherry #2. After intense consultation they agree to explode.\n" +
                 "Cost: 150\n" +
                 "Recharge: very slow ");
     }
