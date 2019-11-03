@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -11,17 +12,13 @@
             <Image url="@../Photos/Background1.jpg" />
          </image>
       </ImageView>
-      <GridPane layoutX="246.0" layoutY="67.0" prefHeight="502.0" prefWidth="739.0">
+      <GridPane layoutX="246.0" layoutY="58.0" prefHeight="535.0" prefWidth="408.0">
         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="60.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="87.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="80.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="83.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="0.0" prefWidth="78.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="72.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.0" minWidth="10.0" prefWidth="80.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="99.0" minWidth="10.0" prefWidth="99.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="85.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="83.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="182.0" minWidth="10.0" prefWidth="85.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="77.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="95.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -31,51 +28,31 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="b00" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="108.0" prefWidth="91.0" />
-            <Button fx:id="b10" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="118.0" prefWidth="94.0" GridPane.rowIndex="1" />
-            <Button fx:id="b01" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="104.0" prefWidth="130.0" GridPane.columnIndex="1" />
-            <Button fx:id="b02" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="109.0" prefWidth="126.0" GridPane.columnIndex="2" />
-            <Button fx:id="b11" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="112.0" prefWidth="125.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="b48" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="101.0" prefWidth="100.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-            <Button fx:id="b47" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="99.0" prefWidth="87.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-            <Button fx:id="b46" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="121.0" prefWidth="144.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-            <Button fx:id="b38" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="101.0" prefWidth="108.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
-            <Button fx:id="b28" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="105.0" prefWidth="82.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-            <Button fx:id="b27" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="104.0" prefWidth="87.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-            <Button fx:id="b37" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="102.0" prefWidth="78.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-            <Button fx:id="b18" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="103.0" prefWidth="126.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-            <Button fx:id="b08" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="110.0" prefWidth="118.0" GridPane.columnIndex="8" />
-            <Button fx:id="b07" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="102.0" prefWidth="95.0" GridPane.columnIndex="7" />
-            <Button fx:id="b06" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="115.0" prefWidth="109.0" GridPane.columnIndex="6" />
-            <Button fx:id="b17" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="111.0" prefWidth="99.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-            <Button fx:id="b16" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="107.0" prefWidth="128.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <Button fx:id="b26" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="124.0" prefWidth="121.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-            <Button fx:id="b36" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="124.0" prefWidth="118.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-            <Button fx:id="b40" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="100.0" prefWidth="91.0" GridPane.rowIndex="4" />
-            <Button fx:id="b45" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="109.0" prefWidth="93.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <Button fx:id="b44" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="120.0" prefWidth="109.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <Button fx:id="b43" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="116.0" prefWidth="110.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Button fx:id="b42" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="110.0" prefWidth="103.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button fx:id="b41" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="114.0" prefWidth="143.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Button fx:id="b03" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="101.0" prefWidth="94.0" GridPane.rowIndex="3" />
-            <Button fx:id="b35" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="126.0" prefWidth="103.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <Button fx:id="b05" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="121.0" prefWidth="98.0" GridPane.columnIndex="5" />
-            <Button fx:id="b04" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="120.0" prefWidth="111.0" GridPane.columnIndex="4" />
-            <Button fx:id="b03" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="146.0" prefWidth="158.0" GridPane.columnIndex="3" />
-            <Button fx:id="b15" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="115.0" prefWidth="87.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <Button fx:id="b25" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="123.0" prefWidth="89.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <Button fx:id="b14" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="111.0" prefWidth="91.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Button fx:id="b34" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="136.0" prefWidth="109.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <Button fx:id="b33" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="124.0" prefWidth="137.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Button fx:id="b23" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="134.0" prefWidth="148.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button fx:id="b13" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="124.0" prefWidth="137.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button fx:id="b12" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="134.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button fx:id="b20" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="100.0" prefWidth="95.0" GridPane.rowIndex="2" />
-            <Button fx:id="b31" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="104.0" prefWidth="123.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button fx:id="b32" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="140.0" prefWidth="121.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button fx:id="b21" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="121.0" prefWidth="135.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="b22" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="147.0" prefWidth="110.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="b24" mnemonicParsing="false" onAction="#cellAction" opacity="0.0" prefHeight="128.0" prefWidth="113.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ImageView fx:id="dest00" fitHeight="105.0" fitWidth="82.0" onDragDropped="#handledrop" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="105.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+            <ImageView fitHeight="101.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
+            <ImageView fitHeight="106.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
+            <ImageView fitHeight="106.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4" />
+            <ImageView fitHeight="106.0" fitWidth="65.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+            <ImageView fitHeight="105.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ImageView fitHeight="106.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ImageView fitHeight="104.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ImageView fitHeight="106.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ImageView fitHeight="109.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+            <ImageView fitHeight="107.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ImageView fitHeight="104.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ImageView fitHeight="105.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ImageView fitHeight="104.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ImageView fitHeight="108.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+            <ImageView fitHeight="107.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ImageView fitHeight="106.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ImageView fitHeight="105.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ImageView fitHeight="104.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ImageView fitHeight="107.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+            <ImageView fitHeight="101.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ImageView fitHeight="107.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ImageView fitHeight="105.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ImageView fitHeight="110.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="168.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
@@ -88,7 +65,7 @@
             <Image url="@../Photos/lawn_mower.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="144.0" layoutY="444.0" onMousePressed="#dropsun" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="144.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Photos/lawn_mower.gif" />
          </image>
@@ -103,12 +80,12 @@
             <Image url="@../Photos/lawn_mower.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="96.0" fitWidth="78.0" layoutX="337.0" layoutY="444.0" onMousePressed="#shoot" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="96.0" fitWidth="78.0" layoutX="337.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Photos/pea_shooter.gif" />
          </image>
       </ImageView>
-      <Button fx:id="gamepause" layoutX="933.0" layoutY="26.0" mnemonicParsing="false" onAction="#showAlertWithDefaultHeaderText" text="Pause" />
+      <Button fx:id="gamepause" layoutX="928.0" layoutY="13.0" mnemonicParsing="false" onAction="#showAlertWithDefaultHeaderText" text="Pause" />
       <GridPane layoutX="1.0" layoutY="93.0" prefHeight="304.0" prefWidth="133.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -120,27 +97,34 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fitHeight="82.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="source1" fitHeight="82.0" fitWidth="135.0" onDragDetected="#handledragdetection" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Photos/transparent.png" />
+                  <Image url="@../Photos/peashooter.jpeg" />
                </image>
             </ImageView>
             <ImageView fitHeight="78.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../Photos/transparent.png" />
+                  <Image url="@../Photos/sunflower.png" />
                </image>
+               <GridPane.margin>
+                  <Insets bottom="9.0" left="9.0" right="9.0" top="9.0" />
+               </GridPane.margin>
             </ImageView>
             <ImageView fitHeight="74.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../Photos/transparent.png" />
+                  <Image url="@../Photos/walnut.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="76.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../Photos/transparent.png" />
+                  <Image url="@../Photos/Cherrybomb.jpeg" />
                </image>
             </ImageView>
          </children>
       </GridPane>
+      <Separator layoutX="503.0" layoutY="6.0" prefHeight="10.0" prefWidth="200.0" />
+      <Separator layoutX="503.0" layoutY="26.0" prefHeight="17.0" prefWidth="200.0" />
+      <Separator layoutX="497.0" layoutY="-44.0" orientation="VERTICAL" prefHeight="101.0" prefWidth="18.0" />
+      <Button layoutX="82.0" layoutY="529.0" mnemonicParsing="false" onMousePressed="#shoot" text="Work" />
    </children>
 </Pane>

@@ -1,29 +1,30 @@
 package sample;
 
+
 import javafx.animation.*;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
+import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
 import javafx.util.Duration;
+
+import java.net.URL;
 import java.util.Random;
-
 import java.util.Optional;
+import java.util.ResourceBundle;
+
+import static java.lang.Thread.sleep;
 
 
-public class animated {
+public class animated implements Initializable {
     Random rand=new Random();
 
     @FXML
@@ -33,104 +34,74 @@ public class animated {
     public Button gamepause;
 
     @FXML
-    public Button b00;
+    public ImageView source1;
     @FXML
-    public Button b01;
-    @FXML
-    public Button b02;
-    @FXML
-    public Button b03;
-    @FXML
-    public Button b04;
-    @FXML
-    public Button b05;
-    @FXML
-    public Button b06;
-    @FXML
-    public Button b07;
-    @FXML
-    public Button b08;
-    @FXML
-    public Button b10;
-    @FXML
-    public Button b11;
-    @FXML
-    public Button b12;
-    @FXML
-    public Button b13;
-    @FXML
-    public Button b14;
-    @FXML
-    public Button b15;
-    @FXML
-    public Button b16;
-    @FXML
-    public Button b17;
-    @FXML
-    public Button b18;
-    @FXML
-    public Button b20;
-    @FXML
-    public Button b21;
-    @FXML
-    public Button b22;
-    @FXML
-    public Button b23;
-    @FXML
-    public Button b24;
-    @FXML
-    public Button b25;
-    @FXML
-    public Button b26;
-    @FXML
-    public Button b27;
-    @FXML
-    public Button b28;
-
-
+    public ImageView dest00;
+    public int check=1;
 
 
     public int chosenx=0,choseny=0;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    public void shoot(){
+
+    }
+
+    public void shoot() {
+        if(check==1){
+            zombietimer();
+            check=0;
+        }
+
         ImageView pea =new ImageView(new Image("/Photos/Pea.png"));
         pea.relocate(400, 460);
 
         ImageView zombie=new ImageView(new Image("/Photos/normal_zombie_moving.gif",100,100,false,false));
-        zombie.relocate(850,420);
+        zombie.relocate(850,rand.nextInt(450)+30);
+
+        ImageView sunToken = new ImageView(new Image("/Photos/sunnysmile.gif", 60, 60, false, false));
+        sunToken.relocate(rand.nextInt(600) + 260,10);
+
+        canvas.getChildren().add(sunToken);
         canvas.getChildren().add(pea);
         canvas.getChildren().add(zombie);
 
 
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new KeyValue(pea.layoutXProperty(), zombie.getLayoutX())));
-        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(40), new KeyValue(zombie.layoutXProperty(), 200)));
+        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(40), new KeyValue(zombie.layoutXProperty(), 300)));
+        Timeline timeline3=new Timeline(new KeyFrame(Duration.seconds(5), new KeyValue(sunToken.layoutYProperty(), 500)));
+
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
-        timeline2.setCycleCount(Animation.INDEFINITE);
+        timeline2.setCycleCount(1);
         timeline2.play();
+        timeline3.setCycleCount(1);
+        timeline3.play();
     }
 
-    public void dropsun(){
+    public void zombietimer(){
 
-        Line line= new Line();
-        ImageView sunToken=new ImageView(new Image("/Photos/sunnysmile.gif",60,60,false,false));
-        canvas.getChildren().add(sunToken);
-        int x=rand.nextInt(600)+260;
-        int starty=10;
-        int endy=500;
+        ImageView zombiehead=new ImageView(new Image("/Photos/zombiehead.png",40,40,false,false));
+        canvas.getChildren().add(zombiehead);
+        Line line=new Line();
+        int y=20;
+        int x=700;
+        int xend=550;
         line.setStartX(x);
-        line.setStartY(starty);
-        line.setEndX(x);
-        line.setEndY(endy);
+        line.setStartY(y);
+        line.setEndX(xend);
+        line.setEndY(y);
 
         PathTransition transition=new PathTransition();
-        transition.setNode(sunToken);
-        transition.setDuration(Duration.seconds(3));
+        transition.setNode(zombiehead);
+        transition.setDuration(Duration.seconds(60));
         transition.setPath(line);
         transition.setCycleCount(1);
         transition.play();
+
+
     }
 
 
@@ -160,7 +131,35 @@ public class animated {
         }
     }
 
-    public void cellAction(){
+
+
+
+    @FXML
+    public void handledragdetection(MouseEvent event){
+        Dragboard db= source1.startDragAndDrop(TransferMode.ANY);
+        ClipboardContent cb=new ClipboardContent();
+        cb.putImage(source1.getImage());
+        db.setContent(cb);
+        event.consume();
 
     }
+    @FXML
+    public void handledragover(DragEvent event){
+        System.out.println("hi");
+        if(event.getDragboard().hasImage()){
+            System.out.println("here");
+            event.acceptTransferModes(TransferMode.ANY);
+        }
+
+    }
+    @FXML
+    public void handledrop(DragEvent event){
+        Image plant=event.getDragboard().getImage();
+        System.out.println(plant.getUrl());
+
+        dest00.setImage(plant);
+
+    }
+
+
 }
