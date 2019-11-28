@@ -12,7 +12,7 @@
             <Image url="@../Photos/background-scene---drawing.png" />
          </image>
       </ImageView>
-        <Button layoutY="8.0" mnemonicParsing="false" onAction="#backLogin" style="-fx-background-color: transparent;">
+        <Button layoutY="8.0" mnemonicParsing="false" onAction="#back_login" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="49.0" fitWidth="55.0">
                <image>
@@ -24,7 +24,7 @@
          <children>
             <VBox prefHeight="336.0" prefWidth="95.0">
                <children>
-                  <ImageView fx:id="zombie_image" fitHeight="107.0" fitWidth="49.0" onMousePressed="#showIngame" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="zombie_image" fitHeight="107.0" fitWidth="49.0" onMousePressed="#show_Ingame" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Photos/regular.png" />
                      </image>
@@ -39,7 +39,7 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fx:id="flagzombie_image" fitHeight="150.0" fitWidth="76.0" onMousePressed="#showIngame" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="flagzombie_image" fitHeight="150.0" fitWidth="76.0" onMousePressed="#show_Ingame" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Photos/flag.png" />
                      </image>
@@ -54,7 +54,7 @@
             </VBox>
             <VBox prefHeight="342.0" prefWidth="153.0">
                <children>
-                  <ImageView fx:id="bucketheadzombie_image" fitHeight="204.0" fitWidth="130.0" onMousePressed="#showIngame" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="bucketheadzombie_image" fitHeight="204.0" fitWidth="130.0" onMousePressed="#show_Ingame" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Photos/d4cx9yz-9380b4b0-4d8a-4c1d-ac76-bf2f40070429.png" />
                      </image>
@@ -69,7 +69,7 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fx:id="coneheadzombie_image" fitHeight="247.0" fitWidth="185.0" onMousePressed="#showIngame" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="coneheadzombie_image" fitHeight="247.0" fitWidth="185.0" onMousePressed="#show_Ingame" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Photos/buckethead.png" />
                      </image>
@@ -84,7 +84,7 @@
             </VBox>
             <VBox prefHeight="276.0" prefWidth="160.0">
                <children>
-                  <ImageView fitHeight="300.0" fitWidth="224.0" onMousePressed="#showIngame">
+                  <ImageView fitHeight="300.0" fitWidth="224.0" onMousePressed="#show_Ingame">
                      <image>
                         <Image url="@../Photos/PvZC_Zomboss.png" />
                      </image>

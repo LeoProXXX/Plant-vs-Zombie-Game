@@ -28,7 +28,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fx:id="dest00" fitHeight="105.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="dest00" fitHeight="105.0" fitWidth="82.0" onDragDropped="#handledrop" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="105.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
             <ImageView fitHeight="101.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
             <ImageView fitHeight="106.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
@@ -55,27 +55,27 @@
             <ImageView fitHeight="110.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <ImageView fx:id="lawnmower1" fitHeight="75.0" fitWidth="93.0" layoutX="168.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="168.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Photos/lawn_mower.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="lawnmower2" fitHeight="75.0" fitWidth="93.0" layoutX="154.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="154.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Photos/lawn_mower.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="lawnmower5" fitHeight="75.0" fitWidth="93.0" layoutX="144.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="144.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Photos/lawn_mower.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="lawnmower4" fitHeight="75.0" fitWidth="93.0" layoutX="149.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="149.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Photos/lawn_mower.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="lawnmower3" fitHeight="75.0" fitWidth="93.0" layoutX="154.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="154.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Photos/lawn_mower.gif" />
          </image>
@@ -97,7 +97,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fx:id="source1" fitHeight="82.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="source1" fitHeight="82.0" fitWidth="135.0" onDragDetected="#handledragdetection" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Photos/peashooter.jpeg" />
                </image>

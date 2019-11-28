@@ -13,7 +13,7 @@
       </ImageView>
       <VBox layoutX="299.0" layoutY="153.0" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#showIngame" prefHeight="68.0" prefWidth="158.0" style="-fx-background-color: transparent;">
+            <Button mnemonicParsing="false" onAction="#show_Ingame" prefHeight="68.0" prefWidth="158.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="160.0">
                      <image>
@@ -22,7 +22,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#showResume" onMousePressed="#showResume" prefHeight="77.0" prefWidth="184.0" style="-fx-background-color: transparent;">
+            <Button mnemonicParsing="false" onAction="#show_resume" prefHeight="77.0" prefWidth="184.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="160.0">
                      <image>
@@ -31,7 +31,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#showLevel" style="-fx-background-color: transparent;">
+            <Button mnemonicParsing="false" onAction="#show_level" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="160.0">
                      <image>
@@ -40,7 +40,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="exit" mnemonicParsing="false" onAction="#exitGame" prefHeight="73.0" prefWidth="150.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="RED">
+            <Button fx:id="exit" mnemonicParsing="false" onAction="#exit_game" prefHeight="73.0" prefWidth="150.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="RED">
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="160.0">
                      <image>
@@ -53,7 +53,7 @@
       </VBox>
       <HBox layoutX="153.0" layoutY="21.0" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="overview" mnemonicParsing="false" onAction="#showOverview" prefHeight="69.0" prefWidth="126.0" style="-fx-background-color: transparent;">
+            <Button fx:id="overview" mnemonicParsing="false" onAction="#show_overview" prefHeight="69.0" prefWidth="126.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="130.0">
                      <image>
@@ -62,7 +62,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="almanac" mnemonicParsing="false" onAction="#showAlmanac" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+            <Button fx:id="almanac" mnemonicParsing="false" onAction="#show_almanac" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="130.0">
                      <image>
@@ -70,7 +70,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="help" mnemonicParsing="false" onAction="#showHelpmenu" prefHeight="68.0" prefWidth="133.0" style="-fx-background-color: transparent;">
+            <Button fx:id="help" mnemonicParsing="false" onAction="#show_Helpmenu" prefHeight="68.0" prefWidth="133.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="130.0">
                      <image>
