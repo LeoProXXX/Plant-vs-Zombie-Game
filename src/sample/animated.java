@@ -36,14 +36,152 @@ public class animated implements Initializable {
     @FXML
     public ImageView source1;
     @FXML
+    public ImageView source2;
+    @FXML
+    public ImageView source3;
+    @FXML
+    public ImageView source4;
+
+    @FXML
     public ImageView dest00;
+    @FXML
+    public ImageView dest01;
+    @FXML
+    public ImageView dest02;
+    @FXML
+    public ImageView dest03;
+    @FXML
+    public ImageView dest04;
+    @FXML
+    public ImageView dest10;
+    @FXML
+    public ImageView dest11;
+    @FXML
+    public ImageView dest12;
+    @FXML
+    public ImageView dest13;
+    @FXML
+    public ImageView dest14;
+    @FXML
+    public ImageView dest20;
+    @FXML
+    public ImageView dest21;
+    @FXML
+    public ImageView dest22;
+    @FXML
+    public ImageView dest23;
+    @FXML
+    public ImageView dest24;
+    @FXML
+    public ImageView dest30;
+    @FXML
+    public ImageView dest31;
+    @FXML
+    public ImageView dest32;
+    @FXML
+    public ImageView dest33;
+    @FXML
+    public ImageView dest34;
+    @FXML
+    public ImageView dest40;
+    @FXML
+    public ImageView dest41;
+    @FXML
+    public ImageView dest42;
+    @FXML
+    public ImageView dest43;
+    @FXML
+    public ImageView dest44;
+
     public int check=1;
 
 
     public int chosenx=0,choseny=0;
 
+    public void setimageonimageview(ImageView dest, DragEvent event){
+        Image im=event.getDragboard().getImage();
+        dest.setImage(im);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        dest00.setOnDragDone(event -> {
+            setimageonimageview(dest00,event);
+        });
+        dest01.setOnDragDone(event -> {
+            setimageonimageview(dest01,event);
+        });
+        dest02.setOnDragDone(event -> {
+            setimageonimageview(dest02,event);
+        });
+        dest03.setOnDragDone(event -> {
+            setimageonimageview(dest03,event);
+        });
+        dest04.setOnDragDone(event -> {
+            setimageonimageview(dest04,event);
+        });
+        dest10.setOnDragDone(event -> {
+            setimageonimageview(dest10,event);
+        });
+        dest11.setOnDragDone(event -> {
+            setimageonimageview(dest11,event);
+        });
+        dest12.setOnDragDone(event -> {
+            setimageonimageview(dest12,event);
+        });
+        dest13.setOnDragDone(event -> {
+            setimageonimageview(dest13,event);
+        });
+        dest14.setOnDragDone(event -> {
+            setimageonimageview(dest14,event);
+        });
+        dest20.setOnDragDone(event -> {
+            setimageonimageview(dest20,event);
+        });
+        dest21.setOnDragDone(event -> {
+            setimageonimageview(dest21,event);
+        });
+        dest22.setOnDragDone(event -> {
+            setimageonimageview(dest22,event);
+        });
+        dest23.setOnDragDone(event -> {
+            setimageonimageview(dest23,event);
+        });
+        dest24.setOnDragDone(event -> {
+            setimageonimageview(dest24,event);
+        });
+        dest30.setOnDragDone(event -> {
+            setimageonimageview(dest30,event);
+        });
+        dest31.setOnDragDone(event -> {
+            setimageonimageview(dest31,event);
+        });
+        dest32.setOnDragDone(event -> {
+            setimageonimageview(dest32,event);
+        });
+        dest33.setOnDragDone(event -> {
+            setimageonimageview(dest33,event);
+        });
+        dest34.setOnDragDone(event -> {
+            setimageonimageview(dest34,event);
+        });
+        dest40.setOnDragDone(event -> {
+            setimageonimageview(dest40,event);
+        });
+        dest41.setOnDragDone(event -> {
+            setimageonimageview(dest41,event);
+        });
+        dest42.setOnDragDone(event -> {
+            setimageonimageview(dest42,event);
+        });
+        dest43.setOnDragDone(event -> {
+            setimageonimageview(dest43,event);
+        });
+        dest44.setOnDragDone(event -> {
+            setimageonimageview(dest44,event);
+        });
+
+
 
 
     }
@@ -113,9 +251,6 @@ public class animated implements Initializable {
         ButtonType exitbutton = new ButtonType("Exit");
         ButtonType resumebutton = new ButtonType("Resume");
         ButtonType mainmenubutton = new ButtonType("Main Menu");
-
-
-        // Remove default ButtonTypes
         alert.getButtonTypes().clear();
 
         alert.getButtonTypes().addAll(exitbutton, resumebutton, mainmenubutton);
@@ -135,31 +270,52 @@ public class animated implements Initializable {
 
 
     @FXML
-    public void handledragdetection(MouseEvent event){
+    public void handledragdetection_plant(MouseEvent event){
         Dragboard db= source1.startDragAndDrop(TransferMode.ANY);
         ClipboardContent cb=new ClipboardContent();
         cb.putImage(source1.getImage());
         db.setContent(cb);
         event.consume();
+    }
 
+    @FXML
+    public void handledragdetection_sunflower(MouseEvent event){
+        Dragboard db= source2.startDragAndDrop(TransferMode.ANY);
+        ClipboardContent cb=new ClipboardContent();
+        cb.putImage(source2.getImage());
+        db.setContent(cb);
+        event.consume();
     }
     @FXML
+    public void handledragdetection_walnut(MouseEvent event){
+        Dragboard db= source3.startDragAndDrop(TransferMode.ANY);
+        ClipboardContent cb=new ClipboardContent();
+        cb.putImage(source3.getImage());
+        db.setContent(cb);
+        event.consume();
+    }
+    @FXML
+    public void handledragdetection_bomb(MouseEvent event){
+        Dragboard db= source4.startDragAndDrop(TransferMode.ANY);
+        ClipboardContent cb=new ClipboardContent();
+        cb.putImage(source4.getImage());
+        db.setContent(cb);
+        event.consume();
+    }
+
+    @FXML
     public void handledragover(DragEvent event){
-        System.out.println("hi");
         if(event.getDragboard().hasImage()){
-            System.out.println("here");
             event.acceptTransferModes(TransferMode.ANY);
         }
 
     }
-    @FXML
-    public void handledrop(DragEvent event){
-        Image plant=event.getDragboard().getImage();
-        System.out.println(plant.getUrl());
-
-        dest00.setImage(plant);
-
-    }
+//    @FXML
+//    public void handledrop(DragEvent event){
+//        Image plant=event.getDragboard().getImage();
+//        dest00.setImage(plant);
+//
+//    }
 
 
 }
