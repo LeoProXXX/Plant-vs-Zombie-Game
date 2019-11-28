@@ -100,84 +100,86 @@ public class animated implements Initializable {
 
     public void setimageonimageview(ImageView dest, DragEvent event){
         Image im=event.getDragboard().getImage();
+        System.out.println((im.getUrl()+" "+im.toString()));
+        System.out.println(event.getDragboard().getUrl());
         dest.setImage(im);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dest00.setOnDragDone(event -> {
+        dest00.setOnDragDropped(event -> {
             setimageonimageview(dest00,event);
         });
-        dest01.setOnDragDone(event -> {
+        dest01.setOnDragDropped(event -> {
             setimageonimageview(dest01,event);
         });
-        dest02.setOnDragDone(event -> {
+        dest02.setOnDragDropped(event -> {
             setimageonimageview(dest02,event);
         });
-        dest03.setOnDragDone(event -> {
+        dest03.setOnDragDropped(event -> {
             setimageonimageview(dest03,event);
         });
-        dest04.setOnDragDone(event -> {
+        dest04.setOnDragDropped(event -> {
             setimageonimageview(dest04,event);
         });
-        dest10.setOnDragDone(event -> {
+        dest10.setOnDragDropped(event -> {
             setimageonimageview(dest10,event);
         });
-        dest11.setOnDragDone(event -> {
+        dest11.setOnDragDropped(event -> {
             setimageonimageview(dest11,event);
         });
-        dest12.setOnDragDone(event -> {
+        dest12.setOnDragDropped(event -> {
             setimageonimageview(dest12,event);
         });
-        dest13.setOnDragDone(event -> {
+        dest13.setOnDragDropped(event -> {
             setimageonimageview(dest13,event);
         });
-        dest14.setOnDragDone(event -> {
+        dest14.setOnDragDropped(event -> {
             setimageonimageview(dest14,event);
         });
-        dest20.setOnDragDone(event -> {
+        dest20.setOnDragDropped(event -> {
             setimageonimageview(dest20,event);
         });
-        dest21.setOnDragDone(event -> {
+        dest21.setOnDragDropped(event -> {
             setimageonimageview(dest21,event);
         });
-        dest22.setOnDragDone(event -> {
+        dest22.setOnDragDropped(event -> {
             setimageonimageview(dest22,event);
         });
-        dest23.setOnDragDone(event -> {
+        dest23.setOnDragDropped(event -> {
             setimageonimageview(dest23,event);
         });
-        dest24.setOnDragDone(event -> {
+        dest24.setOnDragDropped(event -> {
             setimageonimageview(dest24,event);
         });
-        dest30.setOnDragDone(event -> {
+        dest30.setOnDragDropped(event -> {
             setimageonimageview(dest30,event);
         });
-        dest31.setOnDragDone(event -> {
+        dest31.setOnDragDropped(event -> {
             setimageonimageview(dest31,event);
         });
-        dest32.setOnDragDone(event -> {
+        dest32.setOnDragDropped(event -> {
             setimageonimageview(dest32,event);
         });
-        dest33.setOnDragDone(event -> {
+        dest33.setOnDragDropped(event -> {
             setimageonimageview(dest33,event);
         });
-        dest34.setOnDragDone(event -> {
+        dest34.setOnDragDropped(event -> {
             setimageonimageview(dest34,event);
         });
-        dest40.setOnDragDone(event -> {
+        dest40.setOnDragDropped(event -> {
             setimageonimageview(dest40,event);
         });
-        dest41.setOnDragDone(event -> {
+        dest41.setOnDragDropped(event -> {
             setimageonimageview(dest41,event);
         });
-        dest42.setOnDragDone(event -> {
+        dest42.setOnDragDropped(event -> {
             setimageonimageview(dest42,event);
         });
-        dest43.setOnDragDone(event -> {
+        dest43.setOnDragDropped(event -> {
             setimageonimageview(dest43,event);
         });
-        dest44.setOnDragDone(event -> {
+        dest44.setOnDragDropped(event -> {
             setimageonimageview(dest44,event);
         });
 
