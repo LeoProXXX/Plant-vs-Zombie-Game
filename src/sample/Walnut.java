@@ -1,10 +1,10 @@
 package sample;
 
-public class Sunflower extends Plant
+public class Walnut extends Plant
 {
-    public Sunflower()
+    public Walnut()
     {
-        super(100,0,2);
+        super(500,0,7);
     }
     @Override
     public void attack(Character c)
