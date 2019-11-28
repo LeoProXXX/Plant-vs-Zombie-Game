@@ -114,12 +114,12 @@ public class animated implements Initializable {
         ButtonType resumebutton = new ButtonType("Resume");
         ButtonType mainmenubutton = new ButtonType("Main Menu");
 
+
         // Remove default ButtonTypes
         alert.getButtonTypes().clear();
 
         alert.getButtonTypes().addAll(exitbutton, resumebutton, mainmenubutton);
 
-        // option != null.
         Optional<ButtonType> option = alert.showAndWait();
 
         if (option.get() == null) {
