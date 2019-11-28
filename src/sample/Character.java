@@ -1,17 +1,23 @@
 package sample;
 
+import javafx.scene.image.Image;
+
+import javax.swing.text.html.ImageView;
+
 public abstract class Character {
     private int hp;
     private int damage;
     private double Xpos;
     private double Ypos;
-
-    public Character(){
+    protected Image image;
+    public Character(Image image){
+        this.image=image;
 
     }
-    public Character(int hp, int damage){
+    public Character(int hp, int damage,Image image){
         this.hp=hp;
         this.damage=damage;
+        this.image=image;
     }
 
     public int getHp() {

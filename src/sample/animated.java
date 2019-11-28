@@ -41,7 +41,6 @@ public class animated implements Initializable {
     public ImageView source3;
     @FXML
     public ImageView source4;
-
     @FXML
     public ImageView dest00;
     @FXML
@@ -100,17 +99,13 @@ public class animated implements Initializable {
 
     public void setimageonimageview(ImageView dest, DragEvent event){
         Image im=event.getDragboard().getImage();
-<<<<<<< Updated upstream
         System.out.println((im.getUrl()+" "+im.toString()));
         System.out.println(event.getDragboard().getUrl());
-=======
->>>>>>> Stashed changes
         dest.setImage(im);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-<<<<<<< Updated upstream
         dest00.setOnDragDropped(event -> {
             setimageonimageview(dest00,event);
         });
@@ -184,87 +179,8 @@ public class animated implements Initializable {
             setimageonimageview(dest43,event);
         });
         dest44.setOnDragDropped(event -> {
-=======
-        dest00.setOnDragDone(event -> {
-            setimageonimageview(dest00,event);
-        });
-        dest01.setOnDragDone(event -> {
-            setimageonimageview(dest01,event);
-        });
-        dest02.setOnDragDone(event -> {
-            setimageonimageview(dest02,event);
-        });
-        dest03.setOnDragDone(event -> {
-            setimageonimageview(dest03,event);
-        });
-        dest04.setOnDragDone(event -> {
-            setimageonimageview(dest04,event);
-        });
-        dest10.setOnDragDone(event -> {
-            setimageonimageview(dest10,event);
-        });
-        dest11.setOnDragDone(event -> {
-            setimageonimageview(dest11,event);
-        });
-        dest12.setOnDragDone(event -> {
-            setimageonimageview(dest12,event);
-        });
-        dest13.setOnDragDone(event -> {
-            setimageonimageview(dest13,event);
-        });
-        dest14.setOnDragDone(event -> {
-            setimageonimageview(dest14,event);
-        });
-        dest20.setOnDragDone(event -> {
-            setimageonimageview(dest20,event);
-        });
-        dest21.setOnDragDone(event -> {
-            setimageonimageview(dest21,event);
-        });
-        dest22.setOnDragDone(event -> {
-            setimageonimageview(dest22,event);
-        });
-        dest23.setOnDragDone(event -> {
-            setimageonimageview(dest23,event);
-        });
-        dest24.setOnDragDone(event -> {
-            setimageonimageview(dest24,event);
-        });
-        dest30.setOnDragDone(event -> {
-            setimageonimageview(dest30,event);
-        });
-        dest31.setOnDragDone(event -> {
-            setimageonimageview(dest31,event);
-        });
-        dest32.setOnDragDone(event -> {
-            setimageonimageview(dest32,event);
-        });
-        dest33.setOnDragDone(event -> {
-            setimageonimageview(dest33,event);
-        });
-        dest34.setOnDragDone(event -> {
-            setimageonimageview(dest34,event);
-        });
-        dest40.setOnDragDone(event -> {
-            setimageonimageview(dest40,event);
-        });
-        dest41.setOnDragDone(event -> {
-            setimageonimageview(dest41,event);
-        });
-        dest42.setOnDragDone(event -> {
-            setimageonimageview(dest42,event);
-        });
-        dest43.setOnDragDone(event -> {
-            setimageonimageview(dest43,event);
-        });
-        dest44.setOnDragDone(event -> {
->>>>>>> Stashed changes
             setimageonimageview(dest44,event);
         });
-
-
-
-
     }
 
     public void shoot() {
@@ -285,8 +201,6 @@ public class animated implements Initializable {
         canvas.getChildren().add(sunToken);
         canvas.getChildren().add(pea);
         canvas.getChildren().add(zombie);
-
-
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new KeyValue(pea.layoutXProperty(), zombie.getLayoutX())));
         Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(40), new KeyValue(zombie.layoutXProperty(), 300)));
@@ -391,12 +305,5 @@ public class animated implements Initializable {
         }
 
     }
-//    @FXML
-//    public void handledrop(DragEvent event){
-//        Image plant=event.getDragboard().getImage();
-//        dest00.setImage(plant);
-//
-//    }
-
 
 }
