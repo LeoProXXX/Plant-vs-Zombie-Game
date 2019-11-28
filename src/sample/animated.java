@@ -41,6 +41,7 @@ public class animated implements Initializable {
     public ImageView source3;
     @FXML
     public ImageView source4;
+
     @FXML
     public ImageView dest00;
     @FXML
@@ -102,6 +103,8 @@ public class animated implements Initializable {
         System.out.println((im.getUrl()+" "+im.toString()));
         System.out.println(event.getDragboard().getUrl());
         dest.setImage(im);
+        System.out.println(dest.getLayoutX()+" "+dest.getLayoutX());
+        shoot();
     }
 
     @Override
@@ -181,6 +184,10 @@ public class animated implements Initializable {
         dest44.setOnDragDropped(event -> {
             setimageonimageview(dest44,event);
         });
+
+
+
+
     }
 
     public void shoot() {
@@ -201,6 +208,8 @@ public class animated implements Initializable {
         canvas.getChildren().add(sunToken);
         canvas.getChildren().add(pea);
         canvas.getChildren().add(zombie);
+
+
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new KeyValue(pea.layoutXProperty(), zombie.getLayoutX())));
         Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(40), new KeyValue(zombie.layoutXProperty(), 300)));
@@ -305,5 +314,12 @@ public class animated implements Initializable {
         }
 
     }
+//    @FXML
+//    public void handledrop(DragEvent event){
+//        Image plant=event.getDragboard().getImage();
+//        dest00.setImage(plant);
+//
+//    }
+
 
 }
