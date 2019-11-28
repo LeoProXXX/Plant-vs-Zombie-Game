@@ -8,7 +8,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-        <Button layoutY="8.0" mnemonicParsing="false" onAction="#back_login" style="-fx-background-color: transparent;">
+        <Button layoutY="8.0" mnemonicParsing="false" onAction="#backLogin" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="49.0" fitWidth="55.0">
                <image>

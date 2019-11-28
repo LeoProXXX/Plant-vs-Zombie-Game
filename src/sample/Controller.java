@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,11 +14,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
-public class Controller
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Controller implements Initializable
 {
     ObservableList<String> saved_games= FXCollections.observableArrayList("Manan level 1","Sandeep level 4");
     @FXML
-    private ChoiceBox games;
+    private ChoiceBox savedgames=new ChoiceBox();
     @FXML
     private Label character_details;
     @FXML
@@ -27,36 +32,42 @@ public class Controller
 
     public String curr_username; //username of current user; it gets set when either creates a new game or chooses from a list of username in resume game option
 
-    public void show_level(ActionEvent e) throws Exception
+    @FXML
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        savedgames.setValue("choose one");
+        savedgames.setItems(saved_games);
+    }
+
+    public void showLevel(ActionEvent e) throws Exception
     {
         Main.changeScene("Choose_level.fxml");
     }
-    public void show_overview(ActionEvent e) throws Exception
+    public void showOverview(ActionEvent e) throws Exception
     {
         Main.changeScene("Overview.fxml");
     }
-    public void show_resume(ActionEvent e) throws Exception
+    public void showResume(ActionEvent e) throws Exception
     {
         Main.changeScene("Resume_Game.fxml");
     }
-    public void show_almanac(ActionEvent e) throws Exception
+    public void showAlmanac(ActionEvent e) throws Exception
     {
         Main.changeScene("Almanac.fxml");
     }
-    public void show_Helpmenu(ActionEvent e) throws Exception
+    public void showHelpmenu(ActionEvent e) throws Exception
     {
         Main.changeScene("Help.fxml");
     }
-    public void show_Ingame() throws Exception
+    public void showIngame() throws Exception
     {
         Main.changeScene("Usernameinput.fxml");
     }
-    public void exit_game(ActionEvent e)
+    public void exitGame(ActionEvent e)
     {
         System.exit(0);
     }
 
-    public void back_login(ActionEvent e) throws Exception
+    public void backLogin(ActionEvent e) throws Exception
     {
         Main.changeScene("LoginScreen.fxml");
     }
@@ -130,5 +141,6 @@ public class Controller
                 "Make no mistake, Flag Zombie loves brains. But somewhere down the line he also picked up a fascination with flags. Maybe it's because the flags always have brains on them. Hard to say. ");
         character_image.setImage(new Image("/Photos/flag.png"));
     }
+
 
 }

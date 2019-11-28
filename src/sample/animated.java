@@ -114,6 +114,7 @@ public class animated implements Initializable {
         ButtonType resumebutton = new ButtonType("Resume");
         ButtonType mainmenubutton = new ButtonType("Main Menu");
 
+
         // Remove default ButtonTypes
         alert.getButtonTypes().clear();
 
@@ -130,36 +131,4 @@ public class animated implements Initializable {
             Main.changeScene("LoginScreen.fxml");
         }
     }
-
-
-
-
-    @FXML
-    public void handledragdetection(MouseEvent event){
-        Dragboard db= source1.startDragAndDrop(TransferMode.ANY);
-        ClipboardContent cb=new ClipboardContent();
-        cb.putImage(source1.getImage());
-        db.setContent(cb);
-        event.consume();
-
-    }
-    @FXML
-    public void handledragover(DragEvent event){
-        System.out.println("hi");
-        if(event.getDragboard().hasImage()){
-            System.out.println("here");
-            event.acceptTransferModes(TransferMode.ANY);
-        }
-
-    }
-    @FXML
-    public void handledrop(DragEvent event){
-        Image plant=event.getDragboard().getImage();
-        System.out.println(plant.getUrl());
-
-        dest00.setImage(plant);
-
-    }
-
-
 }
