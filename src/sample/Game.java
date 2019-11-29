@@ -1,30 +1,22 @@
 package sample;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.text.Font;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.net.URL;
+import javafx.animation.AnimationTimer;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
-public class Game
-{}
+public class Game {
+    public static ArrayList<Character> gameobjects;
+    public static AnimationTimer t;
+    public Game(){
+        gameobjects=new ArrayList<Character>();
+        t= new AnimationTimer(){
+            @Override
+            public void handle(long l) {
+                if(gameobjects.size()!=0){
+                    Character i=gameobjects.remove(0);
+                    i.animate();
+                }
+            }
+        };
 
-
+    }
+}

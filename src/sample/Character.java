@@ -1,8 +1,7 @@
 package sample;
 
 import javafx.scene.image.Image;
-
-import javax.swing.text.html.ImageView;
+import javafx.scene.image.ImageView;
 
 public abstract class Character {
     private int hp;
@@ -10,14 +9,18 @@ public abstract class Character {
     private double Xpos;
     private double Ypos;
     protected Image image;
-    public Character(Image image){
-        this.image=image;
+    protected ImageView imageView;
+
+    public Character(ImageView imageView){
+        this.image=imageView.getImage();
+        this.imageView=imageView;
 
     }
-    public Character(int hp, int damage,Image image){
+    public Character(int hp, int damage, ImageView imageview){
         this.hp=hp;
         this.damage=damage;
-        this.image=image;
+        this.image=imageview.getImage();
+        this.imageView=imageview;
     }
 
     public int getHp() {
@@ -53,7 +56,9 @@ public abstract class Character {
     }
 
     public abstract void attack(Character c);
+    public abstract void animate();
     public void dechp(int x){
+        this.hp-=x;
 
     }
 }
