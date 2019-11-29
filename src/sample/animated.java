@@ -132,6 +132,8 @@ public class animated implements Initializable {
     @FXML
     public ImageView dest84;
 
+    public static ImageView grid[][];
+
 
     public void setimageonimageview(ImageView dest, DragEvent event){
         Image im=event.getDragboard().getImage();
@@ -145,142 +147,16 @@ public class animated implements Initializable {
         canvas1=canvas;
 
         zombietimer();
+        grid= new ImageView[][]{{dest00, dest01, dest02, dest03, dest04},{dest10,dest11,dest12,dest13,dest14},{dest20,dest21,dest22,dest23,dest24},{dest30,dest31,dest32,dest33,dest34},{
+        dest40,dest41,dest42,dest43,dest44},{dest50,dest51,dest52,dest53,dest54},{dest60,dest61,dest62,dest63,dest64},{dest70,dest71,dest72,dest73,dest74},{dest80,dest81,dest82,dest83,dest84}};
 
-        dest00.setOnDragDropped(event -> {
-            setimageonimageview(dest00,event);
-        });
-        dest01.setOnDragDropped(event -> {
-            setimageonimageview(dest01,event);
-        });
-        dest02.setOnDragDropped(event -> {
-            setimageonimageview(dest02,event);
-        });
-        dest03.setOnDragDropped(event -> {
-            setimageonimageview(dest03,event);
-        });
-        dest04.setOnDragDropped(event -> {
-            setimageonimageview(dest04,event);
-        });
-        dest10.setOnDragDropped(event -> {
-            setimageonimageview(dest10,event);
-        });
-        dest11.setOnDragDropped(event -> {
-            setimageonimageview(dest11,event);
-        });
-        dest12.setOnDragDropped(event -> {
-            setimageonimageview(dest12,event);
-        });
-        dest13.setOnDragDropped(event -> {
-            setimageonimageview(dest13,event);
-        });
-        dest14.setOnDragDropped(event -> {
-            setimageonimageview(dest14,event);
-        });
-        dest20.setOnDragDropped(event -> {
-            setimageonimageview(dest20,event);
-        });
-        dest21.setOnDragDropped(event -> {
-            setimageonimageview(dest21,event);
-        });
-        dest22.setOnDragDropped(event -> {
-            setimageonimageview(dest22,event);
-        });
-        dest23.setOnDragDropped(event -> {
-            setimageonimageview(dest23,event);
-        });
-        dest24.setOnDragDropped(event -> {
-            setimageonimageview(dest24,event);
-        });
-        dest30.setOnDragDropped(event -> {
-            setimageonimageview(dest30,event);
-        });
-        dest31.setOnDragDropped(event -> {
-            setimageonimageview(dest31,event);
-        });
-        dest32.setOnDragDropped(event -> {
-            setimageonimageview(dest32,event);
-        });
-        dest33.setOnDragDropped(event -> {
-            setimageonimageview(dest33,event);
-        });
-        dest34.setOnDragDropped(event -> {
-            setimageonimageview(dest34,event);
-        });
-        dest40.setOnDragDropped(event -> {
-            setimageonimageview(dest40,event);
-        });
-        dest41.setOnDragDropped(event -> {
-            setimageonimageview(dest41,event);
-        });
-        dest42.setOnDragDropped(event -> {
-            setimageonimageview(dest42,event);
-        });
-        dest43.setOnDragDropped(event -> {
-            setimageonimageview(dest43,event);
-        });
-        dest44.setOnDragDropped(event -> {
-            setimageonimageview(dest44,event);
-        });
-        dest50.setOnDragDropped(event -> {
-            setimageonimageview(dest50,event);
-        });
-        dest51.setOnDragDropped(event -> {
-            setimageonimageview(dest51,event);
-        });
-        dest52.setOnDragDropped(event -> {
-            setimageonimageview(dest52,event);
-        });
-        dest53.setOnDragDropped(event -> {
-            setimageonimageview(dest53,event);
-        });
-        dest54.setOnDragDropped(event -> {
-            setimageonimageview(dest54,event);
-        });
-        dest60.setOnDragDropped(event -> {
-            setimageonimageview(dest60,event);
-        });
-        dest61.setOnDragDropped(event -> {
-            setimageonimageview(dest61,event);
-        });
-        dest62.setOnDragDropped(event -> {
-            setimageonimageview(dest62,event);
-        });
-        dest63.setOnDragDropped(event -> {
-            setimageonimageview(dest63,event);
-        });
-        dest64.setOnDragDropped(event -> {
-            setimageonimageview(dest64,event);
-        });
-        dest70.setOnDragDropped(event -> {
-            setimageonimageview(dest70,event);
-        });
-        dest71.setOnDragDropped(event -> {
-            setimageonimageview(dest71,event);
-        });
-        dest72.setOnDragDropped(event -> {
-            setimageonimageview(dest72,event);
-        });
-        dest73.setOnDragDropped(event -> {
-            setimageonimageview(dest73,event);
-        });
-        dest74.setOnDragDropped(event -> {
-            setimageonimageview(dest74,event);
-        });
-        dest80.setOnDragDropped(event -> {
-            setimageonimageview(dest80,event);
-        });
-        dest81.setOnDragDropped(event -> {
-            setimageonimageview(dest81,event);
-        });
-        dest82.setOnDragDropped(event -> {
-            setimageonimageview(dest82,event);
-        });
-        dest83.setOnDragDropped(event -> {
-            setimageonimageview(dest83,event);
-        });
-        dest84.setOnDragDropped(event -> {
-            setimageonimageview(dest84,event);
-        });
+        for(ImageView[] i: grid){
+            for(ImageView j : i){
+                j.setOnDragDropped(event -> {
+                    setimageonimageview(j,event);
+                });
+            }
+        }
 
     }
 
