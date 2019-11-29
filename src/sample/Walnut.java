@@ -10,7 +10,7 @@ public class Walnut extends Plant
     }
 
     @Override
-    public void attack(Character c)
+    public void attack(Characters c)
     {
         c.dechp(0);
     }

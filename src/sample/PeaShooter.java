@@ -12,7 +12,7 @@ public class PeaShooter extends Plant {
         pea.relocate(imageView.getLayoutX(),imageView.getLayoutY());
     }
     @Override
-    public void attack(Character c)
+    public void attack(Characters c)
     {
         c.dechp(30);
     }

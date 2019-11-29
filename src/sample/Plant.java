@@ -3,8 +3,7 @@ package sample;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public abstract class Plant extends Character
-{
+public abstract class Plant extends Characters{
     private int time;
     public Plant(int health, int damage, int time, ImageView image,int x,int y,ImageView gifimage)
     {

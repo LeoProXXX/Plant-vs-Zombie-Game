@@ -15,13 +15,12 @@ public class Main extends Application
     @Override
     public void start(Stage primaryStage) throws Exception{
         stage=primaryStage;
-        loader= new FXMLLoader(getClass().getResource("Start_Screen.fxml"));
+//        loader= new FXMLLoader(getClass().getResource("Start_Screen.fxml"));
+        loader= new FXMLLoader(getClass().getResource("Ingame.fxml"));
         root=loader.load();
         primaryStage.setTitle("Plant vs Zombies");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-        Game g=new Game();
-        Game.t.start();
     }
 
     public static void changeScene(String file) throws Exception{ // custom made function which helps in changing the scene

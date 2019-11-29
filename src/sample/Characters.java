@@ -3,7 +3,7 @@ package sample;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public abstract class Character {
+public abstract class Characters {
     private int hp;
     private int damage;
     private double Xpos;
@@ -12,13 +12,13 @@ public abstract class Character {
     protected ImageView imageView;
     protected ImageView gifimage;
 
-    public Character(ImageView imageView,ImageView gifimage){
+    public Characters(ImageView imageView,ImageView gifimage){
         this.image=imageView.getImage();
         this.imageView=imageView;
         this.gifimage=gifimage;
 
     }
-    public Character(int hp, int damage, ImageView imageview,int x,int y,ImageView gifimage){
+    public Characters(int hp, int damage, ImageView imageview,int x,int y,ImageView gifimage){
         this.hp=hp;
         this.damage=damage;
         this.image=imageview.getImage();
@@ -63,7 +63,7 @@ public abstract class Character {
         Ypos = ypos;
     }
 
-    public abstract void attack(Character c);
+    public abstract void attack(Characters c);
     public abstract void animate();
     public void dechp(int x){
         this.hp-=x;

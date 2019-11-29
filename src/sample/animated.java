@@ -3,12 +3,15 @@ package sample;
 
 import javafx.animation.*;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
@@ -22,11 +25,21 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 public class animated implements Initializable {
     Random rand=new Random();
+    public static int[] gridy= new int[]{90, 190, 300, 400, 500};
+    public static int[] gridx= new int[]{320, 400, 480, 560, 640, 720, 800, 880, 960};
+    public static Timeline suntokentimeline;
+    public static Timeline zombietimertimeline;
+    public static PathTransition zombietimertransition;
 
     @FXML
     public Pane canvas;
-
     public static Pane canvas1;
+
+    @FXML
+    public Label points;
+    public static Label points1;
+
+
 
     @FXML
     public Button gamepause;
@@ -137,8 +150,6 @@ public class animated implements Initializable {
 
 
     public void setimageonimageview(ImageView dest, DragEvent event){
-//        Image im=event.getDragboard().getImage();
-//        dest.setImage(im);
         switch (dragcase){
             case 1:
                 PeaShooter p=new PeaShooter((int)dest.getLayoutX(),(int)dest.getLayoutY());
@@ -164,15 +175,15 @@ public class animated implements Initializable {
                 System.out.println("no Object found");
         }
         System.out.println(dest.getLayoutX()+" "+dest.getLayoutX());
-        //shoot();
+
     }
     private ImageView z;
     private ImageView p;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         canvas1=canvas;
-
-        //zombietimer();
+        points.setText("0");
+        points1=points;
 
         grid= new ImageView[][]{{dest00, dest01, dest02, dest03, dest04},{dest10,dest11,dest12,dest13,dest14},{dest20,dest21,dest22,dest23,dest24},{dest30,dest31,dest32,dest33,dest34},{
                 dest40,dest41,dest42,dest43,dest44},{dest50,dest51,dest52,dest53,dest54},{dest60,dest61,dest62,dest63,dest64},{dest70,dest71,dest72,dest73,dest74},{dest80,dest81,dest82,dest83,dest84}};
@@ -184,8 +195,26 @@ public class animated implements Initializable {
                 });
             }
         }
-         p =new ImageView(new Image("/Photos/Pea.png"));
+
+        p =new ImageView(new Image("/Photos/Pea.png"));
         p.relocate(400, 490);
+        suntokentimeline= new Timeline(new KeyFrame(Duration.seconds(15), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+                Game.dropsuntoken();
+            }
+        }));
+        suntokentimeline.setCycleCount(Animation.INDEFINITE);
+        suntokentimeline.play();
+        zombietimertimeline=new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                zombietimer();
+            }
+        }));
+        zombietimertimeline.setCycleCount(1);
+        zombietimertimeline.play();
 
        z=new ImageView(new Image("/Photos/normal_zombie_moving.gif",100,100,false,false));
         z.relocate(850,460);
@@ -208,28 +237,31 @@ public class animated implements Initializable {
             p.setVisible(false);
     }
     public void shoot() {
+
         /*ImageView pea =new ImageView(new Image("/Photos/Pea.png"));
-        pea.relocate(400, 460);
+        pea.relocate(640, 90);
 
         ImageView zombie=new ImageView(new Image("/Photos/normal_zombie_moving.gif",100,100,false,false));
-        zombie.relocate(850,rand.nextInt(450)+30);
+        zombie.relocate(850,gridy[rand.nextInt(5)]-50);
 
-        ImageView sunToken = new ImageView(new Image("/Photos/sunnysmile.gif", 60, 60, false, false));
-        sunToken.relocate(rand.nextInt(600) + 260,10);
-
-        canvas.getChildren().add(sunToken);
         canvas.getChildren().add(pea);
         canvas.getChildren().add(zombie);
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new KeyValue(pea.layoutXProperty(), zombie.getLayoutX())));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(100), new KeyValue(pea.layoutXProperty(), zombie.getLayoutX())));
         Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(40), new KeyValue(zombie.layoutXProperty(), 300)));
-        Timeline timeline3=new Timeline(new KeyFrame(Duration.seconds(5), new KeyValue(sunToken.layoutYProperty(), 500)));*/
+
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+        timeline2.setCycleCount(1);
+        timeline2.play();*/
+
         Timeline timeline=new Timeline(x);
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+
     }
 
-    /*public void zombietimer(){
+    public void zombietimer(){
 
         ImageView zombiehead=new ImageView(new Image("/Photos/zombiehead.png",40,40,false,false));
         canvas.getChildren().add(zombiehead);
@@ -242,18 +274,21 @@ public class animated implements Initializable {
         line.setEndX(xend);
         line.setEndY(y);
 
-        PathTransition transition=new PathTransition();
-        transition.setNode(zombiehead);
-        transition.setDuration(Duration.seconds(120));
-        transition.setPath(line);
-        transition.setCycleCount(1);
-        transition.play();
+        zombietimertransition=new PathTransition();
+        zombietimertransition.setNode(zombiehead);
+        zombietimertransition.setDuration(Duration.seconds(120));
+        zombietimertransition.setPath(line);
+        zombietimertransition.setCycleCount(1);
+        zombietimertransition.play();
 
 
-    }*/
+    }
 
 
     public void showAlertWithDefaultHeaderText() throws Exception {
+        zombietimertimeline.stop();
+        suntokentimeline.stop();
+        zombietimertransition.stop();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Select");
         alert.setHeaderText("what do you want to do :");
@@ -267,8 +302,12 @@ public class animated implements Initializable {
 
         Optional<ButtonType> option = alert.showAndWait();
 
-        if (option.get() == null) {
+        if (option.get() == null|| option.get()==resumebutton) {
             this.gamepause.setText("Pause");
+//            zombietimertimeline.play();
+            suntokentimeline.play();
+            zombietimertransition.play();
+            
         } else if (option.get() == exitbutton) {
             System.exit(0);
         }  else if (option.get() == mainmenubutton) {

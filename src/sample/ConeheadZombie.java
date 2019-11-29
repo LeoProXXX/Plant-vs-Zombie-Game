@@ -10,7 +10,7 @@ public class ConeheadZombie extends Zombie {
     }
 
     @Override
-    public void attack(Character c) {
+    public void attack(Characters c) {
 
     }
 }
