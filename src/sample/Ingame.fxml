@@ -42,7 +42,10 @@
                 <ImageView fx:id="dest11" fitHeight="105.0" fitWidth="66.0" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <ImageView fx:id="dest21" fitHeight="106.0" fitWidth="66.0" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <ImageView fx:id="dest31" fitHeight="104.0" fitWidth="67.0" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <ImageView fx:id="dest41" fitHeight="106.0" fitWidth="82.0" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <ImageView fx:id="dest41" fitHeight="106.0" fitWidth="82.0" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <image>
+                  <Image url="@../Photos/pea_shooter.gif" />
+               </image></ImageView>
                 <ImageView fx:id="dest02" fitHeight="109.0" fitWidth="81.0" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
                 <ImageView fx:id="dest12" fitHeight="107.0" fitWidth="82.0" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                 <ImageView fx:id="dest22" fitHeight="104.0" fitWidth="83.0" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
@@ -103,11 +106,6 @@
         <ImageView fitHeight="75.0" fitWidth="93.0" layoutX="154.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../Photos/lawn_mower.gif" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="96.0" fitWidth="78.0" layoutX="337.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../Photos/pea_shooter.gif" />
             </image>
         </ImageView>
         <Button fx:id="gamepause" layoutX="928.0" layoutY="13.0" mnemonicParsing="false" onAction="#showAlertWithDefaultHeaderText" text="Pause" />

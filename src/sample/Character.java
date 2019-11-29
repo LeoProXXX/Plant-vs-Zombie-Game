@@ -10,19 +10,22 @@ public abstract class Character {
     private double Ypos;
     protected Image image;
     protected ImageView imageView;
+    protected ImageView gifimage;
 
-    public Character(ImageView imageView){
+    public Character(ImageView imageView,ImageView gifimage){
         this.image=imageView.getImage();
         this.imageView=imageView;
+        this.gifimage=gifimage;
 
     }
-    public Character(int hp, int damage, ImageView imageview,int x,int y){
+    public Character(int hp, int damage, ImageView imageview,int x,int y,ImageView gifimage){
         this.hp=hp;
         this.damage=damage;
         this.image=imageview.getImage();
         this.imageView=imageview;
         this.Xpos=x;
         this.Ypos=y;
+        this.gifimage=gifimage;
     }
 
     public int getHp() {

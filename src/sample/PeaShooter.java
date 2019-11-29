@@ -7,7 +7,7 @@ public class PeaShooter extends Plant {
     public ImageView pea;
     public PeaShooter(int x,int y)
     {
-        super(100,30,3,new ImageView(new Image("/Photos/peashooter.jpeg")),x,y);
+        super(100,30,3,new ImageView(new Image("/Photos/peashooter.jpeg")),x,y,new ImageView(new Image("/Photos/pea_shooter.gif")));
         pea=new ImageView(new Image("/Photos/Pea.png"));
         pea.relocate(imageView.getLayoutX(),imageView.getLayoutY());
     }

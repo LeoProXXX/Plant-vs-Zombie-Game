@@ -7,7 +7,7 @@ public class Sunflower extends Plant
 {
     public Sunflower(int x,int y)
     {
-        super(100,0,2,new ImageView(new Image("/Photos/sunflower.png")),x,y);
+        super(100,0,2,new ImageView(new Image("/Photos/sunflower.png")),x,y,new ImageView(new Image("/Photos/sun_flower.gif")));
     }
     @Override
     public void attack(Character c)

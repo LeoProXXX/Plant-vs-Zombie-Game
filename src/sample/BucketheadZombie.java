@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 
 public class BucketheadZombie extends Zombie {
     public BucketheadZombie(int x,int y){
-        super(100,40,new ImageView(new Image("/Photos/buckethead.png")),x,y);
+        super(100,40,x,y,new ImageView(new Image("/Photos/buckethead.png")),new ImageView(new Image("/Photos/zombie_football.gif")));
 
     }
     @Override

@@ -144,22 +144,22 @@ public class animated implements Initializable {
             case 1:
                 PeaShooter p=new PeaShooter((int)dest.getLayoutX(),(int)dest.getLayoutY());
                 Game.gameobjects.add(p);
-                dest.setImage(p.image);
+                dest.setImage(p.gifimage.getImage());
             break;
             case 2:
                 Sunflower s=new Sunflower((int)dest.getLayoutX(),(int)dest.getLayoutY());
                 Game.gameobjects.add(s);
-                dest.setImage(s.image);
+                dest.setImage(s.gifimage.getImage());
             break;
             case 3:
                 Walnut w=new Walnut((int)dest.getLayoutX(),(int)dest.getLayoutY());
                 Game.gameobjects.add(w);
-                dest.setImage(w.image);
+                dest.setImage(w.gifimage.getImage());
             break;
             case 4:
                 CherryBomb c=new CherryBomb((int)dest.getLayoutX(),(int)dest.getLayoutY());
                 Game.gameobjects.add(c);
-                dest.setImage(c.image);
+                dest.setImage(c.gifimage.getImage());
             break;
             default:
                 System.out.println("no Object found");

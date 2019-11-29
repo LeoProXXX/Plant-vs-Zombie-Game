@@ -7,7 +7,7 @@ public class CherryBomb extends Plant
 {
     public CherryBomb(int x,int y)
     {
-        super(100,1000,5,new ImageView(new Image("/Photos/Cherrybomb.jpeg")),x,y);
+        super(100,1000,5,new ImageView(new Image("/Photos/Cherrybomb.jpeg")),x,y,new ImageView(new Image("/Photos/Cherrybomb.jpeg")));
     }
     @Override
     public void attack(Character c)
