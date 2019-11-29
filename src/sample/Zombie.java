@@ -4,7 +4,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Zombie extends Character {
-
+    public Zombie(int x,int y,ImageView image,ImageView gifimage)
+    {
+        super(100,10,image,x,y,gifimage);
+        imageView.relocate(850,460);
+    }
     public Zombie(int hp, int damage, int x, int y, ImageView image, ImageView gifimage){
 
         super(hp,damage,image,x,y,gifimage);
@@ -23,6 +27,6 @@ public class Zombie extends Character {
     @Override
     public void animate() {
 
-        imageView.setTranslateX(10);
+        gifimage.setTranslateX(10);
     }
 }

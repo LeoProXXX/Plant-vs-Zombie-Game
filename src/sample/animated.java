@@ -2,7 +2,7 @@ package sample;
 
 
 import javafx.animation.*;
-
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 
 import javafx.fxml.Initializable;
@@ -20,7 +20,6 @@ import java.net.URL;
 import java.util.Random;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 public class animated implements Initializable {
     Random rand=new Random();
 
@@ -165,14 +164,15 @@ public class animated implements Initializable {
                 System.out.println("no Object found");
         }
         System.out.println(dest.getLayoutX()+" "+dest.getLayoutX());
-        shoot();
+        //shoot();
     }
-
+    private ImageView z;
+    private ImageView p;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         canvas1=canvas;
 
-        zombietimer();
+        //zombietimer();
 
         grid= new ImageView[][]{{dest00, dest01, dest02, dest03, dest04},{dest10,dest11,dest12,dest13,dest14},{dest20,dest21,dest22,dest23,dest24},{dest30,dest31,dest32,dest33,dest34},{
                 dest40,dest41,dest42,dest43,dest44},{dest50,dest51,dest52,dest53,dest54},{dest60,dest61,dest62,dest63,dest64},{dest70,dest71,dest72,dest73,dest74},{dest80,dest81,dest82,dest83,dest84}};
@@ -184,11 +184,31 @@ public class animated implements Initializable {
                 });
             }
         }
+         p =new ImageView(new Image("/Photos/Pea.png"));
+        p.relocate(400, 490);
 
+       z=new ImageView(new Image("/Photos/normal_zombie_moving.gif",100,100,false,false));
+        z.relocate(850,460);
+        canvas.getChildren().add(z);
+        canvas.getChildren().add(p);
     }
-
+    Duration t=Duration.millis(1000/60);
+    KeyFrame x=new KeyFrame(t,e->{
+        update();
+       checkcollision();
+    });
+    public void update()
+    {
+        p.setTranslateX(p.getTranslateX()+2);
+        z.setTranslateX(z.getTranslateX()-1);
+    }
+    public void checkcollision()
+    {
+        if(z.getBoundsInParent().getMaxX()-p.getBoundsInParent().getMaxX()<=15)
+            p.setVisible(false);
+    }
     public void shoot() {
-        ImageView pea =new ImageView(new Image("/Photos/Pea.png"));
+        /*ImageView pea =new ImageView(new Image("/Photos/Pea.png"));
         pea.relocate(400, 460);
 
         ImageView zombie=new ImageView(new Image("/Photos/normal_zombie_moving.gif",100,100,false,false));
@@ -203,17 +223,13 @@ public class animated implements Initializable {
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new KeyValue(pea.layoutXProperty(), zombie.getLayoutX())));
         Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(40), new KeyValue(zombie.layoutXProperty(), 300)));
-        Timeline timeline3=new Timeline(new KeyFrame(Duration.seconds(5), new KeyValue(sunToken.layoutYProperty(), 500)));
-
+        Timeline timeline3=new Timeline(new KeyFrame(Duration.seconds(5), new KeyValue(sunToken.layoutYProperty(), 500)));*/
+        Timeline timeline=new Timeline(x);
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
-        timeline2.setCycleCount(1);
-        timeline2.play();
-        timeline3.setCycleCount(1);
-        timeline3.play();
     }
 
-    public void zombietimer(){
+    /*public void zombietimer(){
 
         ImageView zombiehead=new ImageView(new Image("/Photos/zombiehead.png",40,40,false,false));
         canvas.getChildren().add(zombiehead);
@@ -234,7 +250,7 @@ public class animated implements Initializable {
         transition.play();
 
 
-    }
+    }*/
 
 
     public void showAlertWithDefaultHeaderText() throws Exception {

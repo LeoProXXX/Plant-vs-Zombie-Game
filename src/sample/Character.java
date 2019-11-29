@@ -27,7 +27,10 @@ public abstract class Character {
         this.Ypos=y;
         this.gifimage=gifimage;
     }
-
+    public ImageView getImage()
+    {
+        return gifimage;
+    }
     public int getHp() {
         return hp;
     }
