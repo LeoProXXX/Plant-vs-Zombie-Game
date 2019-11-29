@@ -13,6 +13,7 @@ public class Game {
             public void handle(long l) {
                 if(gameobjects.size()!=0){
                     Character i=gameobjects.remove(0);
+                    i.animate();
                 }
             }
         };
