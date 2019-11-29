@@ -20,6 +20,8 @@ public class Main extends Application
         primaryStage.setTitle("Plant vs Zombies");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        Game g=new Game();
+        Game.t.start();
     }
 
     public static void changeScene(String file) throws Exception{ // custom made function which helps in changing the scene

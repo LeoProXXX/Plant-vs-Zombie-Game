@@ -134,10 +134,36 @@ public class animated implements Initializable {
 
     public static ImageView grid[][];
 
+    public int dragcase=-1;
+
 
     public void setimageonimageview(ImageView dest, DragEvent event){
-        Image im=event.getDragboard().getImage();
-        dest.setImage(im);
+//        Image im=event.getDragboard().getImage();
+//        dest.setImage(im);
+        switch (dragcase){
+            case 1:
+                PeaShooter p=new PeaShooter((int)dest.getLayoutX(),(int)dest.getLayoutY());
+                Game.gameobjects.add(p);
+                dest.setImage(p.image);
+            break;
+            case 2:
+                Sunflower s=new Sunflower((int)dest.getLayoutX(),(int)dest.getLayoutY());
+                Game.gameobjects.add(s);
+                dest.setImage(s.image);
+            break;
+            case 3:
+                Walnut w=new Walnut((int)dest.getLayoutX(),(int)dest.getLayoutY());
+                Game.gameobjects.add(w);
+                dest.setImage(w.image);
+            break;
+            case 4:
+                CherryBomb c=new CherryBomb((int)dest.getLayoutX(),(int)dest.getLayoutY());
+                Game.gameobjects.add(c);
+                dest.setImage(c.image);
+            break;
+            default:
+                System.out.println("no Object found");
+        }
         System.out.println(dest.getLayoutX()+" "+dest.getLayoutX());
         shoot();
     }
@@ -147,6 +173,7 @@ public class animated implements Initializable {
         canvas1=canvas;
 
         zombietimer();
+
         grid= new ImageView[][]{{dest00, dest01, dest02, dest03, dest04},{dest10,dest11,dest12,dest13,dest14},{dest20,dest21,dest22,dest23,dest24},{dest30,dest31,dest32,dest33,dest34},{
                 dest40,dest41,dest42,dest43,dest44},{dest50,dest51,dest52,dest53,dest54},{dest60,dest61,dest62,dest63,dest64},{dest70,dest71,dest72,dest73,dest74},{dest80,dest81,dest82,dest83,dest84}};
 
@@ -201,7 +228,7 @@ public class animated implements Initializable {
 
         PathTransition transition=new PathTransition();
         transition.setNode(zombiehead);
-        transition.setDuration(Duration.seconds(60));
+        transition.setDuration(Duration.seconds(120));
         transition.setPath(line);
         transition.setCycleCount(1);
         transition.play();
@@ -238,6 +265,7 @@ public class animated implements Initializable {
 
     @FXML
     public void handledragdetection_plant(MouseEvent event){
+        dragcase=1;
         Dragboard db= source1.startDragAndDrop(TransferMode.ANY);
         ClipboardContent cb=new ClipboardContent();
         cb.putImage(source1.getImage());
@@ -247,6 +275,7 @@ public class animated implements Initializable {
 
     @FXML
     public void handledragdetection_sunflower(MouseEvent event){
+        dragcase=2;
         Dragboard db= source2.startDragAndDrop(TransferMode.ANY);
         ClipboardContent cb=new ClipboardContent();
         cb.putImage(source2.getImage());
@@ -255,6 +284,7 @@ public class animated implements Initializable {
     }
     @FXML
     public void handledragdetection_walnut(MouseEvent event){
+        dragcase=3;
         Dragboard db= source3.startDragAndDrop(TransferMode.ANY);
         ClipboardContent cb=new ClipboardContent();
         cb.putImage(source3.getImage());
@@ -263,6 +293,7 @@ public class animated implements Initializable {
     }
     @FXML
     public void handledragdetection_bomb(MouseEvent event){
+        dragcase=4;
         Dragboard db= source4.startDragAndDrop(TransferMode.ANY);
         ClipboardContent cb=new ClipboardContent();
         cb.putImage(source4.getImage());

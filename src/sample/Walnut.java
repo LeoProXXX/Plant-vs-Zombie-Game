@@ -5,8 +5,8 @@ import javafx.scene.image.ImageView;
 
 public class Walnut extends Plant
 {
-    public Walnut() {
-        super(500,0,7,new ImageView(new Image("/Photos/walnut.png")));
+    public Walnut(int x,int y) {
+        super(500,0,7,new ImageView(new Image("/Photos/walnut.png")),x,y);
     }
 
     @Override

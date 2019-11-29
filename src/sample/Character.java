@@ -16,11 +16,13 @@ public abstract class Character {
         this.imageView=imageView;
 
     }
-    public Character(int hp, int damage, ImageView imageview){
+    public Character(int hp, int damage, ImageView imageview,int x,int y){
         this.hp=hp;
         this.damage=damage;
         this.image=imageview.getImage();
         this.imageView=imageview;
+        this.Xpos=x;
+        this.Ypos=y;
     }
 
     public int getHp() {

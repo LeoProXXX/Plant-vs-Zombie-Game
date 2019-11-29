@@ -11,9 +11,9 @@ public class Game {
         t= new AnimationTimer(){
             @Override
             public void handle(long l) {
-                if(gameobjects.size()!=0){
-                    Character i=gameobjects.remove(0);
+                for(Character i : gameobjects){
                     i.animate();
+                    System.out.println(i.toString());
                 }
             }
         };

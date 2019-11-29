@@ -5,8 +5,8 @@ import javafx.scene.image.ImageView;
 
 public class Zombie extends Character {
 
-    public Zombie(int hp, int damage, ImageView image){
-        super(hp,damage,image);
+    public Zombie(int hp, int damage, ImageView image,int x,int y){
+        super(hp,damage,image,x,y);
     }
 
     public void moving(){
@@ -14,11 +14,11 @@ public class Zombie extends Character {
     }
     @Override
     public void attack(Character c){
-
+        c.dechp(getDamage());
     }
 
     @Override
     public void animate() {
-
+        imageView.setTranslateX(10);
     }
 }
