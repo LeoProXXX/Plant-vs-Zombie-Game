@@ -17,14 +17,14 @@ public class StartScreen
     public void newGame(ActionEvent e) throws Exception
     {
         newgame=true;
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("input.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("Input.fxml"));
         loader.setController(new Input(playerList,newgame));
         Main.root=loader.load();
         Main.stage.setScene(new Scene(Main.root));
     }
     public void loadGame(ActionEvent e) throws Exception
     {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("input.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("Input.fxml"));
         loader.setController(new Input(playerList,newgame));
         Main.root=loader.load();
         Main.stage.setScene(new Scene(Main.root));
