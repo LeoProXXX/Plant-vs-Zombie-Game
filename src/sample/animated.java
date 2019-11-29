@@ -21,13 +21,14 @@ import java.util.Random;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static java.lang.Thread.sleep;
+
+
 public class animated implements Initializable {
     Random rand=new Random();
 
     @FXML
     public Pane canvas;
-
-    public static Pane canvas1;
 
     @FXML
     public Button gamepause;
@@ -91,52 +92,16 @@ public class animated implements Initializable {
     public ImageView dest43;
     @FXML
     public ImageView dest44;
-    @FXML
-    public ImageView dest50;
-    @FXML
-    public ImageView dest51;
-    @FXML
-    public ImageView dest52;
-    @FXML
-    public ImageView dest53;
-    @FXML
-    public ImageView dest54;
-    @FXML
-    public ImageView dest60;
-    @FXML
-    public ImageView dest61;
-    @FXML
-    public ImageView dest62;
-    @FXML
-    public ImageView dest63;
-    @FXML
-    public ImageView dest64;
-    @FXML
-    public ImageView dest70;
-    @FXML
-    public ImageView dest71;
-    @FXML
-    public ImageView dest72;
-    @FXML
-    public ImageView dest73;
-    @FXML
-    public ImageView dest74;
-    @FXML
-    public ImageView dest80;
-    @FXML
-    public ImageView dest81;
-    @FXML
-    public ImageView dest82;
-    @FXML
-    public ImageView dest83;
-    @FXML
-    public ImageView dest84;
 
-    public static ImageView grid[][];
+    public int check=1;
 
+
+    public int chosenx=0,choseny=0;
 
     public void setimageonimageview(ImageView dest, DragEvent event){
         Image im=event.getDragboard().getImage();
+        System.out.println((im.getUrl()+" "+im.toString()));
+        System.out.println(event.getDragboard().getUrl());
         dest.setImage(im);
         System.out.println(dest.getLayoutX()+" "+dest.getLayoutX());
         shoot();
@@ -144,23 +109,93 @@ public class animated implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        canvas1=canvas;
+        dest00.setOnDragDropped(event -> {
+            setimageonimageview(dest00,event);
+        });
+        dest01.setOnDragDropped(event -> {
+            setimageonimageview(dest01,event);
+        });
+        dest02.setOnDragDropped(event -> {
+            setimageonimageview(dest02,event);
+        });
+        dest03.setOnDragDropped(event -> {
+            setimageonimageview(dest03,event);
+        });
+        dest04.setOnDragDropped(event -> {
+            setimageonimageview(dest04,event);
+        });
+        dest10.setOnDragDropped(event -> {
+            setimageonimageview(dest10,event);
+        });
+        dest11.setOnDragDropped(event -> {
+            setimageonimageview(dest11,event);
+        });
+        dest12.setOnDragDropped(event -> {
+            setimageonimageview(dest12,event);
+        });
+        dest13.setOnDragDropped(event -> {
+            setimageonimageview(dest13,event);
+        });
+        dest14.setOnDragDropped(event -> {
+            setimageonimageview(dest14,event);
+        });
+        dest20.setOnDragDropped(event -> {
+            setimageonimageview(dest20,event);
+        });
+        dest21.setOnDragDropped(event -> {
+            setimageonimageview(dest21,event);
+        });
+        dest22.setOnDragDropped(event -> {
+            setimageonimageview(dest22,event);
+        });
+        dest23.setOnDragDropped(event -> {
+            setimageonimageview(dest23,event);
+        });
+        dest24.setOnDragDropped(event -> {
+            setimageonimageview(dest24,event);
+        });
+        dest30.setOnDragDropped(event -> {
+            setimageonimageview(dest30,event);
+        });
+        dest31.setOnDragDropped(event -> {
+            setimageonimageview(dest31,event);
+        });
+        dest32.setOnDragDropped(event -> {
+            setimageonimageview(dest32,event);
+        });
+        dest33.setOnDragDropped(event -> {
+            setimageonimageview(dest33,event);
+        });
+        dest34.setOnDragDropped(event -> {
+            setimageonimageview(dest34,event);
+        });
+        dest40.setOnDragDropped(event -> {
+            setimageonimageview(dest40,event);
+        });
+        dest41.setOnDragDropped(event -> {
+            setimageonimageview(dest41,event);
+        });
+        dest42.setOnDragDropped(event -> {
+            setimageonimageview(dest42,event);
+        });
+        dest43.setOnDragDropped(event -> {
+            setimageonimageview(dest43,event);
+        });
+        dest44.setOnDragDropped(event -> {
+            setimageonimageview(dest44,event);
+        });
 
-        zombietimer();
-        grid= new ImageView[][]{{dest00, dest01, dest02, dest03, dest04},{dest10,dest11,dest12,dest13,dest14},{dest20,dest21,dest22,dest23,dest24},{dest30,dest31,dest32,dest33,dest34},{
-        dest40,dest41,dest42,dest43,dest44},{dest50,dest51,dest52,dest53,dest54},{dest60,dest61,dest62,dest63,dest64},{dest70,dest71,dest72,dest73,dest74},{dest80,dest81,dest82,dest83,dest84}};
 
-        for(ImageView[] i: grid){
-            for(ImageView j : i){
-                j.setOnDragDropped(event -> {
-                    setimageonimageview(j,event);
-                });
-            }
-        }
+
 
     }
 
     public void shoot() {
+        if(check==1){
+            zombietimer();
+            check=0;
+        }
+
         ImageView pea =new ImageView(new Image("/Photos/Pea.png"));
         pea.relocate(400, 460);
 
@@ -173,6 +208,8 @@ public class animated implements Initializable {
         canvas.getChildren().add(sunToken);
         canvas.getChildren().add(pea);
         canvas.getChildren().add(zombie);
+
+
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), new KeyValue(pea.layoutXProperty(), zombie.getLayoutX())));
         Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(40), new KeyValue(zombie.layoutXProperty(), 300)));
@@ -275,5 +312,14 @@ public class animated implements Initializable {
         if(event.getDragboard().hasImage()){
             event.acceptTransferModes(TransferMode.ANY);
         }
+
     }
+//    @FXML
+//    public void handledrop(DragEvent event){
+//        Image plant=event.getDragboard().getImage();
+//        dest00.setImage(plant);
+//
+//    }
+
+
 }
