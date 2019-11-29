@@ -8,17 +8,20 @@ public abstract class Characters {
     private int damage;
     private double Xpos;
     private double Ypos;
+
+    private int speed;
     protected Image image;
     protected ImageView imageView;
     protected ImageView gifimage;
 
-    public Characters(ImageView imageView,ImageView gifimage){
+    public Characters(ImageView imageView,ImageView gifimage,int speed){
         this.image=imageView.getImage();
         this.imageView=imageView;
         this.gifimage=gifimage;
-
+        this.speed=speed;
     }
-    public Characters(int hp, int damage, ImageView imageview,int x,int y,ImageView gifimage){
+
+    public Characters(int hp, int damage, ImageView imageview,int x,int y,ImageView gifimage,int speed){
         this.hp=hp;
         this.damage=damage;
         this.image=imageview.getImage();
@@ -26,7 +29,9 @@ public abstract class Characters {
         this.Xpos=x;
         this.Ypos=y;
         this.gifimage=gifimage;
+        this.speed=speed;
     }
+
     public ImageView getImage()
     {
         return gifimage;
@@ -37,6 +42,14 @@ public abstract class Characters {
 
     public void setHp(int hp) {
         this.hp = hp;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
     public int getDamage() {

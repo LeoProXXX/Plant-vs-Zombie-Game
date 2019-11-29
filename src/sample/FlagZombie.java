@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 
 public class FlagZombie extends Zombie {
     public FlagZombie(int x,int y){
-        super(100,40,x,y,new ImageView(new Image("/Photos/flag.png")),new ImageView(new Image("/Photos/flag.png")));
+        super(100,40,x,y,new ImageView(new Image("/Photos/flag.png")),new ImageView(new Image("/Photos/flag.png")),10);
 
     }
     @Override

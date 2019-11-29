@@ -39,8 +39,6 @@ public class animated implements Initializable {
     public Label points;
     public static Label points1;
 
-
-
     @FXML
     public Button gamepause;
 
@@ -177,8 +175,6 @@ public class animated implements Initializable {
         System.out.println(dest.getLayoutX()+" "+dest.getLayoutX());
 
     }
-    private ImageView z;
-    private ImageView p;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         canvas1=canvas;
@@ -196,46 +192,35 @@ public class animated implements Initializable {
             }
         }
 
-        p =new ImageView(new Image("/Photos/Pea.png"));
-        p.relocate(400, 490);
-        suntokentimeline= new Timeline(new KeyFrame(Duration.seconds(15), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
 
-                Game.dropsuntoken();
-            }
-        }));
+        suntokentimeline= new Timeline(new KeyFrame(Duration.seconds(15),e-> Game.dropsuntoken()));
         suntokentimeline.setCycleCount(Animation.INDEFINITE);
         suntokentimeline.play();
-        zombietimertimeline=new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                zombietimer();
-            }
-        }));
+
+        zombietimertimeline=new Timeline(new KeyFrame(Duration.seconds(10), e-> zombietimer()));
         zombietimertimeline.setCycleCount(1);
         zombietimertimeline.play();
 
-       z=new ImageView(new Image("/Photos/normal_zombie_moving.gif",100,100,false,false));
-        z.relocate(850,460);
-        canvas.getChildren().add(z);
-        canvas.getChildren().add(p);
+
     }
-    Duration t=Duration.millis(1000/60);
-    KeyFrame x=new KeyFrame(t,e->{
-        update();
-       checkcollision();
-    });
-    public void update()
-    {
-        p.setTranslateX(p.getTranslateX()+2);
-        z.setTranslateX(z.getTranslateX()-1);
-    }
-    public void checkcollision()
+
+//    Duration t=Duration.millis(1000/60);
+//    KeyFrame x=new KeyFrame(t,e->{
+//        update();
+//       checkcollision();
+//    });
+//    public void update()
+//    {
+//        p.setTranslateX(p.getTranslateX()+2);
+//        z.setTranslateX(z.getTranslateX()-1);
+//    }
+    public static boolean checkcollision(ImageView z,ImageView p)
     {
         if(z.getBoundsInParent().getMaxX()-p.getBoundsInParent().getMaxX()<=15)
-            p.setVisible(false);
+            return true;
+        return false;
     }
+
     public void shoot() {
 
         /*ImageView pea =new ImageView(new Image("/Photos/Pea.png"));
@@ -255,9 +240,9 @@ public class animated implements Initializable {
         timeline2.setCycleCount(1);
         timeline2.play();*/
 
-        Timeline timeline=new Timeline(x);
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
+//        Timeline timeline=new Timeline(x);
+//        timeline.setCycleCount(Animation.INDEFINITE);
+//        timeline.play();
 
     }
 
@@ -280,8 +265,6 @@ public class animated implements Initializable {
         zombietimertransition.setPath(line);
         zombietimertransition.setCycleCount(1);
         zombietimertransition.play();
-
-
     }
 
 

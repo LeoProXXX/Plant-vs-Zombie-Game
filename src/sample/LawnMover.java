@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 
 public class LawnMover extends Characters {
     public LawnMover(){
-        super(new ImageView(new Image("/Photos/lawn_mower.gif")),new ImageView(new Image("/Photos/lawn_mower.gif")));
+        super(new ImageView(new Image("/Photos/lawn_mower.gif")),new ImageView(new Image("/Photos/lawn_mower.gif")),10);
     }
 
     @Override
