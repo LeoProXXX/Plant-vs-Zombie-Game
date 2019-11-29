@@ -23,9 +23,9 @@ public class Game {
         Sun s=new Sun();
         s.gifimage.relocate(rand.nextInt(600) + 260,10);
         animated.canvas1.getChildren().add(s.gifimage);
-        Timeline timeline3=new Timeline(new KeyFrame(Duration.seconds(5), new KeyValue(s.gifimage.layoutYProperty(), rand.nextInt(440)+60)));
-        timeline3.setCycleCount(1);
-        timeline3.play();
+        Timeline timeline=new Timeline(new KeyFrame(Duration.seconds(5), new KeyValue(s.gifimage.layoutYProperty(), rand.nextInt(440)+60)));
+        timeline.setCycleCount(1);
+        timeline.play();
 
     }
 }

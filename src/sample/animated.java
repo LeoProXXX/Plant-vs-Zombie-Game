@@ -29,6 +29,7 @@ public class animated implements Initializable {
     public static int[] gridx= new int[]{320, 400, 480, 560, 640, 720, 800, 880, 960};
     public static Timeline suntokentimeline;
     public static Timeline zombietimertimeline;
+    public static Timeline zombietimeline;
     public static PathTransition zombietimertransition;
 
     @FXML
@@ -201,19 +202,21 @@ public class animated implements Initializable {
         zombietimertimeline.setCycleCount(1);
         zombietimertimeline.play();
 
+        zombietimeline=new Timeline(new KeyFrame(Duration.seconds(5),e->{
+            NormalZombie n=new NormalZombie(850,gridy[rand.nextInt(5)]-50);
+            n.gifimage.relocate(900,gridy[rand.nextInt(5)]-50);
+            canvas.getChildren().add(n.gifimage);
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.05),z->{
+                n.animate();
+            } ));
+            timeline.setCycleCount(Animation.INDEFINITE);
+            timeline.play();
+        }));
+        zombietimeline.setCycleCount(1);
+        zombietimeline.play();
 
     }
 
-//    Duration t=Duration.millis(1000/60);
-//    KeyFrame x=new KeyFrame(t,e->{
-//        update();
-//       checkcollision();
-//    });
-//    public void update()
-//    {
-//        p.setTranslateX(p.getTranslateX()+2);
-//        z.setTranslateX(z.getTranslateX()-1);
-//    }
     public static boolean checkcollision(ImageView z,ImageView p)
     {
         if(z.getBoundsInParent().getMaxX()-p.getBoundsInParent().getMaxX()<=15)
@@ -225,25 +228,10 @@ public class animated implements Initializable {
 
         /*ImageView pea =new ImageView(new Image("/Photos/Pea.png"));
         pea.relocate(640, 90);
-
-        ImageView zombie=new ImageView(new Image("/Photos/normal_zombie_moving.gif",100,100,false,false));
-        zombie.relocate(850,gridy[rand.nextInt(5)]-50);
-
         canvas.getChildren().add(pea);
-        canvas.getChildren().add(zombie);
-
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(100), new KeyValue(pea.layoutXProperty(), zombie.getLayoutX())));
-        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(40), new KeyValue(zombie.layoutXProperty(), 300)));
-
         timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-        timeline2.setCycleCount(1);
-        timeline2.play();*/
-
-//        Timeline timeline=new Timeline(x);
-//        timeline.setCycleCount(Animation.INDEFINITE);
-//        timeline.play();
-
+        timeline.play();*/
     }
 
     public void zombietimer(){

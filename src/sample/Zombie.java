@@ -14,7 +14,7 @@ public class Zombie extends Characters {
     public Zombie(int x,int y,ImageView image,ImageView gifimage,int speed)
     {
         super(100,10,image,x,y,gifimage,speed);
-        imageView.relocate(850,460);
+//        imageView.relocate(850,460);
     }
 
     public void moving(){
@@ -30,6 +30,6 @@ public class Zombie extends Characters {
     @Override
     public void animate() {
 
-        gifimage.setTranslateX(10);
+        gifimage.setTranslateX(gifimage.getTranslateX()-getSpeed());
     }
 }
