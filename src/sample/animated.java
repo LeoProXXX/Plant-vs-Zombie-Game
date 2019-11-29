@@ -204,7 +204,6 @@ public class animated implements Initializable {
 
         ImageView sunToken = new ImageView(new Image("/Photos/sunnysmile.gif", 60, 60, false, false));
         sunToken.relocate(rand.nextInt(600) + 260,10);
-
         canvas.getChildren().add(sunToken);
         canvas.getChildren().add(pea);
         canvas.getChildren().add(zombie);

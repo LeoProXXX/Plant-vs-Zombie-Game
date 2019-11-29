@@ -9,21 +9,25 @@ public class Main extends Application
 {
     public static int width=800;
     public static int height=800;
+    public static Parent root;
+    private static FXMLLoader loader;
     public static Stage stage;
     @Override
     public void start(Stage primaryStage) throws Exception{
         stage=primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));
+        loader= new FXMLLoader(getClass().getResource("Start_Screen.fxml"));
+        root=loader.load();
         primaryStage.setTitle("Plant vs Zombies");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
     public static void changeScene(String file) throws Exception{ // custom made function which helps in changing the scene
-        Parent root = FXMLLoader.load(Main.class.getResource(file));
+        root = FXMLLoader.load(Main.class.getResource(file));
         Main.stage.setScene(new Scene(root));
     }
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         launch(args);
     }
 }

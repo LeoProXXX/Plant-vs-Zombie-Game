@@ -6,14 +6,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
       <ImageView fitHeight="664.0" fitWidth="812.0">
          <image>
             <Image url="@../Photos/background.jpeg" />
          </image>
       </ImageView>
-        <Button layoutX="334.0" layoutY="455.0" mnemonicParsing="false" onAction="#back_login" prefHeight="42.0" prefWidth="64.0" style="-fx-background-color: transparent;">
+        <Button layoutX="334.0" layoutY="455.0" mnemonicParsing="false" onAction="#back" prefHeight="42.0" prefWidth="64.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="100.0">
                <image>

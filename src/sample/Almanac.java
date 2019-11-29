@@ -1,67 +1,36 @@
 package sample;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
-public class Controller
+
+import java.util.ArrayList;
+
+public class Almanac
 {
-    ObservableList<String> saved_games= FXCollections.observableArrayList("Manan level 1","Sandeep level 4");
-    @FXML
-    private ChoiceBox games;
+    private ArrayList<Player> playerList;
+    private Player currPlayer;
     @FXML
     private Label character_details;
     @FXML
     private ImageView character_image;
-    @FXML
-    private Label help_zombies;
-
-    public String curr_username; //username of current user; it gets set when either creates a new game or chooses from a list of username in resume game option
-
-
-    public void show_overview(ActionEvent e) throws Exception
+    public Almanac(ArrayList<Player> x, Player a)
     {
-        Main.changeScene("Overview.fxml");
+        currPlayer=a;
+        playerList=x;
     }
-    public void show_resume(ActionEvent e) throws Exception
+    public void back(ActionEvent e) throws Exception
     {
-        Main.changeScene("Resume_Game.fxml");
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("LoginScreen.fxml"));
+        loader.setController(new LoginScreen(playerList,currPlayer));
+        Main.root=loader.load();
+        Main.stage.setScene(new Scene(Main.root));
     }
-    public void show_almanac(ActionEvent e) throws Exception
-    {
-        Main.changeScene("Almanac.fxml");
-    }
-    public void show_Helpmenu(ActionEvent e) throws Exception
-    {
-        Main.changeScene("Help.fxml");
-    }
-    public void show_Ingame() throws Exception
-    {
-        Main.changeScene("Usernameinput.fxml");
-    }
-    public void exit_game(ActionEvent e)
-    {
-        System.exit(0);
-    }
-
-
-
-
-
-    public void show_help(ActionEvent e) throws Exception
-    {
-        help_zombies.setVisible(true);
-    }
-
     public void Peashooter_press(){// action when mouse is pressed on peashooter image in almanac
         character_image.setImage(new Image("/Photos/peashooter.jpeg"));
         character_details.setFont(new Font("Arial", 15));
@@ -124,5 +93,4 @@ public class Controller
                 "Make no mistake, Flag Zombie loves brains. But somewhere down the line he also picked up a fascination with flags. Maybe it's because the flags always have brains on them. Hard to say. ");
         character_image.setImage(new Image("/Photos/flag.png"));
     }
-
 }

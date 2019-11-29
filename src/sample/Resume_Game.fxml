@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="663.0" fitWidth="814.0" layoutX="-9.0" layoutY="-7.0">
          <image>
@@ -20,7 +20,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="start_game" layoutX="383.0" layoutY="349.0" mnemonicParsing="false" onAction="#show_ingame" prefHeight="33.0" prefWidth="98.0" style="-fx-background-color: transparent;">
+      <Button fx:id="start_game" layoutX="383.0" layoutY="349.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="98.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="100.0">
                <image>
