@@ -30,6 +30,9 @@ public class Game {
                     int r=x.checkcollision(y);
                     if(r==1) {
                         toremoveP.add(x);
+                        if(x instanceof Sunflower){
+                            animated.canvas1.getChildren().remove(((Sunflower) x).suntoken.gifimage);
+                        }
                         animated.canvas1.getChildren().remove(x.gifimage);
                     }
                     else if(r==2) {
@@ -40,6 +43,9 @@ public class Game {
                     {
                         toremoveP.add(x);
                         toremoveZ.add(y);
+                        if(x instanceof Sunflower){
+                            animated.canvas1.getChildren().remove(((Sunflower) x).suntoken.gifimage);
+                        }
                         animated.canvas1.getChildren().remove(x.gifimage);
                         animated.canvas1.getChildren().remove(y.gifimage);
                     }
