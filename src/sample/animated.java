@@ -215,6 +215,11 @@ public class animated implements Initializable {
         canvas1=canvas;
         points.setText("0");
         points1=points;
+        LawnMover l1=new LawnMover(lawnmower1);
+        LawnMover l2=new LawnMover(lawnmower2);
+        LawnMover l3=new LawnMover(lawnmower3);
+        LawnMover l4=new LawnMover(lawnmower4);
+        LawnMover l5=new LawnMover(lawnmower5);
 
         grid= new ImageView[][]{{dest00, dest01, dest02, dest03, dest04},{dest10,dest11,dest12,dest13,dest14},{dest20,dest21,dest22,dest23,dest24},{dest30,dest31,dest32,dest33,dest34},{
                 dest40,dest41,dest42,dest43,dest44},{dest50,dest51,dest52,dest53,dest54},{dest60,dest61,dest62,dest63,dest64},{dest70,dest71,dest72,dest73,dest74},{dest80,dest81,dest82,dest83,dest84}};
@@ -297,7 +302,7 @@ public class animated implements Initializable {
 
     @FXML
     public void handledragdetection_plant(MouseEvent event) {
-        if (Integer.parseInt(animated.points1.getText()) > 100) {
+        if (Integer.parseInt(animated.points1.getText()) >= 100) {
             dragcase = 1;
             Dragboard db = source1.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
@@ -309,7 +314,7 @@ public class animated implements Initializable {
 
     @FXML
     public void handledragdetection_sunflower(MouseEvent event){
-        if (Integer.parseInt(animated.points1.getText()) > 50) {
+        if (Integer.parseInt(animated.points1.getText()) >= 50) {
             dragcase = 2;
             Dragboard db = source2.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
@@ -320,7 +325,7 @@ public class animated implements Initializable {
     }
     @FXML
     public void handledragdetection_walnut(MouseEvent event){
-        if (Integer.parseInt(animated.points1.getText()) > 50) {
+        if (Integer.parseInt(animated.points1.getText()) >= 50) {
             dragcase = 3;
             Dragboard db = source3.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
@@ -331,7 +336,7 @@ public class animated implements Initializable {
     }
     @FXML
     public void handledragdetection_bomb(MouseEvent event){
-        if (Integer.parseInt(animated.points1.getText()) > 150) {
+        if (Integer.parseInt(animated.points1.getText()) >= 150) {
             dragcase = 4;
             Dragboard db = source4.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();

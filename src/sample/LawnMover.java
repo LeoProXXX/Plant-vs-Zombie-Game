@@ -13,10 +13,8 @@ import java.util.ArrayList;
 public class LawnMover extends Characters {
     Timeline t;
     Timeline temp;
-    public LawnMover(int x,int y){
-        super(new ImageView(new Image("/Photos/lawn_mower.gif")),new ImageView(new Image("/Photos/lawn_mower.gif")),1);
-        this.setXpos(x);
-        this.setYpos(y);
+    public LawnMover(ImageView im){
+        super(im,im,1);
         Timeline t=new Timeline(new KeyFrame(Duration.seconds(1),e->checkzombie()));
         t.setCycleCount(Animation.INDEFINITE);
         t.play();
