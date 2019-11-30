@@ -11,25 +11,37 @@ public class PlayGame implements Serializable
     private int current_suntoken;
     private ArrayList<Characters> zombielist;
     private ArrayList<Characters> plantlist;
+    private boolean l[];
     private  int level;
     public PlayGame(int level)
     {
         this.level=level;
-        current_suntoken=0;
+        current_suntoken=50;
         zombielist=new ArrayList<Characters>();
         plantlist=new ArrayList<Characters>();
+        l=new boolean[5];
+        for(int i=0;i<l.length;i++)
+            l[i]=true;
     }
     public void start(ImageView grid[][])
     {
         for (Characters x:zombielist) {
-            x.startAnimation();
             x.draw(grid);
+            x.startAnimation();
         }
         for (Characters x:plantlist) {
             x.draw(grid);
             x.startAnimation();
 
         }
+    }
+    public void setl(boolean l[])
+    {
+     this.l=l;
+    }
+    public boolean[] getl()
+    {
+        return l;
     }
     public int getCurrent_suntoken() {
         return current_suntoken;
@@ -65,7 +77,7 @@ public class PlayGame implements Serializable
     @Override
     public String toString()
     {
-        String x=String.valueOf(current_suntoken)+" "+String.valueOf(level);
+        String x="sun= "+String.valueOf(current_suntoken)+" level= "+String.valueOf(level);
         return x;
     }
     @Override

@@ -159,6 +159,11 @@ public class animated implements Initializable {
 
     @FXML
     public GridPane grida;
+    private LawnMover l1;
+    private LawnMover l2;
+    private LawnMover l3;
+    private LawnMover l4;
+    private LawnMover l5;
 
     public static ImageView grid[][];
 
@@ -214,7 +219,6 @@ public class animated implements Initializable {
                     System.out.println("no Object found");
             }
         }
-
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -245,13 +249,34 @@ public class animated implements Initializable {
             source4.setVisible(true);
         }
         canvas1=canvas;
-        points.setText("0");
+        points.setText(String.valueOf(playgame.getCurrent_suntoken()));
         points1=points;
-        LawnMover l1=new LawnMover(lawnmower1);
-        LawnMover l2=new LawnMover(lawnmower2);
-        LawnMover l3=new LawnMover(lawnmower3);
-        LawnMover l4=new LawnMover(lawnmower4);
-        LawnMover l5=new LawnMover(lawnmower5);
+        lawnmower1.setVisible(false);
+        lawnmower2.setVisible(false);
+        lawnmower3.setVisible(false);
+        lawnmower4.setVisible(false);
+        lawnmower5.setVisible(false);
+        boolean l[]=playgame.getl();
+        if(l[0]) {
+            lawnmower1.setVisible(true);
+            l1 = new LawnMover(lawnmower1);
+        }
+        if(l[1]) {
+            lawnmower2.setVisible(true);
+            l2 = new LawnMover(lawnmower2);
+        }
+        if(l[2]) {
+            lawnmower3.setVisible(true);
+            l3 = new LawnMover(lawnmower3);
+        }
+        if(l[3]) {
+            lawnmower4.setVisible(true);
+            l4 = new LawnMover(lawnmower4);
+        }
+        if(l[4]) {
+            lawnmower5.setVisible(true);
+            l5 = new LawnMover(lawnmower5);
+        }
         grid= new ImageView[][]{{dest00, dest01, dest02, dest03, dest04},{dest10,dest11,dest12,dest13,dest14},{dest20,dest21,dest22,dest23,dest24},{dest30,dest31,dest32,dest33,dest34},{
                 dest40,dest41,dest42,dest43,dest44},{dest50,dest51,dest52,dest53,dest54},{dest60,dest61,dest62,dest63,dest64},{dest70,dest71,dest72,dest73,dest74},{dest80,dest81,dest82,dest83,dest84}};
 
@@ -274,6 +299,13 @@ public class animated implements Initializable {
     }
     public void sync()
     {
+        boolean l[]=new boolean[5];
+        l[0]=!l1.getisapplicable();
+        l[1]=!l2.getisapplicable();
+        l[2]=!l3.getisapplicable();
+        l[3]=!l4.getisapplicable();
+        l[4]=!l5.getisapplicable();
+        playgame.setl(l);
         playgame.setCurrent_suntoken(Integer.valueOf(points.getText()));
         playgame.setPlantlist(Game.plants);
         playgame.setZombielist(Game.zombie);
@@ -302,9 +334,9 @@ public class animated implements Initializable {
 
 
     public void showAlertWithDefaultHeaderText() throws Exception {
-        zombietimertimeline.stop();
-        suntokentimeline.stop();
-        zombietimertransition.stop();
+        zombietimertimeline.pause();
+        suntokentimeline.pause();
+        zombietimertransition.pause();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Select");
         alert.setHeaderText("what do you want to do :");
@@ -329,6 +361,7 @@ public class animated implements Initializable {
             Main.serialize();
             System.exit(0);
         }  else if (option.get() == mainmenubutton) {
+            sync();
             Main.changeScene("LoginScreen.fxml");
         }
     }
@@ -353,7 +386,7 @@ public class animated implements Initializable {
 
     @FXML
     public void handledragdetection_sunflower(MouseEvent event){
-        //if (Integer.parseInt(animated.points1.getText()) >= 50 && Sunflower.isvalid())
+        if (Integer.parseInt(animated.points1.getText()) >= 50 && Sunflower.isvalid())
          {
             dragcase = 2;
             Dragboard db = source2.startDragAndDrop(TransferMode.ANY);

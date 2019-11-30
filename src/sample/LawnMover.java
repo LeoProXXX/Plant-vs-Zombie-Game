@@ -11,6 +11,11 @@ import java.util.ArrayList;
 public class LawnMover extends Characters {
     Timeline t;
     Timeline temp;
+    private boolean isapplicable=true;
+    public boolean getisapplicable()
+    {
+        return isapplicable;
+    }
     public LawnMover(ImageView im){
         super(im,im,1,"/Photos/lawn_mower.gif");
         Timeline t=new Timeline(new KeyFrame(Duration.seconds(1),e->checkzombie()));
@@ -72,7 +77,9 @@ public class LawnMover extends Characters {
             this.setXpos(-1000);
             temp.play();
             if(t!=null)
-            t.stop();
+                t.stop();
+            isapplicable=false;
+
         }
 
     }

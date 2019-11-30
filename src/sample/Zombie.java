@@ -25,8 +25,9 @@ public class Zombie extends Characters {
     @Override
     public void draw(ImageView grid[][])
     {
-        gifimage.setImage(new Image(path));
+        gifimage=new ImageView(new Image(path,100,100,false,false));
         this.gifimage.relocate(this.getXpos(),this.getYpos());
+        animated.canvas1.getChildren().add(gifimage);
     }
     public void moving(){
 
@@ -42,7 +43,8 @@ public class Zombie extends Characters {
     public void animate() {
 
         gifimage.setTranslateX(gifimage.getTranslateX()-getSpeed());
-        this.setXpos(this.getXpos()+gifimage.getTranslateX());
+        this.setXpos(gifimage.getLayoutX()+gifimage.getTranslateX());
+        System.out.println(this.getXpos());
         if(gifimage.getLayoutX()+gifimage.getTranslateX()<50&&flag){
             System.out.println("hereeee");
             flag=false;
