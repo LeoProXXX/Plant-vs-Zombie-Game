@@ -3,18 +3,20 @@ package sample;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public abstract class Characters {
+import java.io.Serializable;
+
+public abstract class Characters implements Serializable {
     private int hp;
     private int damage;
     private double Xpos;
     private double Ypos;
     private double speed;
-    protected Image image;
-    protected ImageView imageView;
-    protected ImageView gifimage;
+    private String path;
+    protected transient  Image image;
+    protected transient ImageView imageView;
+    protected transient ImageView gifimage;
     public int checkcollision(Characters a)
     {
-        //System.out.println((this.Xpos-a.getImage().getBoundsInParent().getMaxX())+" "+(this.Ypos-a.getImage().getLayoutY()));
         if(Math.abs(this.Xpos-a.getImage().getBoundsInParent().getMaxX())<=20&&!(Math.abs(this.Ypos-a.getImage().getLayoutY())>=60))
         {
             a.setSpeed(0);
@@ -29,14 +31,15 @@ public abstract class Characters {
         }
         return 0;
     }
-    public Characters(ImageView imageView,ImageView gifimage,double speed){
+    public Characters(ImageView imageView,ImageView gifimage,double speed,String Path){
         this.image=imageView.getImage();
         this.imageView=imageView;
         this.gifimage=gifimage;
         this.speed=speed;
+        this.path=Path;
     }
 
-    public Characters(int hp, int damage, ImageView imageview,int x,int y,ImageView gifimage,double speed){
+    public Characters(int hp, int damage, ImageView imageview,int x,int y,ImageView gifimage,double speed,String Path){
         this.hp=hp;
         this.damage=damage;
         this.image=imageview.getImage();
@@ -45,6 +48,7 @@ public abstract class Characters {
         this.Ypos=y;
         this.gifimage=gifimage;
         this.speed=speed;
+        this.path=Path;
     }
 
     public ImageView getImage()

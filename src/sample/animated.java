@@ -3,8 +3,6 @@ package sample;
 
 import javafx.animation.*;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 
 import javafx.fxml.Initializable;
@@ -215,7 +213,9 @@ public class animated implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("animated");
+//        System.out.println("animated");
+        Game g=new Game();
+
         canvas1=canvas;
         points.setText("0");
         points1=points;
@@ -236,7 +236,7 @@ public class animated implements Initializable {
             }
         }
 
-
+        Main.player.setGrid(grid);
         suntokentimeline= new Timeline(new KeyFrame(Duration.seconds(15),e-> Game.dropsuntoken()));
         suntokentimeline.setCycleCount(Animation.INDEFINITE);
         suntokentimeline.play();
@@ -295,6 +295,7 @@ public class animated implements Initializable {
             zombietimertransition.play();
             
         } else if (option.get() == exitbutton) {
+            Main.player.serialize();
             System.exit(0);
         }  else if (option.get() == mainmenubutton) {
             Main.changeScene("LoginScreen.fxml");
@@ -318,7 +319,8 @@ public class animated implements Initializable {
 
     @FXML
     public void handledragdetection_sunflower(MouseEvent event){
-        if (Integer.parseInt(animated.points1.getText()) >= 50 && Sunflower.isvalid()) {
+        //if (Integer.parseInt(animated.points1.getText()) >= 50 && Sunflower.isvalid())
+         {
             dragcase = 2;
             Dragboard db = source2.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();

@@ -22,15 +22,25 @@ public class Input
     private boolean newgame;
     public Input(ArrayList<Player> x, boolean y)
     {
-        System.out.println("Hello");
+
         playerList=x;
         newgame=y;
     }
+
     public void input(ActionEvent e) throws Exception
     {
-        System.out.println("Hello");
+
         String name= username.getText();
-        System.out.println(newgame);
+
+        Player p=Player.deserialize(name);
+        if(p==null){
+            Main.player=new Player(name);
+        }
+        else{
+            Main.player=p;
+
+        }
+
         if(name.length()==0)
             feedback.setText("Name can not be empty");
         else if(newgame==true)

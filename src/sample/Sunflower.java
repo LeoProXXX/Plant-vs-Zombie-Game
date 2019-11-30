@@ -13,7 +13,7 @@ public class Sunflower extends Plant
     private static Timer timer;
     public Sunflower(int x,int y)
     {
-        super(100,0,2,new ImageView(new Image("/Photos/sunflower.png")),x,y,new ImageView(new Image("/Photos/sun_flower.gif")),0);
+        super(100,0,2,new ImageView(new Image("/Photos/sunflower.png")),x,y,new ImageView(new Image("/Photos/sun_flower.gif")),0,"/Photos/sun_flower.gif");
         suntoken=new Sun(x,y);
         timer=new Timer();
     }
