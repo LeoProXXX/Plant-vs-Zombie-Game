@@ -52,6 +52,7 @@ public abstract class Characters {
     {
         return gifimage;
     }
+    
     public int getHp() {
         return hp;
     }

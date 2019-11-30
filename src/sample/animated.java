@@ -142,6 +142,16 @@ public class animated implements Initializable {
     public ImageView dest83;
     @FXML
     public ImageView dest84;
+    @FXML
+    public ImageView lawnmower1;
+    @FXML
+    public ImageView lawnmower2;
+    @FXML
+    public ImageView lawnmower3;
+    @FXML
+    public ImageView lawnmower4;
+    @FXML
+    public ImageView lawnmower5;
 
     public static ImageView grid[][];
 
@@ -162,24 +172,32 @@ public class animated implements Initializable {
                 }));
                 timeline.setCycleCount(Animation.INDEFINITE);
                 timeline.play();
+                int x=Integer.parseInt(animated.points1.getText())-100;
+                animated.points1.setText(Integer.toString(x));
             break;
             case 2:
                 Sunflower s=new Sunflower((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
                 Game.plants.add(s);
                 dest.setImage(s.gifimage.getImage());
                 s.gifimage=dest;
+                int sx=Integer.parseInt(animated.points1.getText())-50;
+                animated.points1.setText(Integer.toString(sx));
             break;
             case 3:
                 Walnut w=new Walnut((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
                 Game.plants.add(w);
                 dest.setImage(w.gifimage.getImage());
                 w.gifimage=dest;
+                int wx=Integer.parseInt(animated.points1.getText())-50;
+                animated.points1.setText(Integer.toString(wx));
             break;
             case 4:
                 CherryBomb c=new CherryBomb((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
                 //Game.plants.add(c);
                 dest.setImage(c.gifimage.getImage());
                 c.gifimage=dest;
+                int cx=Integer.parseInt(animated.points1.getText())-150;
+                animated.points1.setText(Integer.toString(cx));
                 Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(2000), e->{
                     c.animate();
                 }));
@@ -220,22 +238,7 @@ public class animated implements Initializable {
         Game.checkCollision();
     }
 
-    public static boolean checkcollision(ImageView z,ImageView p)
-    {
-        if(z.getBoundsInParent().getMaxX()-p.getBoundsInParent().getMaxX()<=15)
-            return true;
-        return false;
-    }
 
-    public void shoot() {
-
-        /*ImageView pea =new ImageView(new Image("/Photos/Pea.png"));
-        pea.relocate(640, 90);
-        canvas.getChildren().add(pea);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(100), new KeyValue(pea.layoutXProperty(), zombie.getLayoutX())));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();*/
-    }
 
     public void zombietimer(){
 
@@ -293,41 +296,49 @@ public class animated implements Initializable {
 
 
     @FXML
-    public void handledragdetection_plant(MouseEvent event){
-        dragcase=1;
-        Dragboard db= source1.startDragAndDrop(TransferMode.ANY);
-        ClipboardContent cb=new ClipboardContent();
-        cb.putImage(source1.getImage());
-        db.setContent(cb);
-        event.consume();
+    public void handledragdetection_plant(MouseEvent event) {
+        if (Integer.parseInt(animated.points1.getText()) > 100) {
+            dragcase = 1;
+            Dragboard db = source1.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(source1.getImage());
+            db.setContent(cb);
+            event.consume();
+        }
     }
 
     @FXML
     public void handledragdetection_sunflower(MouseEvent event){
-        dragcase=2;
-        Dragboard db= source2.startDragAndDrop(TransferMode.ANY);
-        ClipboardContent cb=new ClipboardContent();
-        cb.putImage(source2.getImage());
-        db.setContent(cb);
-        event.consume();
+        if (Integer.parseInt(animated.points1.getText()) > 50) {
+            dragcase = 2;
+            Dragboard db = source2.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(source2.getImage());
+            db.setContent(cb);
+            event.consume();
+        }
     }
     @FXML
     public void handledragdetection_walnut(MouseEvent event){
-        dragcase=3;
-        Dragboard db= source3.startDragAndDrop(TransferMode.ANY);
-        ClipboardContent cb=new ClipboardContent();
-        cb.putImage(source3.getImage());
-        db.setContent(cb);
-        event.consume();
+        if (Integer.parseInt(animated.points1.getText()) > 50) {
+            dragcase = 3;
+            Dragboard db = source3.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(source3.getImage());
+            db.setContent(cb);
+            event.consume();
+        }
     }
     @FXML
     public void handledragdetection_bomb(MouseEvent event){
-        dragcase=4;
-        Dragboard db= source4.startDragAndDrop(TransferMode.ANY);
-        ClipboardContent cb=new ClipboardContent();
-        cb.putImage(source4.getImage());
-        db.setContent(cb);
-        event.consume();
+        if (Integer.parseInt(animated.points1.getText()) > 150) {
+            dragcase = 4;
+            Dragboard db = source4.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(source4.getImage());
+            db.setContent(cb);
+            event.consume();
+        }
     }
 
     @FXML
