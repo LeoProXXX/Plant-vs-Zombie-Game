@@ -8,7 +8,6 @@ public abstract class Characters {
     private int damage;
     private double Xpos;
     private double Ypos;
-
     private double speed;
     protected Image image;
     protected ImageView imageView;
@@ -19,7 +18,7 @@ public abstract class Characters {
         if(Math.abs(this.Xpos-a.getImage().getBoundsInParent().getMaxX())<=20&&!(Math.abs(this.Ypos-a.getImage().getLayoutY())>=60))
         {
             a.setSpeed(0);
-            this.dechp(1);
+            this.dechp(a.getDamage());
             if(this.hp<=0){
                 animated.canvas1.getChildren().remove(gifimage);
                 gifimage.setImage(null);

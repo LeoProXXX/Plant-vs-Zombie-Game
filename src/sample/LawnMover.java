@@ -36,7 +36,7 @@ public class LawnMover extends Characters {
 
     @Override
     public int checkcollision(Characters a){
-        if(Math.abs(this.getXpos()-a.getImage().getBoundsInParent().getMaxX())<=20&&!(Math.abs(this.getYpos()-a.getImage().getLayoutY())>=60))
+        if(Math.abs(this.getXpos()-a.getImage().getBoundsInParent().getMaxX())<=30&&!(Math.abs(this.getYpos()-a.getImage().getLayoutY())>=60))
         {
             a.dechp(1000);
             return 1;

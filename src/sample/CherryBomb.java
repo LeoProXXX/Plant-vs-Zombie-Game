@@ -3,8 +3,32 @@ package sample;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class CherryBomb extends Plant
 {
+    private static int time=0;
+    private static Timer timer;
+    private static class task extends TimerTask
+    {
+        @Override
+        public void run() {
+            time-=1;
+            if(time==0)
+                timer.cancel();
+        }
+    }
+    public static boolean isvalid()
+    {
+        return time==0;
+    }
+    public static void invalid()
+    {
+        time=CherryBomb.getTime();
+        TimerTask task1=new CherryBomb.task();
+        timer.schedule(task1,0L,1000l);
+    }
     private ImageView blast;
     public int flag;
     public CherryBomb(int x,int y)
@@ -12,6 +36,7 @@ public class CherryBomb extends Plant
         super(100,1000,5,new ImageView(new Image("/Photos/Cherrybomb.jpeg")),x,y,new ImageView(new Image("/Photos/Cherrybomb.jpeg")),0);
         //blast=new ImageView(new Image("/Photos/bomb.gif"));
         flag=0;
+        timer=new Timer();
     }
     @Override
     public void attack(Characters c)
