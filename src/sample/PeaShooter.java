@@ -14,11 +14,7 @@ public class PeaShooter extends Plant {
     {
         super(100,30,3,new ImageView(new Image("/Photos/peashooter.jpeg")),x,y,new ImageView(new Image("/Photos/pea_shooter.gif")),10);
         pea=new ImageView(new Image("/Photos/Pea.png"));
-        pea.relocate(imageView.getLayoutX(),imageView.getLayoutY());
-        animated.canvas1.getChildren().add(pea);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(100), new KeyValue(pea.layoutXProperty(), 900)));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
+
     }
     @Override
     public void attack(Characters c)

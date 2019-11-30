@@ -151,23 +151,32 @@ public class animated implements Initializable {
     public void setimageonimageview(ImageView dest, DragEvent event){
         switch (dragcase){
             case 1:
-                PeaShooter p=new PeaShooter((int)dest.getLayoutX(),(int)dest.getLayoutY());
+                PeaShooter p=new PeaShooter((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
                 Game.gameobjects.add(p);
                 dest.setImage(p.gifimage.getImage());
-
-            break;
+                p.pea.relocate(dest.getLayoutX()+330,dest.getLayoutY()+90);
+                System.out.println(dest.getX()+" "+dest.getY());
+                System.out.println(dest.getBoundsInLocal().getMaxX()+" "+dest.getBoundsInParent().getMaxY());
+                System.out.println(dest.getTranslateX()+" "+dest.getTranslateY());
+                animated.canvas1.getChildren().add(p.pea);
+                Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000/60), e->{
+                    p.animate();
+                }));
+                timeline.setCycleCount(Animation.INDEFINITE);
+                timeline.play();
+                break;
             case 2:
-                Sunflower s=new Sunflower((int)dest.getLayoutX(),(int)dest.getLayoutY());
+                Sunflower s=new Sunflower((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
                 Game.gameobjects.add(s);
                 dest.setImage(s.gifimage.getImage());
             break;
             case 3:
-                Walnut w=new Walnut((int)dest.getLayoutX(),(int)dest.getLayoutY());
+                Walnut w=new Walnut((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
                 Game.gameobjects.add(w);
                 dest.setImage(w.gifimage.getImage());
             break;
             case 4:
-                CherryBomb c=new CherryBomb((int)dest.getLayoutX(),(int)dest.getLayoutY());
+                CherryBomb c=new CherryBomb((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
                 Game.gameobjects.add(c);
                 dest.setImage(c.gifimage.getImage());
             break;

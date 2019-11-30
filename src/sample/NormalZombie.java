@@ -18,6 +18,6 @@ public class NormalZombie extends Zombie {
         if(gifimage.getLayoutX()+gifimage.getTranslateX()<200){
             setSpeed(0);
         }
-//        System.out.println(gifimage.getLayoutX()+" "+gifimage.getTranslateX()+" "+gifimage.getTranslateY()+" "+gifimage.getX()+gifimage.getY()+" ");
+
     }
 }
