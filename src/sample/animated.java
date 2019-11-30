@@ -174,6 +174,7 @@ public class animated implements Initializable {
                 timeline.play();
                 int x=Integer.parseInt(animated.points1.getText())-100;
                 animated.points1.setText(Integer.toString(x));
+                PeaShooter.invalid();
             break;
             case 2:
                 Sunflower s=new Sunflower((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
@@ -182,6 +183,7 @@ public class animated implements Initializable {
                 s.gifimage=dest;
                 int sx=Integer.parseInt(animated.points1.getText())-50;
                 animated.points1.setText(Integer.toString(sx));
+                Sunflower.invalid();
             break;
             case 3:
                 Walnut w=new Walnut((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
@@ -190,6 +192,7 @@ public class animated implements Initializable {
                 w.gifimage=dest;
                 int wx=Integer.parseInt(animated.points1.getText())-50;
                 animated.points1.setText(Integer.toString(wx));
+                Walnut.invalid();
             break;
             case 4:
                 CherryBomb c=new CherryBomb((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
@@ -203,6 +206,7 @@ public class animated implements Initializable {
                 }));
                 timeline1.setCycleCount(2);
                 timeline1.play();
+                CherryBomb.invalid();
             break;
             default:
                 System.out.println("no Object found");
@@ -302,7 +306,7 @@ public class animated implements Initializable {
 
     @FXML
     public void handledragdetection_plant(MouseEvent event) {
-        if (Integer.parseInt(animated.points1.getText()) >= 100) {
+        if (Integer.parseInt(animated.points1.getText()) >= 100&&PeaShooter.isvalid()) {
             dragcase = 1;
             Dragboard db = source1.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
@@ -314,7 +318,7 @@ public class animated implements Initializable {
 
     @FXML
     public void handledragdetection_sunflower(MouseEvent event){
-        if (Integer.parseInt(animated.points1.getText()) >= 50) {
+        if (Integer.parseInt(animated.points1.getText()) >= 50 && Sunflower.isvalid()) {
             dragcase = 2;
             Dragboard db = source2.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
@@ -325,7 +329,7 @@ public class animated implements Initializable {
     }
     @FXML
     public void handledragdetection_walnut(MouseEvent event){
-        if (Integer.parseInt(animated.points1.getText()) >= 50) {
+        if (Integer.parseInt(animated.points1.getText()) >= 50&&Walnut.isvalid()) {
             dragcase = 3;
             Dragboard db = source3.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
@@ -336,13 +340,14 @@ public class animated implements Initializable {
     }
     @FXML
     public void handledragdetection_bomb(MouseEvent event){
-        if (Integer.parseInt(animated.points1.getText()) >= 150) {
+        if (Integer.parseInt(animated.points1.getText()) >= 150&&CherryBomb.isvalid()) {
             dragcase = 4;
             Dragboard db = source4.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
             cb.putImage(source4.getImage());
             db.setContent(cb);
             event.consume();
+
         }
     }
 

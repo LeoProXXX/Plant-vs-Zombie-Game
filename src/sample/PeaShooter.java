@@ -17,6 +17,7 @@ public class PeaShooter extends Plant {
         super(100,30,3,new ImageView(new Image("/Photos/peashooter.jpeg")),x,y,new ImageView(new Image("/Photos/pea_shooter.gif")),3);
         pea=new ImageView(new Image("/Photos/Pea.png"));
         timer=new Timer();
+        timer1=new Timer();
     }
     private class task extends TimerTask
     {
@@ -27,6 +28,27 @@ public class PeaShooter extends Plant {
             pea.relocate(PeaShooter.this.getXpos(),PeaShooter.this.getYpos());
             pea.setTranslateX(0.0);
         }
+    }
+    private static int time=0;
+    private static Timer timer1;
+    private static class task2 extends TimerTask
+    {
+        @Override
+        public void run() {
+            time-=1;
+            if(time==0)
+                timer1.cancel();
+        }
+    }
+    public static boolean isvalid()
+    {
+        return time==0;
+    }
+    public static void invalid()
+    {
+        time=PeaShooter.getTime();
+        TimerTask task3=new PeaShooter.task2();
+        timer1.schedule(task3,0L,1000l);
     }
     @Override
     public int checkcollision(Characters c)
