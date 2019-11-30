@@ -1,9 +1,6 @@
 package sample;
 
-import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.util.Duration;
@@ -13,11 +10,24 @@ import java.util.Random;
 
 public class Game {
     public static Random rand=new Random();
-    public static ArrayList<Characters> gameobjects;
+    public static ArrayList<Characters> zombie;
+    public static ArrayList<Characters> plants;
     public static AnimationTimer t;
-    public Game(){
-        gameobjects=new ArrayList<Characters>();
+    public Game()
+    {
+        zombie=new ArrayList<Characters>();
+        plants=new ArrayList<Characters>();
 
+    }
+    public static void checkCollision()
+    {
+        Timeline timeline=new Timeline(new KeyFrame(Duration.millis(1000/60),e->{
+            for(Characters x:plants)
+                for(Characters y:zombie)
+                    x.checkcollision(y);
+        }));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
     }
     public static void dropsuntoken(){
         Sun s=new Sun();

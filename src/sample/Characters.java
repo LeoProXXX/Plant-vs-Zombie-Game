@@ -13,7 +13,13 @@ public abstract class Characters {
     protected Image image;
     protected ImageView imageView;
     protected ImageView gifimage;
-
+    public void checkcollision(Characters a)
+    {
+        System.out.println("X="+(this.Xpos-a.getImage().getBoundsInParent().getMaxX()));
+        System.out.println("Y="+this.Ypos+" "+a.getImage().getLayoutY());
+        if(Math.abs(this.Xpos-a.getImage().getBoundsInParent().getMaxX())<=20&&!(this.Ypos-a.getImage().getLayoutY()>=50))
+            a.setSpeed(0);
+    }
     public Characters(ImageView imageView,ImageView gifimage,int speed){
         this.image=imageView.getImage();
         this.imageView=imageView;

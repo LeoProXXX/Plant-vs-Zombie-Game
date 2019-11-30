@@ -152,7 +152,7 @@ public class animated implements Initializable {
         switch (dragcase){
             case 1:
                 PeaShooter p=new PeaShooter((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
-                Game.gameobjects.add(p);
+                Game.plants.add(p);
                 dest.setImage(p.gifimage.getImage());
                 p.pea.relocate(dest.getLayoutX()+330,dest.getLayoutY()+90);
                 System.out.println(dest.getX()+" "+dest.getY());
@@ -167,17 +167,17 @@ public class animated implements Initializable {
                 break;
             case 2:
                 Sunflower s=new Sunflower((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
-                Game.gameobjects.add(s);
+                Game.plants.add(s);
                 dest.setImage(s.gifimage.getImage());
             break;
             case 3:
                 Walnut w=new Walnut((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
-                Game.gameobjects.add(w);
+                Game.plants.add(w);
                 dest.setImage(w.gifimage.getImage());
             break;
             case 4:
                 CherryBomb c=new CherryBomb((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
-                Game.gameobjects.add(c);
+                Game.plants.add(c);
                 dest.setImage(c.gifimage.getImage());
             break;
             default:
@@ -214,9 +214,10 @@ public class animated implements Initializable {
 
         zombietimeline=new Timeline(new KeyFrame(Duration.seconds(5),e->{
             NormalZombie n=new NormalZombie(850,gridy[rand.nextInt(5)]-50);
+            Game.zombie.add(n);
             n.gifimage.relocate(900,gridy[rand.nextInt(5)]-50);
             canvas.getChildren().add(n.gifimage);
-            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.05),z->{
+            Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000/60),z->{
                 n.animate();
             } ));
             timeline.setCycleCount(Animation.INDEFINITE);
@@ -224,7 +225,7 @@ public class animated implements Initializable {
         }));
         zombietimeline.setCycleCount(1);
         zombietimeline.play();
-
+        Game.checkCollision();
     }
 
     public static boolean checkcollision(ImageView z,ImageView p)
