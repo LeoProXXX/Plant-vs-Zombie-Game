@@ -10,7 +10,7 @@ public class CherryBomb extends Plant
     public CherryBomb(int x,int y)
     {
         super(100,1000,5,new ImageView(new Image("/Photos/Cherrybomb.jpeg")),x,y,new ImageView(new Image("/Photos/Cherrybomb.jpeg")),0);
-        //blast=new ImageView(new Image("/Photos/bomb.gif"));
+        blast=new ImageView(new Image("/Photos/bomb.gif"));
         flag=0;
     }
     @Override

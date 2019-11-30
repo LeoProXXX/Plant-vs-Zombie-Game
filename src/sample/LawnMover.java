@@ -3,11 +3,8 @@ package sample;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-
-import java.sql.Time;
 import java.util.ArrayList;
 
 public class LawnMover extends Characters {
