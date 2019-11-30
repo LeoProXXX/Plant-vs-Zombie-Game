@@ -40,15 +40,21 @@ public class PeaShooter extends Plant {
                 timer1.cancel();
         }
     }
-    public static boolean isvalid()
+    public static boolean isvalid(ImageView im)
     {
-        return time==0;
+        if(time==0){
+            im.setOpacity(1);
+            return true;
+        }
+        return false;
     }
-    public static void invalid()
+
+    public static void invalid(ImageView im)
     {
+        im.setOpacity(0.7);
         time=PeaShooter.getTime();
         TimerTask task3=new PeaShooter.task2();
-        timer1.schedule(task3,0L,1000l);
+        timer1.schedule(task3,0L, 5000L);
     }
     @Override
     public int checkcollision(Characters c)
