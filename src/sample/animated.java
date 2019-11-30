@@ -147,7 +147,6 @@ public class animated implements Initializable {
 
     public int dragcase=-1;
 
-
     public void setimageonimageview(ImageView dest, DragEvent event){
         switch (dragcase){
             case 1:
@@ -208,24 +207,10 @@ public class animated implements Initializable {
         suntokentimeline= new Timeline(new KeyFrame(Duration.seconds(15),e-> Game.dropsuntoken()));
         suntokentimeline.setCycleCount(Animation.INDEFINITE);
         suntokentimeline.play();
-
+        Level.start();
         zombietimertimeline=new Timeline(new KeyFrame(Duration.seconds(10), e-> zombietimer()));
         zombietimertimeline.setCycleCount(1);
         zombietimertimeline.play();
-
-        zombietimeline=new Timeline(new KeyFrame(Duration.seconds(5),e->{
-            NormalZombie n=new NormalZombie(850,gridy[rand.nextInt(5)]-50);
-            Game.zombie.add(n);
-            n.gifimage.relocate(900,gridy[rand.nextInt(5)]-50);
-            canvas.getChildren().add(n.gifimage);
-            Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000/60),z->{
-                n.animate();
-            } ));
-            timeline.setCycleCount(Animation.INDEFINITE);
-            timeline.play();
-        }));
-        zombietimeline.setCycleCount(1);
-        zombietimeline.play();
         Game.checkCollision();
     }
 

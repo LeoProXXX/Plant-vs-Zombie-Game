@@ -14,6 +14,7 @@ public class Main extends Application
     @Override
     public void start(Stage primaryStage) throws Exception{
         Game g=new Game();
+        Level l=new Level();
         stage=primaryStage;
 //        loader= new FXMLLoader(getClass().getResource("Start_Screen.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Ingame.fxml"));

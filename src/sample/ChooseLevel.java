@@ -2,9 +2,11 @@ package sample;
 
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+import javax.swing.text.html.ImageView;
 import java.util.ArrayList;
 
 public class ChooseLevel
@@ -23,8 +25,29 @@ public class ChooseLevel
         Main.root=loader.load();
         Main.stage.setScene(new Scene(Main.root));
     }
-    public void show_Ingame()throws Exception
+    public void level1()throws Exception
     {
+        Level.setLevel(1);
+        Main.changeScene("Ingame.fxml");
+    }
+    public void level2()throws Exception
+    {
+        Level.setLevel(2);
+        Main.changeScene("Ingame.fxml");
+    }
+    public void level3()throws Exception
+    {
+        Level.setLevel(3);
+        Main.changeScene("Ingame.fxml");
+    }
+    public void level4()throws Exception
+    {
+        Level.setLevel(4);
+        Main.changeScene("Ingame.fxml");
+    }
+    public void level5()throws Exception
+    {
+        Level.setLevel(5);
         Main.changeScene("Ingame.fxml");
     }
 }

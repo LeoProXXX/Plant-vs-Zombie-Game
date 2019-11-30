@@ -53,6 +53,8 @@ public class Sun {
             ft.setFromValue(1.0);
             ft.setToValue(0.3);
             ft.setAutoReverse(true);
+            animated.canvas1.getChildren().add(gifimage);
+            ft.play();
         }
     }
 }
