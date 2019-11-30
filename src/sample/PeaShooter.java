@@ -1,12 +1,9 @@
 package sample;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.util.Duration;
+
 
 import java.util.Date;
 import java.util.Timer;
@@ -38,8 +35,6 @@ public class PeaShooter extends Plant {
         int r=super.checkcollision(c);
         if(r==1)
             timer.cancel();
-        //System.out.println(this.getHp()+" "+c.getHp());
-        //System.out.println("x="+(pea.getBoundsInParent().getMaxX()-c.getImage().getBoundsInParent().getMaxX()));
         if(Math.abs(pea.getBoundsInParent().getMaxX()-c.getImage().getBoundsInParent().getMaxX())<=20&&!(Math.abs(pea.getLayoutY()-c.getImage().getLayoutY())>=50))
         {
             c.dechp(5);
@@ -55,16 +50,9 @@ public class PeaShooter extends Plant {
         }
         return r;
     }
-    /*public void cancel()
-    {
-        timer.cancel();
-    }*/
-    @Override
-    public void attack(Characters c)
-    {
 
-        c.dechp(30);
-    }
+    @Override
+    public void attack(Characters c){ c.dechp(30);  }
 
     @Override
     public void animate() {
