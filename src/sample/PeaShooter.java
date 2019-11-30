@@ -12,8 +12,26 @@ public class PeaShooter extends Plant {
     public ImageView pea;
     public PeaShooter(int x,int y)
     {
-        super(100,30,3,new ImageView(new Image("/Photos/peashooter.jpeg")),x,y,new ImageView(new Image("/Photos/pea_shooter.gif")),10);
+        super(100,30,3,new ImageView(new Image("/Photos/peashooter.jpeg")),x,y,new ImageView(new Image("/Photos/pea_shooter.gif")),2);
         pea=new ImageView(new Image("/Photos/Pea.png"));
+    }
+    @Override
+    public int checkcollision(Characters c)
+    {
+
+        int r=super.checkcollision(c);
+        System.out.println(this.getHp()+" "+c.getHp());
+        //System.out.println("x="+(pea.getBoundsInParent().getMaxX()-c.getImage().getBoundsInParent().getMaxX()));
+        if(Math.abs(pea.getBoundsInParent().getMaxX()-c.getImage().getBoundsInParent().getMaxX())<=20&&!(Math.abs(pea.getLayoutY()-c.getImage().getLayoutY())>=50))
+        {
+            c.dechp(1);
+            if(c.getHp()<=0){
+                r+=2;
+            }
+            pea.relocate(this.getXpos(),this.getYpos());
+            pea.setTranslateX(0.0);
+        }
+        return r;
     }
     @Override
     public void attack(Characters c)

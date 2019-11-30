@@ -13,12 +13,21 @@ public abstract class Characters {
     protected Image image;
     protected ImageView imageView;
     protected ImageView gifimage;
-    public void checkcollision(Characters a)
+    public int checkcollision(Characters a)
     {
-        System.out.println("X="+(this.Xpos-a.getImage().getBoundsInParent().getMaxX()));
-        System.out.println("Y="+this.Ypos+" "+a.getImage().getLayoutY());
-        if(Math.abs(this.Xpos-a.getImage().getBoundsInParent().getMaxX())<=20&&!(this.Ypos-a.getImage().getLayoutY()>=50))
+        if(Math.abs(this.Xpos-a.getImage().getBoundsInParent().getMaxX())<=20&&!(Math.abs(this.Ypos-a.getImage().getLayoutY())>=50))
+        {
             a.setSpeed(0);
+            this.dechp(1);
+            if(this.hp<=0){
+                animated.canvas1.getChildren().remove(gifimage);
+                gifimage.setImage(null);
+                System.out.println("Hello");
+                a.setSpeed(1);
+                return 1;
+            }
+        }
+        return 0;
     }
     public Characters(ImageView imageView,ImageView gifimage,int speed){
         this.image=imageView.getImage();

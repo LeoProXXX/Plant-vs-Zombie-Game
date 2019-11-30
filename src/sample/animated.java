@@ -154,10 +154,9 @@ public class animated implements Initializable {
                 PeaShooter p=new PeaShooter((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
                 Game.plants.add(p);
                 dest.setImage(p.gifimage.getImage());
+                p.gifimage=dest;
+                System.out.println(dest.getLayoutX()+330+" "+dest.getLayoutY()+90);
                 p.pea.relocate(dest.getLayoutX()+330,dest.getLayoutY()+90);
-                System.out.println(dest.getX()+" "+dest.getY());
-                System.out.println(dest.getBoundsInLocal().getMaxX()+" "+dest.getBoundsInParent().getMaxY());
-                System.out.println(dest.getTranslateX()+" "+dest.getTranslateY());
                 animated.canvas1.getChildren().add(p.pea);
                 Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000/60), e->{
                     p.animate();

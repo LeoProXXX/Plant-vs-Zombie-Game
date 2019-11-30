@@ -22,9 +22,34 @@ public class Game {
     public static void checkCollision()
     {
         Timeline timeline=new Timeline(new KeyFrame(Duration.millis(1000/60),e->{
-            for(Characters x:plants)
-                for(Characters y:zombie)
-                    x.checkcollision(y);
+            ArrayList<Characters> toremoveP=new ArrayList<Characters>();
+            ArrayList<Characters> toremoveZ=new ArrayList<Characters>();
+            for(Characters x:plants) {
+                for (Characters y : zombie) {
+                    int r=x.checkcollision(y);
+                    System.out.println("HP="+x.getHp()+" "+y.getHp());
+
+                    if(r==1) {
+                        toremoveP.add(x);
+                        animated.canvas1.getChildren().remove(x.gifimage);
+                    }
+                    if(r==2) {
+                        toremoveZ.add(y);
+                        animated.canvas1.getChildren().remove(y.gifimage);
+                    }
+                    if(r==3)
+                    {
+                        toremoveP.add(x);
+                        toremoveZ.add(y);
+                        animated.canvas1.getChildren().remove(x.gifimage);
+                        animated.canvas1.getChildren().remove(y.gifimage);
+                    }
+                }
+            }
+            for(Characters t:toremoveP)
+                plants.remove(t);
+            for(Characters t: toremoveZ)
+                zombie.remove(t);
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
