@@ -37,7 +37,7 @@ public class PeaShooter extends Plant {
             timer.cancel();
         if(Math.abs(pea.getBoundsInParent().getMaxX()-c.getImage().getBoundsInParent().getMaxX())<=20&&!(Math.abs(pea.getLayoutY()-c.getImage().getLayoutY())>=50))
         {
-            c.dechp(5);
+            c.dechp(25);
             if(c.getHp()<=0){
                 r+=2;
             }

@@ -25,30 +25,41 @@ public class Level
     {
 
         Random rand=new Random();
-        time=Duration.millis(5000);
+        time=Duration.millis(7000/level);
         i=1;
         Timeline zombietimeline=new Timeline(new KeyFrame(time,e->{
-            int j=i;
-            while(j>0)
-            {
-                NormalZombie n=new NormalZombie(850,animated.gridy[rand.nextInt(5)]-50);
-               Game.zombie.add(n);
-                n.gifimage.relocate(900,animated.gridy[rand.nextInt(5)]-50);
+
+                System.out.println("Helo");
+                Zombie n=getzombie(rand.nextInt(level));
+                Game.zombie.add(n);
                 animated.canvas1.getChildren().add(n.gifimage);
                 Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000/60), z->{
                 n.animate();
             } ));
             timeline.setCycleCount(Animation.INDEFINITE);
             timeline.play();
-            j--;
-            }
             changetime();
         }));
-        zombietimeline.setCycleCount(5);
+        zombietimeline.setCycleCount(3*level);
         zombietimeline.play();
     }
     public static void changetime()
     {
         i++;
+    }
+    public static Zombie getzombie(int x) {
+        Random rand = new Random();
+        Zombie n;
+        System.out.println(x);
+        if (x == 0)
+            n = new NormalZombie(850, animated.gridy[rand.nextInt(5)] - 50);
+        else if (x == 1)
+            n = new FlagZombie(850, animated.gridy[rand.nextInt(5)] - 50);
+        else if (x == 2)
+            n = new ConeheadZombie(850, animated.gridy[rand.nextInt(5)] - 50);
+        else
+            n = new BucketheadZombie(850, animated.gridy[rand.nextInt(5)] - 50);
+        n.gifimage.relocate(900,animated.gridy[rand.nextInt(5)]-50);
+        return n;
     }
 }

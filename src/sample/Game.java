@@ -28,19 +28,7 @@ public class Game {
             for(Characters x:plants) {
                 for (Characters y : zombie) {
                     int r=x.checkcollision(y);
-                    if(x instanceof CherryBomb){
-                        if(r==1){
-                            toremoveZ.add(y);
-                            animated.canvas1.getChildren().remove(y.gifimage);
-                        }
-                        if(((CherryBomb) x).flag==0){
-                            toremoveP.add(x);
-                            ((CherryBomb) x).flag=1;
-                            animated.canvas1.getChildren().remove(x.gifimage);
-                        }
-                    }
-
-                    else if(r==1) {
+                    if(r==1) {
                         toremoveP.add(x);
                         animated.canvas1.getChildren().remove(x.gifimage);
                     }

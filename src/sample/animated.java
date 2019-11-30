@@ -154,7 +154,7 @@ public class animated implements Initializable {
                 Game.plants.add(p);
                 dest.setImage(p.gifimage.getImage());
                 p.gifimage=dest;
-                System.out.println(dest.getLayoutX()+330+" "+dest.getLayoutY()+90);
+                //System.out.println(dest.getLayoutX()+330+" "+dest.getLayoutY()+90);
                 p.pea.relocate(dest.getLayoutX()+330,dest.getLayoutY()+90);
                 animated.canvas1.getChildren().add(p.pea);
                 Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000/60), e->{
@@ -177,9 +177,14 @@ public class animated implements Initializable {
             break;
             case 4:
                 CherryBomb c=new CherryBomb((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
-                Game.plants.add(c);
+                //Game.plants.add(c);
                 dest.setImage(c.gifimage.getImage());
                 c.gifimage=dest;
+                Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(2000), e->{
+                    c.animate();
+                }));
+                timeline1.setCycleCount(2);
+                timeline1.play();
             break;
             default:
                 System.out.println("no Object found");
@@ -188,6 +193,7 @@ public class animated implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("animated");
         canvas1=canvas;
         points.setText("0");
         points1=points;

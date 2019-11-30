@@ -9,7 +9,7 @@ public abstract class Characters {
     private double Xpos;
     private double Ypos;
 
-    private int speed;
+    private double speed;
     protected Image image;
     protected ImageView imageView;
     protected ImageView gifimage;
@@ -24,20 +24,20 @@ public abstract class Characters {
                 animated.canvas1.getChildren().remove(gifimage);
                 gifimage.setImage(null);
                 System.out.println("Hello");
-                a.setSpeed(1);
+                a.setSpeed(0.2);
                 return 1;
             }
         }
         return 0;
     }
-    public Characters(ImageView imageView,ImageView gifimage,int speed){
+    public Characters(ImageView imageView,ImageView gifimage,double speed){
         this.image=imageView.getImage();
         this.imageView=imageView;
         this.gifimage=gifimage;
         this.speed=speed;
     }
 
-    public Characters(int hp, int damage, ImageView imageview,int x,int y,ImageView gifimage,int speed){
+    public Characters(int hp, int damage, ImageView imageview,int x,int y,ImageView gifimage,double speed){
         this.hp=hp;
         this.damage=damage;
         this.image=imageview.getImage();
@@ -60,11 +60,11 @@ public abstract class Characters {
         this.hp = hp;
     }
 
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 

@@ -25,7 +25,7 @@
          <children>
             <VBox onMousePressed="#level1" prefHeight="336.0" prefWidth="95.0">
                <children>
-                  <ImageView fitHeight="107.0" fitWidth="49.0" onMousePressed="#level1" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="107.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Photos/regular.png" />
                      </image>
@@ -40,7 +40,7 @@
             </VBox>
             <VBox onMousePressed="#level2" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="76.0" onMousePressed="#level2" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Photos/flag.png" />
                      </image>
@@ -55,9 +55,9 @@
             </VBox>
             <VBox onMousePressed="#level3" prefHeight="342.0" prefWidth="153.0">
                <children>
-                  <ImageView fitHeight="204.0" fitWidth="130.0" onMousePressed="#level3" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="204.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Photos/d4cx9yz-9380b4b0-4d8a-4c1d-ac76-bf2f40070429.png" />
+                        <Image url="@../Photos/conehead.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="209.0" text="Level 3" textAlignment="CENTER">
@@ -85,7 +85,7 @@
             </VBox>
             <VBox onMousePressed="#level5" prefHeight="276.0" prefWidth="160.0">
                <children>
-                  <ImageView fx:id="level5" fitHeight="300.0" fitWidth="224.0" onMousePressed="#show_Ingame">
+                  <ImageView fx:id="level5" fitHeight="300.0" fitWidth="224.0">
                      <image>
                         <Image url="@../Photos/PvZC_Zomboss.png" />
                      </image>
