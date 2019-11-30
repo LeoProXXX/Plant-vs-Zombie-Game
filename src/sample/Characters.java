@@ -15,7 +15,8 @@ public abstract class Characters {
     protected ImageView gifimage;
     public int checkcollision(Characters a)
     {
-        if(Math.abs(this.Xpos-a.getImage().getBoundsInParent().getMaxX())<=20&&!(Math.abs(this.Ypos-a.getImage().getLayoutY())>=50))
+        //System.out.println((this.Xpos-a.getImage().getBoundsInParent().getMaxX())+" "+(this.Ypos-a.getImage().getLayoutY()));
+        if(Math.abs(this.Xpos-a.getImage().getBoundsInParent().getMaxX())<=20&&!(Math.abs(this.Ypos-a.getImage().getLayoutY())>=60))
         {
             a.setSpeed(0);
             this.dechp(1);

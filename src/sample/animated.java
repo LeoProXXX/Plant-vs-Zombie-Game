@@ -168,16 +168,19 @@ public class animated implements Initializable {
                 Sunflower s=new Sunflower((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
                 Game.plants.add(s);
                 dest.setImage(s.gifimage.getImage());
+                s.gifimage=dest;
             break;
             case 3:
                 Walnut w=new Walnut((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
                 Game.plants.add(w);
                 dest.setImage(w.gifimage.getImage());
+                w.gifimage=dest;
             break;
             case 4:
                 CherryBomb c=new CherryBomb((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
                 Game.plants.add(c);
                 dest.setImage(c.gifimage.getImage());
+                c.gifimage=dest;
             break;
             default:
                 System.out.println("no Object found");

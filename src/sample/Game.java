@@ -24,10 +24,10 @@ public class Game {
         Timeline timeline=new Timeline(new KeyFrame(Duration.millis(1000/60),e->{
             ArrayList<Characters> toremoveP=new ArrayList<Characters>();
             ArrayList<Characters> toremoveZ=new ArrayList<Characters>();
+            //System.out.println(plants.size());
             for(Characters x:plants) {
                 for (Characters y : zombie) {
                     int r=x.checkcollision(y);
-                    System.out.println("HP="+x.getHp()+" "+y.getHp());
 
                     if(r==1) {
                         toremoveP.add(x);
