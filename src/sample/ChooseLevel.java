@@ -13,10 +13,6 @@ public class ChooseLevel
 {
     private ArrayList<Player> playerList;
     private Player currPlayer;
-    public ChooseLevel(){
-        playerList=new ArrayList<Player>();
-        currPlayer=new Player("Sandeep");
-    }
     public ChooseLevel(ArrayList<Player> x, Player a)
     {
         currPlayer=a;

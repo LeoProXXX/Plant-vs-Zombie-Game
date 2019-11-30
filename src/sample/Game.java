@@ -17,7 +17,6 @@ public class Game {
     {
         zombie=new ArrayList<Characters>();
         plants=new ArrayList<Characters>();
-
         Main.player.setZombielist(zombie);
         Main.player.setPlantlist(plants);
 

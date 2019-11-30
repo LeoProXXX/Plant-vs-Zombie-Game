@@ -5,9 +5,7 @@ import javafx.animation.*;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -153,9 +151,6 @@ public class animated implements Initializable {
     @FXML
     public ImageView lawnmower5;
 
-    private static ImageView zombiehead=new ImageView(new Image("/Photos/zombiehead.png",40,40,false,false));
-
-
     public static ImageView grid[][];
 
     public int dragcase=-1;
@@ -177,7 +172,7 @@ public class animated implements Initializable {
                 timeline.play();
                 int x=Integer.parseInt(animated.points1.getText())-100;
                 animated.points1.setText(Integer.toString(x));
-                PeaShooter.invalid(source1);
+                PeaShooter.invalid();
             break;
             case 2:
                 Sunflower s=new Sunflower((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
@@ -218,15 +213,12 @@ public class animated implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+//        System.out.println("animated");
         Game g=new Game();
-        canvas.getChildren().add(zombiehead);
 
         canvas1=canvas;
         points.setText("0");
         points1=points;
-        zombietimertimeline=new Timeline(new KeyFrame(Duration.seconds(1), e-> zombietimer()));
-        zombietimertimeline.setCycleCount(1);
-        zombietimertimeline.play();
         LawnMover l1=new LawnMover(lawnmower1);
         LawnMover l2=new LawnMover(lawnmower2);
         LawnMover l3=new LawnMover(lawnmower3);
@@ -249,19 +241,18 @@ public class animated implements Initializable {
         suntokentimeline.setCycleCount(Animation.INDEFINITE);
         suntokentimeline.play();
         Level.start();
-
+        zombietimertimeline=new Timeline(new KeyFrame(Duration.seconds(10), e-> zombietimer()));
+        zombietimertimeline.setCycleCount(1);
+        zombietimertimeline.play();
         Game.checkCollision();
-        source1.setOpacity(0.7);
-        source2.setOpacity(0.7);
-        source3.setOpacity(0.7);
-        source4.setOpacity(0.7);
-
     }
 
 
 
     public void zombietimer(){
 
+        ImageView zombiehead=new ImageView(new Image("/Photos/zombiehead.png",40,40,false,false));
+        canvas.getChildren().add(zombiehead);
         Line line=new Line();
         int y=20;
         int x=700;
@@ -273,28 +264,17 @@ public class animated implements Initializable {
 
         zombietimertransition=new PathTransition();
         zombietimertransition.setNode(zombiehead);
-        zombietimertransition.setDuration(Duration.seconds(10));
+        zombietimertransition.setDuration(Duration.seconds(120));
         zombietimertransition.setPath(line);
         zombietimertransition.setCycleCount(1);
         zombietimertransition.play();
-        zombietimertransition.setOnFinished(e -> {
-            System.out.println("end");
-            try {
-                FXMLLoader loader = new FXMLLoader(Main.class.getResource("Choose_level.fxml"));
-                loader.setController(new ChooseLevel());
-                Main.root=loader.load();
-                Main.stage.setScene(new Scene(Main.root));
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        });
     }
 
 
     public void showAlertWithDefaultHeaderText() throws Exception {
-        suntokentimeline.pause();
-        zombietimertransition.pause();
-        Level.pausetimelines();
+        zombietimertimeline.stop();
+        suntokentimeline.stop();
+        zombietimertransition.stop();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Select");
         alert.setHeaderText("what do you want to do :");
@@ -310,9 +290,9 @@ public class animated implements Initializable {
 
         if (option.get() == null|| option.get()==resumebutton) {
             this.gamepause.setText("Pause");
+//            zombietimertimeline.play();
             suntokentimeline.play();
             zombietimertransition.play();
-            Level.playtimeline();
             
         } else if (option.get() == exitbutton) {
             Main.player.serialize();
@@ -327,8 +307,7 @@ public class animated implements Initializable {
 
     @FXML
     public void handledragdetection_plant(MouseEvent event) {
-        if (Integer.parseInt(animated.points1.getText()) >= 100&&PeaShooter.isvalid(source1)) {
-            source1.setOpacity(1);
+        if (Integer.parseInt(animated.points1.getText()) >= 100&&PeaShooter.isvalid()) {
             dragcase = 1;
             Dragboard db = source1.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
@@ -340,9 +319,8 @@ public class animated implements Initializable {
 
     @FXML
     public void handledragdetection_sunflower(MouseEvent event){
-        if (Integer.parseInt(animated.points1.getText()) >= 50 && Sunflower.isvalid())
+        //if (Integer.parseInt(animated.points1.getText()) >= 50 && Sunflower.isvalid())
          {
-             source2.setOpacity(1);
             dragcase = 2;
             Dragboard db = source2.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
@@ -354,7 +332,6 @@ public class animated implements Initializable {
     @FXML
     public void handledragdetection_walnut(MouseEvent event){
         if (Integer.parseInt(animated.points1.getText()) >= 50&&Walnut.isvalid()) {
-            source3.setOpacity(1);
             dragcase = 3;
             Dragboard db = source3.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
@@ -366,7 +343,6 @@ public class animated implements Initializable {
     @FXML
     public void handledragdetection_bomb(MouseEvent event){
         if (Integer.parseInt(animated.points1.getText()) >= 150&&CherryBomb.isvalid()) {
-            source4.setOpacity(1);
             dragcase = 4;
             Dragboard db = source4.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
