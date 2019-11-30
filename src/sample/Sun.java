@@ -1,20 +1,21 @@
 package sample;
 
+import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Sun {
     public ImageView gifimage;
     private int Xpos;
     private int Ypos;
-    private Timer timer;
+    Timeline t;
     public Sun(){
         gifimage=new ImageView(new Image("/Photos/sunnysmile.gif", 60, 60, false, false));
         gifimage.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -25,11 +26,15 @@ public class Sun {
                 animated.points1.setText(Integer.toString(p));
             }
         });
-        timer=new Timer();
     }
     public Sun(int x,int y){
         this.Xpos=x;
         this.Ypos=y;
+        t=new Timeline(new KeyFrame(Duration.seconds(5),e->generatesun()));
+        t.setCycleCount(Animation.INDEFINITE);
+        t.play();
+    }
+    public void generatesun(){
         gifimage=new ImageView(new Image("/Photos/sunnysmile.gif", 60, 60, false, false));
         gifimage.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -39,22 +44,9 @@ public class Sun {
                 animated.points1.setText(Integer.toString(p));
             }
         });
-        timer =new Timer();
-        TimerTask task1=new task();
-        timer.schedule(task1,3000L);
+        gifimage.relocate(Xpos,Ypos);
+        animated.canvas1.getChildren().add(gifimage);
 
     }
-    private class task extends TimerTask
-    {
-        @Override
-        public void run() {
-            gifimage.relocate(Xpos,Ypos);
-            FadeTransition ft = new FadeTransition(Duration.millis(3000), gifimage);
-            ft.setFromValue(1.0);
-            ft.setToValue(0.3);
-            ft.setAutoReverse(true);
-            animated.canvas1.getChildren().add(gifimage);
-            ft.play();
-        }
-    }
+
 }

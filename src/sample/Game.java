@@ -24,20 +24,31 @@ public class Game {
         Timeline timeline=new Timeline(new KeyFrame(Duration.millis(1000/60),e->{
             ArrayList<Characters> toremoveP=new ArrayList<Characters>();
             ArrayList<Characters> toremoveZ=new ArrayList<Characters>();
-            //System.out.println(plants.size());
+
             for(Characters x:plants) {
                 for (Characters y : zombie) {
                     int r=x.checkcollision(y);
+                    if(x instanceof CherryBomb){
+                        if(r==1){
+                            toremoveZ.add(y);
+                            animated.canvas1.getChildren().remove(y.gifimage);
+                        }
+                        if(((CherryBomb) x).flag==0){
+                            toremoveP.add(x);
+                            ((CherryBomb) x).flag=1;
+                            animated.canvas1.getChildren().remove(x.gifimage);
+                        }
+                    }
 
-                    if(r==1) {
+                    else if(r==1) {
                         toremoveP.add(x);
                         animated.canvas1.getChildren().remove(x.gifimage);
                     }
-                    if(r==2) {
+                    else if(r==2) {
                         toremoveZ.add(y);
                         animated.canvas1.getChildren().remove(y.gifimage);
                     }
-                    if(r==3)
+                    else if(r==3)
                     {
                         toremoveP.add(x);
                         toremoveZ.add(y);
