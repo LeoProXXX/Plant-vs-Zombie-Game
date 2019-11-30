@@ -11,9 +11,10 @@ public class Main extends Application
     public static int height=800;
     public static Parent root;
     public static Stage stage;
+    public static Player player;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Game g=new Game();
+//        Game g=new Game();
         Level l=new Level();
         stage=primaryStage;
        FXMLLoader loader= new FXMLLoader(getClass().getResource("Start_Screen.fxml"));

@@ -14,7 +14,7 @@ public class PeaShooter extends Plant {
     private Timer timer;
     public PeaShooter(int x,int y)
     {
-        super(100,30,3,new ImageView(new Image("/Photos/peashooter.jpeg")),x,y,new ImageView(new Image("/Photos/pea_shooter.gif")),3);
+        super(100,30,3,new ImageView(new Image("/Photos/peashooter.jpeg")),x,y,new ImageView(new Image("/Photos/pea_shooter.gif")),3,"/Photos/pea_shooter.gif");
         pea=new ImageView(new Image("/Photos/Pea.png"));
         timer=new Timer();
         timer1=new Timer();

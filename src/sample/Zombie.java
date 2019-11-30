@@ -1,19 +1,24 @@
 package sample;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.Optional;
+
 
 public class Zombie extends Characters {
+    private static boolean flag=true;
 
 
-    public Zombie(int hp, int damage, int x, int y, ImageView image, ImageView gifimage,double speed){
+    public Zombie(int hp, int damage, int x, int y, ImageView image, ImageView gifimage,double speed,String path){
 
-        super(hp,damage,image,x,y,gifimage,speed);
+        super(hp,damage,image,x,y,gifimage,speed,path);
     }
-    public Zombie(int x,int y,ImageView image,ImageView gifimage,double speed)
+    public Zombie(int x,int y,ImageView image,ImageView gifimage,double speed,String path)
     {
-        super(100,10,image,x,y,gifimage,speed);
+        super(100,10,image,x,y,gifimage,speed,path);
     }
 
     public void moving(){
@@ -30,8 +35,17 @@ public class Zombie extends Characters {
     public void animate() {
 
         gifimage.setTranslateX(gifimage.getTranslateX()-getSpeed());
-        if(gifimage.getLayoutX()+gifimage.getTranslateX()<200){
-            setSpeed(0);
+        if(gifimage.getLayoutX()+gifimage.getTranslateX()<50&&flag){
+            System.out.println("hereeee");
+            flag=false;
+            GameOver();
+        }
+    }
+    public void GameOver(){
+        try {
+            Main.changeScene("GameOver.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

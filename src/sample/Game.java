@@ -17,6 +17,8 @@ public class Game {
     {
         zombie=new ArrayList<Characters>();
         plants=new ArrayList<Characters>();
+        Main.player.setZombielist(zombie);
+        Main.player.setPlantlist(plants);
 
     }
     public static void checkCollision()
@@ -45,6 +47,8 @@ public class Game {
                         toremoveZ.add(y);
                         if(x instanceof Sunflower){
                             animated.canvas1.getChildren().remove(((Sunflower) x).suntoken.gifimage);
+                            ((Sunflower) x).suntoken.n.stop();
+                            ((Sunflower) x).suntoken.n.setCycleCount(0);
                         }
                         animated.canvas1.getChildren().remove(x.gifimage);
                         animated.canvas1.getChildren().remove(y.gifimage);
@@ -53,8 +57,10 @@ public class Game {
             }
             for(Characters t:toremoveP)
                 plants.remove(t);
-            for(Characters t: toremoveZ)
+            for(Characters t: toremoveZ) {
                 zombie.remove(t);
+                t.setSpeed(0);
+            }
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
