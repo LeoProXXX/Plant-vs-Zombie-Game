@@ -29,8 +29,8 @@ public class Walnut extends Plant
         TimerTask task1=new Walnut.task();
         timer.schedule(task1,0L,1000l);
     }
-    public Walnut(int x,int y) {
-        super(1000,0,7,new ImageView(new Image("/Photos/walnut.png")),x,y,new ImageView(new Image("/Photos/walnut_full_life.gif")),0,"/Photos/walnut_full_life.gif");
+    public Walnut(int x,int y,int c,int r) {
+        super(1000,0,7,new ImageView(new Image("/Photos/walnut.png")),x,y,new ImageView(new Image("/Photos/walnut_full_life.gif")),0,"/Photos/walnut_full_life.gif",c,r);
     timer=new Timer();
     }
 

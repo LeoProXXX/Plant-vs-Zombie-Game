@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 public class Input
 {
-    private ArrayList<Player> playerList;
     private Player currPlayer;
     @FXML
     private TextField username;
@@ -20,32 +19,19 @@ public class Input
     private Label feedback;
 
     private boolean newgame;
-    public Input(ArrayList<Player> x, boolean y)
+    public Input( boolean y)
     {
-
-        playerList=x;
         newgame=y;
     }
-
     public void input(ActionEvent e) throws Exception
     {
 
         String name= username.getText();
-
-        Player p=Player.deserialize(name);
-        if(p==null){
-            Main.player=new Player(name);
-        }
-        else{
-            Main.player=p;
-
-        }
-
         if(name.length()==0)
             feedback.setText("Name can not be empty");
         else if(newgame==true)
         {
-            if(find(name))
+            if(Main.find(name))
             {
                 username.setText("");
                 feedback.setText("User Already exist");
@@ -53,16 +39,17 @@ public class Input
             else
             {
                 currPlayer=new Player(name);
-                addPlayer(currPlayer);
+                Main.addPlayer(currPlayer);
                 FXMLLoader loader = new FXMLLoader(Main.class.getResource("LoginScreen.fxml"));
-                loader.setController(new LoginScreen(playerList,currPlayer));
+                Main.setPlayer(currPlayer);
+                loader.setController(new LoginScreen());
                 Main.root=loader.load();
                 Main.stage.setScene(new Scene(Main.root));
             }
         }
         else
         {
-            if(!find(name))
+            if(!Main.find(name))
             {
                 username.setText("");
                 feedback.setText("User Don't exist");
@@ -70,27 +57,12 @@ public class Input
             else
             {
                 FXMLLoader loader = new FXMLLoader(Main.class.getResource("LoginScreen.fxml"));
-                loader.setController(new LoginScreen(playerList,currPlayer));
+                loader.setController(new LoginScreen());
                 Main.root=loader.load();
                 Main.stage.setScene(new Scene(Main.root));
             }
 
         }
     }
-    public void addPlayer(Player a)
-    {
-        playerList.add(a);
-    }
-    public boolean find(String x)
-    {
-        for(int i=0;i<playerList.size();i++)
-        {
-            if(x.equals(playerList.get(i).getName()))
-            {
-                currPlayer=playerList.get(i);
-                return true;
-            }
-        }
-        return false;
-    }
+
 }

@@ -4,55 +4,105 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 
 import javax.swing.text.html.ImageView;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class ChooseLevel
+public class ChooseLevel implements Initializable
 {
-    private ArrayList<Player> playerList;
-    private Player currPlayer;
-    public ChooseLevel(ArrayList<Player> x, Player a)
-    {
-        currPlayer=a;
-        playerList=x;
-    }
+
+    @FXML
+    VBox level1;
+    @FXML
+    VBox level2;
+    @FXML
+    VBox level3;
+    @FXML
+    VBox level4;
+    @FXML
+    VBox level5;
+
     public void back_login(ActionEvent e) throws Exception
     {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("LoginScreen.fxml"));
-        loader.setController(new LoginScreen(playerList,currPlayer));
+        loader.setController(new LoginScreen());
         Main.root=loader.load();
         Main.stage.setScene(new Scene(Main.root));
     }
     public void level1()throws Exception
     {
-        Main.player.setLevel(1);
         Level.setLevel(1);
-        Main.changeScene("Ingame.fxml");
+        PlayGame p=new PlayGame(1);
+        Main.getPlayer().add(p);
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("Ingame.fxml"));
+        loader.setController(new animated(p));
+        Main.root=loader.load();
+        Main.stage.setScene(new Scene(Main.root));
     }
     public void level2()throws Exception
     {
-        Main.player.setLevel(2);
         Level.setLevel(2);
-        Main.changeScene("Ingame.fxml");
+        PlayGame p=new PlayGame(2);
+        Main.getPlayer().add(p);
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("Ingame.fxml"));
+        loader.setController(new animated(p));
+        Main.root=loader.load();
+        Main.stage.setScene(new Scene(Main.root));
     }
     public void level3()throws Exception
     {
-        Main.player.setLevel(3);
         Level.setLevel(3);
-        Main.changeScene("Ingame.fxml");
+        PlayGame p=new PlayGame(3);
+        Main.getPlayer().add(p);
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("Ingame.fxml"));
+        loader.setController(new animated(p));
+        Main.root=loader.load();
+        Main.stage.setScene(new Scene(Main.root));
     }
     public void level4()throws Exception
     {
-        Main.player.setLevel(4);
         Level.setLevel(4);
-        Main.changeScene("Ingame.fxml");
+        PlayGame p=new PlayGame(4);
+        Main.getPlayer().add(p);
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("Ingame.fxml"));
+        loader.setController(new animated(p));
+        Main.root=loader.load();
+        Main.stage.setScene(new Scene(Main.root));
     }
     public void level5()throws Exception
     {
-        Main.player.setLevel(5);
         Level.setLevel(5);
-        Main.changeScene("Ingame.fxml");
+        PlayGame p=new PlayGame(5);
+        Main.getPlayer().add(p);
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("Ingame.fxml"));
+        loader.setController(new animated(p));
+        Main.root=loader.load();
+        Main.stage.setScene(new Scene(Main.root));
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        level1.setDisable(true);
+        level2.setDisable(true);
+        level3.setDisable(true);
+        level4.setDisable(true);
+        level5.setDisable(true);
+        int x=Main.getPlayer().getmLevel();
+        if(x>=1)
+            level1.setDisable(false);
+        if(x>=2)
+            level2.setDisable(false);
+        if(x>=3)
+            level3.setDisable(false);
+        if (x>=4)
+            level4.setDisable(false);
+        if(x>=5)
+            level5.setDisable(false);
     }
 }

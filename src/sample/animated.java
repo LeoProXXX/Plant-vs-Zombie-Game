@@ -12,6 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
@@ -22,6 +23,11 @@ import java.util.Random;
 import java.util.Optional;
 import java.util.ResourceBundle;
 public class animated implements Initializable {
+    private PlayGame playgame;
+    public animated(PlayGame p)
+    {
+        playgame=p;
+    }
     Random rand=new Random();
     public static int[] gridy= new int[]{90, 190, 300, 400, 500};
     public static int[] gridx= new int[]{320, 400, 480, 560, 640, 720, 800, 880, 960};
@@ -151,63 +157,62 @@ public class animated implements Initializable {
     @FXML
     public ImageView lawnmower5;
 
+    @FXML
+    public GridPane grida;
+
     public static ImageView grid[][];
 
     public int dragcase=-1;
 
     public void setimageonimageview(ImageView dest, DragEvent event){
-        switch (dragcase){
-            case 1:
-                PeaShooter p=new PeaShooter((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
-                Game.plants.add(p);
-                dest.setImage(p.gifimage.getImage());
-                p.gifimage=dest;
-                //System.out.println(dest.getLayoutX()+330+" "+dest.getLayoutY()+90);
-                p.pea.relocate(dest.getLayoutX()+330,dest.getLayoutY()+90);
-                animated.canvas1.getChildren().add(p.pea);
-                Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000/60), e->{
-                    p.animate();
-                }));
-                timeline.setCycleCount(Animation.INDEFINITE);
-                timeline.play();
-                int x=Integer.parseInt(animated.points1.getText())-100;
-                animated.points1.setText(Integer.toString(x));
-                PeaShooter.invalid();
-            break;
-            case 2:
-                Sunflower s=new Sunflower((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
-                Game.plants.add(s);
-                dest.setImage(s.gifimage.getImage());
-                s.gifimage=dest;
-                int sx=Integer.parseInt(animated.points1.getText())-50;
-                animated.points1.setText(Integer.toString(sx));
-                Sunflower.invalid();
-            break;
-            case 3:
-                Walnut w=new Walnut((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
-                Game.plants.add(w);
-                dest.setImage(w.gifimage.getImage());
-                w.gifimage=dest;
-                int wx=Integer.parseInt(animated.points1.getText())-50;
-                animated.points1.setText(Integer.toString(wx));
-                Walnut.invalid();
-            break;
-            case 4:
-                CherryBomb c=new CherryBomb((int)dest.getLayoutX()+330,(int)dest.getLayoutY()+90);
-                //Game.plants.add(c);
-                dest.setImage(c.gifimage.getImage());
-                c.gifimage=dest;
-                int cx=Integer.parseInt(animated.points1.getText())-150;
-                animated.points1.setText(Integer.toString(cx));
-                Timeline timeline1 = new Timeline(new KeyFrame(Duration.millis(2000), e->{
-                    c.animate();
-                }));
-                timeline1.setCycleCount(2);
-                timeline1.play();
-                CherryBomb.invalid();
-            break;
-            default:
-                System.out.println("no Object found");
+        if(dest.getImage()==null) {
+            Integer cIndex = GridPane.getColumnIndex(dest);
+            Integer rIndex = GridPane.getRowIndex(dest);
+            int x = cIndex == null ? 0 : cIndex;
+            int y = rIndex == null ? 0 : rIndex;
+            switch (dragcase) {
+                case 1:
+                    PeaShooter p = new PeaShooter((int) dest.getLayoutX() + 330, (int) dest.getLayoutY() + 90,x,y);
+                    Game.plants.add(p);
+                    dest.setImage(p.getImage().getImage());
+                    p.gifimage = dest;
+                    p.startAnimation();
+                    int x1 = Integer.parseInt(animated.points1.getText()) - 100;
+                    animated.points1.setText(Integer.toString(x1));
+                    PeaShooter.invalid();
+                    break;
+                case 2:
+                    Sunflower s = new Sunflower((int) dest.getLayoutX() + 330, (int) dest.getLayoutY() + 90,x,y);
+                    Game.plants.add(s);
+                    dest.setImage(s.gifimage.getImage());
+                    s.gifimage = dest;
+                    s.startAnimation();
+                    int sx = Integer.parseInt(animated.points1.getText()) - 50;
+                    animated.points1.setText(Integer.toString(sx));
+                    Sunflower.invalid();
+                    break;
+                case 3:
+                    Walnut w = new Walnut((int) dest.getLayoutX() + 330, (int) dest.getLayoutY() + 90,x,y);
+                    Game.plants.add(w);
+                    dest.setImage(w.gifimage.getImage());
+                    w.gifimage = dest;
+                    int wx = Integer.parseInt(animated.points1.getText()) - 50;
+                    animated.points1.setText(Integer.toString(wx));
+                    Walnut.invalid();
+                    break;
+                case 4:
+                    CherryBomb c = new CherryBomb((int) dest.getLayoutX() + 330, (int) dest.getLayoutY() + 90,x,y);
+                    //Game.plants.add(c);
+                    dest.setImage(c.gifimage.getImage());
+                    c.gifimage = dest;
+                    int cx = Integer.parseInt(animated.points1.getText()) - 150;
+                    animated.points1.setText(Integer.toString(cx));
+                    c.startAnimation();
+                    CherryBomb.invalid();
+                    break;
+                default:
+                    System.out.println("no Object found");
+            }
         }
 
     }
@@ -215,7 +220,30 @@ public class animated implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 //        System.out.println("animated");
         Game g=new Game();
-
+        source1.setDisable(true);
+        source1.setVisible(false);
+        source2.setVisible(false);
+        source3.setVisible(false);
+        source4.setVisible(false);
+        source2.setDisable(true);
+        source3.setDisable(true);
+        source4.setDisable(true);
+        if(playgame.getLevel()>=1) {
+            source1.setDisable(false);
+            source1.setVisible(true);
+        }
+        if(playgame.getLevel()>=2) {
+            source2.setDisable(false);
+            source2.setVisible(true);
+        }
+        if(playgame.getLevel()>=3) {
+            source3.setDisable(false);
+            source3.setVisible(true);
+        }
+        if(playgame.getLevel()>=4) {
+            source4.setDisable(false);
+            source4.setVisible(true);
+        }
         canvas1=canvas;
         points.setText("0");
         points1=points;
@@ -224,7 +252,6 @@ public class animated implements Initializable {
         LawnMover l3=new LawnMover(lawnmower3);
         LawnMover l4=new LawnMover(lawnmower4);
         LawnMover l5=new LawnMover(lawnmower5);
-
         grid= new ImageView[][]{{dest00, dest01, dest02, dest03, dest04},{dest10,dest11,dest12,dest13,dest14},{dest20,dest21,dest22,dest23,dest24},{dest30,dest31,dest32,dest33,dest34},{
                 dest40,dest41,dest42,dest43,dest44},{dest50,dest51,dest52,dest53,dest54},{dest60,dest61,dest62,dest63,dest64},{dest70,dest71,dest72,dest73,dest74},{dest80,dest81,dest82,dest83,dest84}};
 
@@ -235,9 +262,8 @@ public class animated implements Initializable {
                 });
             }
         }
-
-        Main.player.setGrid(grid);
-        suntokentimeline= new Timeline(new KeyFrame(Duration.seconds(15),e-> Game.dropsuntoken()));
+        playgame.start(grid);
+        suntokentimeline= new Timeline(new KeyFrame(Duration.seconds(10),e-> Game.dropsuntoken()));
         suntokentimeline.setCycleCount(Animation.INDEFINITE);
         suntokentimeline.play();
         Level.start();
@@ -246,9 +272,13 @@ public class animated implements Initializable {
         zombietimertimeline.play();
         Game.checkCollision();
     }
+    public void sync()
+    {
+        playgame.setCurrent_suntoken(Integer.valueOf(points.getText()));
+        playgame.setPlantlist(Game.plants);
+        playgame.setZombielist(Game.zombie);
 
-
-
+    }
     public void zombietimer(){
 
         ImageView zombiehead=new ImageView(new Image("/Photos/zombiehead.png",40,40,false,false));
@@ -295,7 +325,8 @@ public class animated implements Initializable {
             zombietimertransition.play();
             
         } else if (option.get() == exitbutton) {
-            Main.player.serialize();
+            sync();
+            Main.serialize();
             System.exit(0);
         }  else if (option.get() == mainmenubutton) {
             Main.changeScene("LoginScreen.fxml");
@@ -307,7 +338,10 @@ public class animated implements Initializable {
 
     @FXML
     public void handledragdetection_plant(MouseEvent event) {
-        if (Integer.parseInt(animated.points1.getText()) >= 100&&PeaShooter.isvalid()) {
+
+        if (Integer.parseInt(animated.points1.getText()) >= 100&&PeaShooter.isvalid())
+        {
+
             dragcase = 1;
             Dragboard db = source1.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();
@@ -342,7 +376,8 @@ public class animated implements Initializable {
     }
     @FXML
     public void handledragdetection_bomb(MouseEvent event){
-        if (Integer.parseInt(animated.points1.getText()) >= 150&&CherryBomb.isvalid()) {
+        if (Integer.parseInt(animated.points1.getText()) >= 150&&CherryBomb.isvalid())
+        {
             dragcase = 4;
             Dragboard db = source4.startDragAndDrop(TransferMode.ANY);
             ClipboardContent cb = new ClipboardContent();

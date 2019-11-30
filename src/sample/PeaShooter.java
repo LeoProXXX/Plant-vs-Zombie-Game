@@ -10,14 +10,24 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class PeaShooter extends Plant {
-    public ImageView pea;
-    private Timer timer;
-    public PeaShooter(int x,int y)
+    private transient ImageView pea;
+    private transient Timer timer;
+    public PeaShooter(int x,int y,int c,int r)
     {
-        super(100,30,3,new ImageView(new Image("/Photos/peashooter.jpeg")),x,y,new ImageView(new Image("/Photos/pea_shooter.gif")),3,"/Photos/pea_shooter.gif");
+        super(100,30,3,new ImageView(new Image("/Photos/peashooter.jpeg")),x,y,new ImageView(new Image("/Photos/pea_shooter.gif")),3,"/Photos/pea_shooter.gif",c,r);
         pea=new ImageView(new Image("/Photos/Pea.png"));
         timer=new Timer();
         timer1=new Timer();
+        pea.relocate(this.getXpos(),this.getYpos());
+        animated.canvas1.getChildren().add(pea);
+    }
+    @Override
+    public void draw(ImageView[][] grid)
+    {
+        pea=new ImageView(new Image("/Photos/Pea.png"));
+        pea.relocate(this.getXpos(),this.getYpos());
+        animated.canvas1.getChildren().add(pea);
+        super.draw(grid);
     }
     private class task extends TimerTask
     {
@@ -26,6 +36,7 @@ public class PeaShooter extends Plant {
             pea.setVisible(true);
             setSpeed(3);
             pea.relocate(PeaShooter.this.getXpos(),PeaShooter.this.getYpos());
+            animated.canvas1.getChildren().add(pea);
             pea.setTranslateX(0.0);
         }
     }
@@ -57,6 +68,7 @@ public class PeaShooter extends Plant {
         int r=super.checkcollision(c);
         if(r==1)
             timer.cancel();
+       // System.out.println("Here");
         if(Math.abs(pea.getBoundsInParent().getMaxX()-c.getImage().getBoundsInParent().getMaxX())<=20&&!(Math.abs(pea.getLayoutY()-c.getImage().getLayoutY())>=50))
         {
             c.dechp(25);
@@ -79,6 +91,11 @@ public class PeaShooter extends Plant {
     @Override
     public void animate() {
         pea.setTranslateX(pea.getTranslateX()+getSpeed());
+        if(pea.getLayoutX()+pea.getTranslateX()>1000)
+        {
+            pea.relocate(this.getXpos(),this.getYpos());
+            pea.setTranslateX(0);
+        }
     }
 }
 

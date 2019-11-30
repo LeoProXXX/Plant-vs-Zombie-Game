@@ -19,7 +19,8 @@ public class LawnMover extends Characters {
         this.setXpos(im.getLayoutX());
         this.setYpos(im.getLayoutY());
     }
-
+    public void draw(ImageView grid[][])
+    {}
     @Override
     public void attack(Characters c) {
 

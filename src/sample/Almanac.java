@@ -13,21 +13,14 @@ import java.util.ArrayList;
 
 public class Almanac
 {
-    private ArrayList<Player> playerList;
-    private Player currPlayer;
     @FXML
     private Label character_details;
     @FXML
     private ImageView character_image;
-    public Almanac(ArrayList<Player> x, Player a)
-    {
-        currPlayer=a;
-        playerList=x;
-    }
     public void back(ActionEvent e) throws Exception
     {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("LoginScreen.fxml"));
-        loader.setController(new LoginScreen(playerList,currPlayer));
+        loader.setController(new LoginScreen());
         Main.root=loader.load();
         Main.stage.setScene(new Scene(Main.root));
     }

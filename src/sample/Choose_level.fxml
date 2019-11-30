@@ -23,7 +23,7 @@
          </graphic></Button>
       <HBox layoutX="208.0" layoutY="141.0" prefHeight="348.0" prefWidth="840.0">
          <children>
-            <VBox onMousePressed="#level1" prefHeight="336.0" prefWidth="95.0">
+            <VBox fx:id="level1" onMousePressed="#level1" prefHeight="336.0" prefWidth="95.0">
                <children>
                   <ImageView fitHeight="107.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -38,7 +38,7 @@
                   <Separator prefHeight="0.0" prefWidth="95.0" />
                </children>
             </VBox>
-            <VBox onMousePressed="#level2" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="level2" onMousePressed="#level2" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -53,7 +53,7 @@
                   <Separator prefWidth="200.0" />
                </children>
             </VBox>
-            <VBox onMousePressed="#level3" prefHeight="342.0" prefWidth="153.0">
+            <VBox fx:id="level3" onMousePressed="#level3" prefHeight="342.0" prefWidth="153.0">
                <children>
                   <ImageView fitHeight="204.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -68,7 +68,7 @@
                   <Separator prefWidth="200.0" />
                </children>
             </VBox>
-            <VBox onMousePressed="#level4" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="level4" onMousePressed="#level4" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView fitHeight="247.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -83,9 +83,9 @@
                   <Separator prefWidth="200.0" />
                </children>
             </VBox>
-            <VBox onMousePressed="#level5" prefHeight="276.0" prefWidth="160.0">
+            <VBox fx:id="level5" onMousePressed="#level5" prefHeight="276.0" prefWidth="160.0">
                <children>
-                  <ImageView fx:id="level5" fitHeight="300.0" fitWidth="224.0">
+                  <ImageView fitHeight="300.0" fitWidth="224.0">
                      <image>
                         <Image url="@../Photos/PvZC_Zomboss.png" />
                      </image>

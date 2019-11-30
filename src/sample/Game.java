@@ -17,9 +17,6 @@ public class Game {
     {
         zombie=new ArrayList<Characters>();
         plants=new ArrayList<Characters>();
-        Main.player.setZombielist(zombie);
-        Main.player.setPlantlist(plants);
-
     }
     public static void checkCollision()
     {
@@ -32,26 +29,22 @@ public class Game {
                     int r=x.checkcollision(y);
                     if(r==1) {
                         toremoveP.add(x);
-                        if(x instanceof Sunflower){
-                            animated.canvas1.getChildren().remove(((Sunflower) x).suntoken.gifimage);
-                        }
                         animated.canvas1.getChildren().remove(x.gifimage);
+                        x.endAnimation();
                     }
                     else if(r==2) {
                         toremoveZ.add(y);
                         animated.canvas1.getChildren().remove(y.gifimage);
+                        y.endAnimation();
                     }
                     else if(r==3)
                     {
                         toremoveP.add(x);
                         toremoveZ.add(y);
-                        if(x instanceof Sunflower){
-                            animated.canvas1.getChildren().remove(((Sunflower) x).suntoken.gifimage);
-                            ((Sunflower) x).suntoken.n.stop();
-                            ((Sunflower) x).suntoken.n.setCycleCount(0);
-                        }
                         animated.canvas1.getChildren().remove(x.gifimage);
                         animated.canvas1.getChildren().remove(y.gifimage);
+                        x.endAnimation();
+                        y.endAnimation();
                     }
                 }
             }
@@ -67,9 +60,9 @@ public class Game {
     }
     public static void dropsuntoken(){
         Sun s=new Sun();
-        s.gifimage.relocate(rand.nextInt(600) + 260,10);
-        animated.canvas1.getChildren().add(s.gifimage);
-        Timeline timeline=new Timeline(new KeyFrame(Duration.seconds(5), new KeyValue(s.gifimage.layoutYProperty(), rand.nextInt(440)+60)));
+        s.getImage().relocate(rand.nextInt(600) + 260,10);
+        animated.canvas1.getChildren().add(s.getImage());
+        Timeline timeline=new Timeline(new KeyFrame(Duration.seconds(5), new KeyValue(s.getImage().layoutYProperty(), rand.nextInt(440)+60)));
         timeline.setCycleCount(1);
         timeline.play();
 

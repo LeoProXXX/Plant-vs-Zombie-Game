@@ -25,20 +25,15 @@ public class Level
     {
 
         Random rand=new Random();
-        time=Duration.millis(7000/level);
-        i=1;
+
+        time=Duration.millis(15000/level);
+
         Timeline zombietimeline=new Timeline(new KeyFrame(time,e->{
 
-                System.out.println("Helo");
                 Zombie n=getzombie(rand.nextInt(level));
                 Game.zombie.add(n);
                 animated.canvas1.getChildren().add(n.gifimage);
-                Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000/60), z->{
-                n.animate();
-            } ));
-            timeline.setCycleCount(Animation.INDEFINITE);
-            timeline.play();
-            changetime();
+                n.startAnimation();
         }));
         zombietimeline.setCycleCount(3*level);
         zombietimeline.play();
@@ -59,7 +54,6 @@ public class Level
             n = new ConeheadZombie(850, animated.gridy[rand.nextInt(5)] - 50);
         else
             n = new BucketheadZombie(850, animated.gridy[rand.nextInt(5)] - 50);
-        n.gifimage.relocate(900,animated.gridy[rand.nextInt(5)]-50);
         return n;
     }
 }

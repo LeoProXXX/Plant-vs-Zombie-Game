@@ -20,7 +20,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="start_game" layoutX="383.0" layoutY="349.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="98.0" style="-fx-background-color: transparent;">
+      <Button fx:id="start_game" layoutX="383.0" layoutY="349.0" mnemonicParsing="false" onAction="#show_ingame" prefHeight="33.0" prefWidth="98.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="100.0">
                <image>

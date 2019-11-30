@@ -1,7 +1,11 @@
 package sample;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,12 +33,12 @@ public class CherryBomb extends Plant
         TimerTask task1=new CherryBomb.task();
         timer.schedule(task1,0L,1000l);
     }
-    private ImageView blast;
+    private transient ImageView blast;
     public int flag;
-    public CherryBomb(int x,int y)
+    public CherryBomb(int x,int y,int c,int r)
     {
-        super(100,1000,5,new ImageView(new Image("/Photos/Cherrybomb.jpeg")),x,y,new ImageView(new Image("/Photos/Cherrybomb.jpeg")),0);
-        blast=new ImageView(new Image("/Photos/bomb.gif"));
+        super(100,1000,5,new ImageView(new Image("/Photos/Cherrybomb.jpeg")),x,y,new ImageView(new Image("/Photos/Cherrybomb.jpeg")),0,"/Photos/Cherrybomb.jpeg",c,r);
+        //blast=new ImageView(new Image("/Photos/bomb.gif"));
         flag=0;
         timer=new Timer();
     }
@@ -61,16 +65,18 @@ public class CherryBomb extends Plant
     public void changeimage(){
         this.gifimage=blast;
     }
-
+    @Override
+    public void startAnimation()
+    {
+        timeline=new Timeline(new KeyFrame(Duration.millis(3000), e->{
+            animate();
+        }));
+        timeline.setCycleCount(1);
+        timeline.play();
+    }
     @Override
     public void animate() {
-        if(flag==0)
-        {
-            changeimage();
-            flag=1;
-        }
-        else
-        {
+
             for(Characters a:Game.zombie)
             {
                 if(Checkcollision(a)==1)
@@ -79,8 +85,8 @@ public class CherryBomb extends Plant
                 }
             }
             System.out.println("Here");
-            animated.canvas1.getChildren().remove(this.gifimage);
-        }
+            this.getImage().setVisible(false);
+            animated.canvas1.getChildren().remove(this.getImage());
     }
 
 

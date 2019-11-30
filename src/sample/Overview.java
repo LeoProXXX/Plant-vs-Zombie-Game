@@ -10,18 +10,12 @@ import java.util.ArrayList;
 
 public class Overview
 {
-    private ArrayList<Player> playerList;
-    private Player currPlayer;
-    public Overview(ArrayList<Player> x, Player a)
-    {
-        currPlayer=a;
-        playerList=x;
-    }
+
 
     public void back(ActionEvent e) throws Exception
     {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("LoginScreen.fxml"));
-        loader.setController(new LoginScreen(playerList,currPlayer));
+        loader.setController(new LoginScreen());
         Main.root=loader.load();
         Main.stage.setScene(new Scene(Main.root));
     }

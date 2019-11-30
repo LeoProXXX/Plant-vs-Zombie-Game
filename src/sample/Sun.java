@@ -10,16 +10,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class Sun {
-    public ImageView gifimage;
+public class Sun implements Serializable {
+    private transient ImageView gifimage;
     private int Xpos;
     private int Ypos;
-    private Timer timer;
+    private transient Timer timer;
     public Sun(){
         gifimage=new ImageView(new Image("/Photos/sunnysmile.gif", 60, 60, false, false));
         gifimage.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -28,27 +29,19 @@ public class Sun {
                 animated.canvas1.getChildren().remove(gifimage);
                 int p=Integer.parseInt(animated.points1.getText())+25;
                 animated.points1.setText(Integer.toString(p));
-                Main.player.setCurrent_suntoken(p);
+
             }
         });
     }
-    private class task extends TimerTask{
 
-        @Override
-        public void run() {
-            generatesun();
-        }
-    }
-    public Timeline n;
+   private Timeline n;
     public Sun(int x,int y){
         this.Xpos=x;
         this.Ypos=y;
-//        timer=new Timer();
-////        TimerTask task1=new task();
-////        timer.schedule(task1,3000);
-         n=new Timeline(new KeyFrame(Duration.seconds(10),e->generatesun()));
-        n.setCycleCount(Animation.INDEFINITE);
-        n.play();
+    }
+    public ImageView getImage()
+    {
+        return gifimage;
     }
     public void generatesun(){
         gifimage=new ImageView(new Image("/Photos/sunnysmile.gif", 60, 60, false, false));
@@ -56,7 +49,6 @@ public class Sun {
             animated.canvas1.getChildren().remove(gifimage);
             int p=Integer.parseInt(animated.points1.getText())+25;
             animated.points1.setText(Integer.toString(p));
-            Main.player.setCurrent_suntoken(p);
         });
         gifimage.relocate(Xpos,Ypos);
         animated.canvas1.getChildren().add(gifimage);
