@@ -10,14 +10,14 @@ public class Main extends Application
     public static int width=800;
     public static int height=800;
     public static Parent root;
-    private static FXMLLoader loader;
     public static Stage stage;
     @Override
     public void start(Stage primaryStage) throws Exception{
+        Game g=new Game();
         stage=primaryStage;
-        loader= new FXMLLoader(getClass().getResource("Start_Screen.fxml"));
-//        loader= new FXMLLoader(getClass().getResource("Ingame.fxml"));
-        root=loader.load();
+//        loader= new FXMLLoader(getClass().getResource("Start_Screen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Ingame.fxml"));
+        root= loader.load();
         primaryStage.setTitle("Plant vs Zombies");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

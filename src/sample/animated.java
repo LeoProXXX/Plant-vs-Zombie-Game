@@ -154,6 +154,7 @@ public class animated implements Initializable {
                 PeaShooter p=new PeaShooter((int)dest.getLayoutX(),(int)dest.getLayoutY());
                 Game.gameobjects.add(p);
                 dest.setImage(p.gifimage.getImage());
+
             break;
             case 2:
                 Sunflower s=new Sunflower((int)dest.getLayoutX(),(int)dest.getLayoutY());
@@ -173,7 +174,7 @@ public class animated implements Initializable {
             default:
                 System.out.println("no Object found");
         }
-        System.out.println(dest.getLayoutX()+" "+dest.getLayoutX());
+//        System.out.println(dest.getLayoutX()+" "+dest.getLayoutX());
 
     }
     @Override
