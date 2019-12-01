@@ -44,7 +44,6 @@ public class Zombie extends Characters {
 
         gifimage.setTranslateX(gifimage.getTranslateX()-getSpeed());
         this.setXpos(gifimage.getLayoutX()+gifimage.getTranslateX());
-        System.out.println(this.getXpos());
         if(gifimage.getLayoutX()+gifimage.getTranslateX()<50&&flag){
             System.out.println("hereeee");
             flag=false;

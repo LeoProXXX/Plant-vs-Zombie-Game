@@ -3,6 +3,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import java.io.*;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ public class Main extends Application
     public static Stage stage;
     private static Player player;
     private static ArrayList<Player> playerslist;
+    private static MediaPlayer m;
     @Override
     public void start(Stage primaryStage) throws Exception{
 //      Game g=new Game();
@@ -27,6 +30,9 @@ public class Main extends Application
         primaryStage.setTitle("Plant vs Zombies");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        m=new MediaPlayer(new Media(new File("./src/Music/background.wav").toURI().toString()));
+        m.setAutoPlay(true);
+        //m.play();
     }
     public static boolean find(String x)
     {

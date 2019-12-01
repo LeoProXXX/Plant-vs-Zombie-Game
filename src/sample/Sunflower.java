@@ -21,7 +21,6 @@ public class Sunflower extends Plant
         suntoken=new Sun(x,y);
         timer=new Timer();
     }
-
     @Override
     public void attack(Characters c)
     {

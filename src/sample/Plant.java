@@ -19,6 +19,6 @@ public abstract class Plant extends Characters{
     {
         gifimage=new ImageView(new Image(path));
         gifimage.setImage(new Image(path));
-        grid[c][r].setImage(gifimage.getImage());
+        grid[r][c].setImage(gifimage.getImage());
     }
 }

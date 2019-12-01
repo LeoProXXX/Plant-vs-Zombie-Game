@@ -89,7 +89,7 @@ public class ChooseLevel implements Initializable
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         level1.setDisable(true);
-        level2.setDisable(true);
+        level2.setDisable(false);
         level3.setDisable(true);
         level4.setDisable(true);
         level5.setDisable(true);

@@ -223,7 +223,7 @@ public class animated implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 //        System.out.println("animated");
-        Game g=new Game();
+        Game g=new Game(playgame.getPlantlist(),playgame.getZombielist());
         source1.setDisable(true);
         source1.setVisible(false);
         source2.setVisible(false);
@@ -300,11 +300,16 @@ public class animated implements Initializable {
     public void sync()
     {
         boolean l[]=new boolean[5];
-        l[0]=!l1.getisapplicable();
-        l[1]=!l2.getisapplicable();
-        l[2]=!l3.getisapplicable();
-        l[3]=!l4.getisapplicable();
-        l[4]=!l5.getisapplicable();
+        if(l1!=null)
+            l[0]=l1.getisapplicable();
+        if(l2!=null)
+            l[1]=l2.getisapplicable();
+        if(l3!=null)
+            l[2]=l3.getisapplicable();
+        if(l4!=null)
+            l[3]=l4.getisapplicable();
+        if(l5!=null)
+            l[4]=l5.getisapplicable();
         playgame.setl(l);
         playgame.setCurrent_suntoken(Integer.valueOf(points.getText()));
         playgame.setPlantlist(Game.plants);

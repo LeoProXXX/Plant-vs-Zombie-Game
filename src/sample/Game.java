@@ -13,10 +13,10 @@ public class Game {
     public static ArrayList<Characters> zombie;
     public static ArrayList<Characters> plants;
     public static AnimationTimer t;
-    public Game()
+    public Game(ArrayList<Characters> a,ArrayList<Characters> b)
     {
-        zombie=new ArrayList<Characters>();
-        plants=new ArrayList<Characters>();
+        zombie=b;
+        plants=a;
     }
     public static void checkCollision()
     {
