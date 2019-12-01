@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -31,8 +33,13 @@ public class Main extends Application
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         m=new MediaPlayer(new Media(new File("./src/Music/background.wav").toURI().toString()));
-        m.setAutoPlay(true);
-        //m.play();
+        m.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                m.seek(Duration.ZERO);
+            }
+        });
+        m.play();
     }
     public static boolean find(String x)
     {

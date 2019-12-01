@@ -234,19 +234,19 @@ public class animated implements Initializable {
         source2.setDisable(true);
         source3.setDisable(true);
         source4.setDisable(true);
-        if(playgame.getLevel()>=1) {
+        if(Main.getPlayer().getmLevel()>=1) {
             source1.setDisable(false);
             source1.setVisible(true);
         }
-        if(playgame.getLevel()>=2) {
+        if(Main.getPlayer().getmLevel()>=2) {
             source2.setDisable(false);
             source2.setVisible(true);
         }
-        if(playgame.getLevel()>=3) {
+        if(Main.getPlayer().getmLevel()>=3) {
             source3.setDisable(false);
             source3.setVisible(true);
         }
-        if(playgame.getLevel()>=4) {
+        if(Main.getPlayer().getmLevel()>=4) {
             source4.setDisable(false);
             source4.setVisible(true);
         }

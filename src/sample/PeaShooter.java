@@ -16,7 +16,6 @@ public class PeaShooter extends Plant {
     {
         super(100,30,3,new ImageView(new Image("/Photos/peashooter.jpeg")),x,y,new ImageView(new Image("/Photos/pea_shooter.gif")),3,"/Photos/pea_shooter.gif",c,r);
         pea=new ImageView(new Image("/Photos/Pea.png"));
-        timer=new Timer();
         timer1=new Timer();
         pea.relocate(this.getXpos(),this.getYpos());
         animated.canvas1.getChildren().add(pea);
@@ -33,11 +32,14 @@ public class PeaShooter extends Plant {
     {
         @Override
         public void run() {
+            try
+            {
             pea.setVisible(true);
             setSpeed(3);
             pea.relocate(PeaShooter.this.getXpos(),PeaShooter.this.getYpos());
             animated.canvas1.getChildren().add(pea);
-            pea.setTranslateX(0.0);
+            pea.setTranslateX(0.0);}
+            catch (Exception e){}
         }
     }
     private static int time=0;
@@ -66,7 +68,7 @@ public class PeaShooter extends Plant {
     {
 
         int r=super.checkcollision(c);
-        if(r==1)
+        if(r==1&&timer!=null)
             timer.cancel();
        // System.out.println("Here");
         if(Math.abs(pea.getBoundsInParent().getMaxX()-c.getImage().getBoundsInParent().getMaxX())<=20&&!(Math.abs(pea.getLayoutY()-c.getImage().getLayoutY())>=50))
@@ -79,6 +81,7 @@ public class PeaShooter extends Plant {
             pea.relocate(0,0);
             pea.setTranslateX(0);
             this.setSpeed(0);
+            timer=new Timer();
             TimerTask task1=new task();
             timer.schedule(task1,3000L);
         }
