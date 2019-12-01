@@ -5,7 +5,9 @@ import javafx.animation.*;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -367,7 +369,10 @@ public class animated implements Initializable {
             System.exit(0);
         }  else if (option.get() == mainmenubutton) {
             sync();
-            Main.changeScene("LoginScreen.fxml");
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("LoginScreen.fxml"));
+            loader.setController(new LoginScreen());
+            Main.root=loader.load();
+            Main.stage.setScene(new Scene(Main.root));
         }
     }
 

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LoginScreen
@@ -36,8 +37,10 @@ public class LoginScreen
         Main.root=loader.load();
         Main.stage.setScene(new Scene(Main.root));
     }
-    public void exit_game(ActionEvent e)
+    public void exit_game(ActionEvent e) throws IOException
     {
+
+        Main.serialize();
         System.exit(0);
     }
     public void show_level(ActionEvent e) throws Exception
