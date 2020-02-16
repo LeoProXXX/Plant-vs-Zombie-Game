@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+      <ImageView fitHeight="658.0" fitWidth="800.0" layoutX="-2.0" layoutY="-5.0">
+         <image>
+            <Image url="@../Photos/background.jpeg" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="200.0" layoutY="185.0" prefHeight="111.0" prefWidth="334.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.0" minWidth="10.0" prefWidth="105.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="299.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="56.0" prefWidth="148.0" text="Enter Username" />
+            <TextField fx:id="username" opacity="0.7" prefHeight="65.0" prefWidth="204.0" promptText="type here" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Button layoutX="309.0" layoutY="294.0" mnemonicParsing="false" onAction="#input" opacity="0.7" prefHeight="63.0" prefWidth="179.0" text="Proceed To Game" />
+      <Label fx:id="feedback" layoutX="374.0" layoutY="382.0" />
+    </children>
+</Pane>
