@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="LoginPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StartScreen">
+   <children>
+      <ImageView fx:id="loginbackground" fitHeight="650.0" fitWidth="800.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="false">
+         <image>
+            <Image url="@Photos/background.jpeg" />
+         </image>
+      </ImageView>
+      <VBox layoutX="295.0" layoutY="221.0" prefHeight="168.0" prefWidth="178.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#newGame" prefHeight="68.0" prefWidth="158.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="160.0">
+                     <image>
+                        <Image url="@Photos/New_Game.jpeg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#loadGame" prefHeight="77.0" prefWidth="184.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="160.0">
+                     <image>
+                        <Image url="@Photos/Load_Game.jpeg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</Pane>
